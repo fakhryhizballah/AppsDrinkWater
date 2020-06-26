@@ -56,9 +56,9 @@
  database.default.DBDriver = MySQLi
 
 # database.tests.hostname = localhost
-# database.tests.database = ci4
+# database.tests.database = ci4_auth
 # database.tests.username = root
-# database.tests.password = root
+# database.tests.password = 
 # database.tests.DBDriver = MySQLi
 
 #--------------------------------------------------------------------
