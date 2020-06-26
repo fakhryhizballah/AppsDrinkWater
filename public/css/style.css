@@ -1,0 +1,21 @@
+.buttonNav {
+    width: 18px;
+    margin-top: 22px;
+}
+
+.fontNav {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.col-auto {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.nav-link {
+    color: #333333;
+}
