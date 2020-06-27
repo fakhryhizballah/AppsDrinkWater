@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <!-- Required meta tags -->
@@ -19,22 +19,22 @@
     <?= $this->renderSection('content'); ?>
     <!-- footer-->
     <div class="foother">
-        <div class=" no-gutters">
-            <nav class="nav nav-pills nav-fill fixed-bottom">
+        <div class="no-gutters">
+            <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
                 <div class="col-auto mx-auto">
                     <div class="row no-gutters justify-content-center">
 
                         <li class="nav-item col-auto">
                             <img src="/img/Shape.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="#">Profil</a>
+                            <a class="nav-link fontNav" href="index">Profil</a>
                         </li>
                         <li class="nav-item col-auto">
                             <img src="/img/explore.png" alt="" class="buttonNav">
                             <a class="nav-link fontNav" href="#">Explore</a>
                         </li>
-                        <li class="nav-item col-auto" href="#">
-                            <img src="/img/riwayat.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="#">History</a>
+                        <li class="nav-item col-auto">
+                            <img src="/img/riwayat.png" alt="" class="buttonNav" href="page/Histori">
+                            <a class="nav-link fontNav" href="page/Histori">History</a>
                         </li>
                     </div>
                 </div>

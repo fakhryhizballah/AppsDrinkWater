@@ -8,37 +8,65 @@
         <p class="name-crop">Ponti Kua</p>
     </div>
 </div>
-<div class="card card-dasbord shadow">
-    <div class="row no-gutters justify-content-center">
-        <div class="col-xs card-block">
-            <div class="card-item ">
-                <h5 class="card-item-title">20</h5>
+<div>
+    <div class="card card-dasbord shadow">
+        <div class="row no-gutters justify-content-center">
+            <div class="col-xs card-block">
+                <div class="card-item ">
+                    <h5 class="card-item-title">20</h5>
+                </div>
+                <p class="text-center" style="padding-top: 10px;">Trip</p>
             </div>
-            <p class="text-center" style="padding-top: 10px;">Trip</p>
-        </div>
-        <div class="col-xs card-block">
-            <div class="card-item">
-                <h5 class="card-item-title">20</h5>
+            <div class="col-xs card-block">
+                <div class="card-item">
+                    <h5 class="card-item-title">20</h5>
+                </div>
+                <p class="text-center" style="padding-top: 10px;">Liter</p>
             </div>
-            <p class="text-center" style="padding-top: 10px;">Liter</p>
-        </div>
-        <div class="col-xs card-block">
-            <div class="card-item">
-                <h5 class="card-item-title">20</h5>
+            <div class="col-xs card-block">
+                <div class="card-item">
+                    <h5 class="card-item-title">20</h5>
+                </div>
+                <p class="text-center" style="padding-top: 10px;">Point</p>
             </div>
-            <p class="text-center" style="padding-top: 10px;">Point</p>
         </div>
     </div>
+    <div class="card card-iden shadow">
+        <h5 class="card-iden-h5">Identitas Akun</h5>
+        <div class="row">
+            <div class="col">
+                <p class="card-iden-p1">Nama</p>
+            </div>
+            <div class="col">
+                <p class="card-iden-p2">Tiara Alunan</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="card-iden-p1">ID Akun</p>
+            </div>
+            <div class="col">
+                <p class="card-iden-p2">#108293</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="card-iden-p1">Nomor Telpon</p>
+            </div>
+            <div class="col">
+                <p class="card-iden-p2">+62 8953 2981 199</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="card-iden-p1">Password</p>
+            </div>
+            <div class="col">
+                <p class="card-iden-p2 text-muted"><u>Ganti Password</u></p>
+            </div>
+        </div>
+    </div>
+
 </div>
-<!-- <div class="container">
-    <div class="counter">
-        <div class="card-body " style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <?= $this->endSection('content'); ?>

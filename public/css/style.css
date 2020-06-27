@@ -1,3 +1,7 @@
+body {
+    background-color: #E5E5E5;
+}
+
 .buttonNav {
     width: 18px;
     margin-top: 22px;
@@ -22,6 +26,8 @@
 }
 
 .name {
+    margin-top: 12px;
+    margin-bottom: 2px;
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
@@ -32,6 +38,7 @@
 }
 
 .name-crop {
+    margin-bottom: 25px;
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
@@ -107,6 +114,56 @@
     padding-right: 26px;
     padding-top: 26px;
     padding-bottom: 12px;
-    margin-left: 25px;
-    margin-right: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-iden {
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-top: 37px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.card-iden-h5 {
+    width: 109px;
+    height: 23px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+    opacity: 0.4;
+}
+
+.card-iden-p1 {
+    width: 86px;
+    height: 15px;
+    margin-left: 15px;
+    margin-bottom: 21px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.card-iden-p2 {
+    width: 96px;
+    height: 15px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    /* identical to box height */
+    color: #21B0FC;
+    opacity: 0.8;
 }
