@@ -10,7 +10,7 @@ class page extends BaseController
             'title' => 'Home | spairum'
         ];
 
-        return   view('Home/home', $data);
+        return   view('Home/profil', $data);
     }
 
 
