@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="Asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,11 +18,17 @@
     <!-- Custom styles for this template-->
     <link href="Asset/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- my auth.css -->
+    <link rel="stylesheet" href="/css/auth.css">
+    <!-- My font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </head>
 
-<?= $this->renderSection('content'); ?>
-
 <body class="bg-gradient-primary">
+
+    <?= $this->renderSection('content'); ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="Asset/vendor/jquery/jquery.min.js"></script>
