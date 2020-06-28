@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
 
@@ -17,6 +17,12 @@
 
     <!-- Custom styles for this template-->
     <link href="Asset/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- my auth.css -->
+    <link rel="stylesheet" href="/css/auth.css">
+    <!-- My font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </head>
 

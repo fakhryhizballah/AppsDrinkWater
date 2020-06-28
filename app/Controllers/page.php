@@ -7,10 +7,18 @@ class page extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Home | spairum'
+            'title' => 'Profil | Spairum'
         ];
 
-        return   view('Home/home', $data);
+        return   view('Home/profil', $data);
+    }
+    public function Histori()
+    {
+        $data = [
+            'title' => 'Riwayat | spairum'
+        ];
+
+        return   view('Home/profil', $data);
     }
 
 
