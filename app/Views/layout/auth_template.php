@@ -26,7 +26,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="">
 
     <?= $this->renderSection('content'); ?>
 
