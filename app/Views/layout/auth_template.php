@@ -20,9 +20,9 @@
 
 </head>
 
-<?= $this->renderSection('content'); ?>
-
 <body class="bg-gradient-primary">
+
+    <?= $this->renderSection('content'); ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="Asset/vendor/jquery/jquery.min.js"></script>
