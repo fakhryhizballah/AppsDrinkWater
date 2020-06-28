@@ -11,19 +11,28 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
-                        <form class="user" method="POST" action="auth/regis">
+                        <form class="user" method="POST" action="/tambah">
+                            <?= csrf_field(); ?>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama" />
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Nama" autofocus value="<?= old('nama'); ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" />
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" placeholder="Email Address" />
+                                <div class="invalid-feedback"><?= $validation->getError('email'); ?></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" placeholder="No Telp" />
+                                <div class="invalid-feedback"><?= $validation->getError('telp'); ?></div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password" />
+                                    <input type="password" class="form-control form-control-user <?= ($validation->hasError('password1')) ? 'is-invalid' : ''; ?>" id="password1" name="password1" placeholder="Password" />
+                                    <div class="invalid-feedback"><?= $validation->getError('password1'); ?></div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password" />
+                                    <input type="password" class="form-control form-control-user <?= ($validation->hasError('password2')) ? 'is-invalid' : ''; ?>" id="password2" name="password2" placeholder="Repeat Password" />
+                                    <div class="invalid-feedback"><?= $validation->getError('password2'); ?></div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
