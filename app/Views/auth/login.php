@@ -9,8 +9,6 @@
     <!-- <div class="col-xl-10 col-lg-12 col-md-9"> -->
     <div class="col-lg-7">
 
-
-
         <!-- Nested Row within Card Body -->
         <div class="row">
             <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
@@ -51,10 +49,10 @@
                     <!-- <hr>
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
-                    </div>
+                    </div> -->
                     <div class="text-center">
                         <a class="small" href="regis">Create an Account!</a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

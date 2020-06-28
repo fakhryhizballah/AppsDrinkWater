@@ -1,4 +1,4 @@
-<?= $this->extend('layout/auth_template'); ?>
+<?= $this->extend('layout/auth_template', $title); ?>
 
 <?= $this->section('content'); ?>
 <div class="container">
@@ -11,7 +11,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
-                        <form class="user">
+                        <form class="user" method="POST" action="auth/regis">
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama" />
                             </div>
