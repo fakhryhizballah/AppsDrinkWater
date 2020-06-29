@@ -1,6 +1,6 @@
 <?= $this->extend('layout/auth_template'); ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('auth'); ?>
 
 
 <!-- Outer Row -->
@@ -63,4 +63,4 @@
 </div>
 
 
-<?= $this->endSection(); ?>
+<?= $this->endSection('auth'); ?>

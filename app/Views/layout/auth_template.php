@@ -28,7 +28,7 @@
 
 <body class="">
 
-    <?= $this->renderSection('content'); ?>
+    <?= $this->renderSection('auth'); ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="Asset/vendor/jquery/jquery.min.js"></script>
