@@ -18,7 +18,7 @@ class page extends BaseController
             'title' => 'Riwayat | spairum'
         ];
 
-        return   view('Home/profil', $data);
+        return   view('layout/history_template', $data);
     }
 
 
