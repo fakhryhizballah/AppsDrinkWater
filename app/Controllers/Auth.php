@@ -6,7 +6,11 @@ use App\Models\user_m;
 
 class Auth extends BaseController
 {
-
+	protected $authModel;
+	public function __construct()
+	{
+		$this->authModel = new user_m();
+	}
 	public function index()
 	{
 		$data = [
@@ -24,7 +28,7 @@ class Auth extends BaseController
 		return view('auth/regis', $data);
 	}
 
-	public function tambah()
+	public function save()
 	{
 		$data = [
 			'title' => 'Registrasi',
@@ -44,20 +48,50 @@ class Auth extends BaseController
 					'is_unique' => '{field} sudah ada.'
 				]
 			],
-			'telp' => 'required',
-			'password1' => 'required',
+			'telp' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} harus diisi.',
+				]
+			],
+			'password' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} harus diisi.',
+				]
+			],
 			'password2' => 'required',
 		])) {
 			$validation = \config\Services::validation();
 
 			$data['validation'] = $validation;
 			// echo view('layout/auth_header');
-			// return redirect()->to('auth/regis')->withInput()->with('validation', $validation);
+			// return redirect()->to('/regis')->withInput()->with('validation', $validation);
 			return view('auth/regis', $data);
 
 			// echo view('layout/auth_footer');
 		} else {
-			echo "berhasil";
+			// $this->authModel->save([
+			// 	'nama' => $this->request->getVar('nama'),
+			// 	'email' => $this->request->getVar('email'),
+			// 	'telp' => $this->request->getVar('telp'),
+			// 	'image' => 'default.jpg',
+			// 	'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+			// 	'role_id' => '2',
+			// 	'is_active' => 1
+			// ]);
+			$data = [
+				'nama' => $this->request->getVar('nama'),
+				'email' => $this->request->getVar('email'),
+				'telp' => $this->request->getVar('telp'),
+				'image' => 'default.jpg',
+				'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+				'role_id' => '2',
+				'is_active' => 1
+			];
+
+			$this->authModel->insert($data);
+			return redirect()->to('/auth');
 		}
 	}
 
