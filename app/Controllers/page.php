@@ -12,13 +12,13 @@ class page extends BaseController
 
         return   view('Home/profil', $data);
     }
-    public function Histori()
+    public function History()
     {
         $data = [
             'title' => 'Riwayat | spairum'
         ];
 
-        return   view('layout/history_template', $data);
+        return   view('Home/History', $data);
     }
 
 

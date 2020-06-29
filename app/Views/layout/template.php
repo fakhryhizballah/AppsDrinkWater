@@ -26,7 +26,7 @@
 
                         <li class="nav-item col-auto">
                             <img src="/img/Shape.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="index">Profil</a>
+                            <a class="nav-link fontNav" href="/page/index">Profil</a>
                         </li>
                         <li class="nav-item col-auto">
                             <img src="/img/explore.png" alt="" class="buttonNav">
@@ -34,7 +34,7 @@
                         </li>
                         <li class="nav-item col-auto">
                             <img src="/img/riwayat.png" alt="" class="buttonNav" href="page/Histori">
-                            <a class="nav-link fontNav" href="page/Histori">History</a>
+                            <a class="nav-link fontNav" href="/page/History">History</a>
                         </li>
                     </div>
                 </div>

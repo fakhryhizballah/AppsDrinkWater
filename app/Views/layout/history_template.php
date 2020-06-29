@@ -29,5 +29,5 @@
         </li>
     </div>
 </nav>
+<?= $this->renderSection('History'); ?>
 <?= $this->endSection('content'); ?>
-<?= $this->renderSection('histori'); ?>
