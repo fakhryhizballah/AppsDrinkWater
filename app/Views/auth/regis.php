@@ -14,8 +14,16 @@
                         <form class="user" method="POST" action="/save">
                             <?= csrf_field(); ?>
                             <div class="form-group">
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('id')) ? 'is-invalid' : ''; ?>" id="id" name="id" placeholder="ID account" autofocus value="<?= old('id'); ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('id'); ?></div>
+                            </div>
+                            <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Nama" autofocus value="<?= old('nama'); ?>" />
                                 <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('CV')) ? 'is-invalid' : ''; ?>" id="cv" name="cv" placeholder="Nama Cv Supalayer" autofocus value="<?= old('cv'); ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('CV'); ?></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" placeholder="Email Address" />
