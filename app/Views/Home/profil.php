@@ -13,7 +13,7 @@
         <div class="row no-gutters justify-content-center">
             <div class="col-xs card-block">
                 <div class="card-item ">
-                    <h5 class="card-item-title">20</h5>
+                    <h5 class="card-item-title">8</h5>
                 </div>
                 <p class="text-center" style="padding-top: 10px;">Trip</p>
             </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-xs card-block">
                 <div class="card-item">
-                    <h5 class="card-item-title">20</h5>
+                    <h5 class="card-item-title">90</h5>
                 </div>
                 <p class="text-center" style="padding-top: 10px;">Point</p>
             </div>
