@@ -20,6 +20,14 @@ class page extends BaseController
 
         return   view('Home/History', $data);
     }
+    public function explore()
+    {
+        $data = [
+            'title' => 'Explore | spairum'
+        ];
+
+        return   view('Home/explore', $data);
+    }
 
 
     //--------------------------------------------------------------------
