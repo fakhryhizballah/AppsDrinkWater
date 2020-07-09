@@ -34,8 +34,10 @@
                             <a class="nav-link fontNav" href="/page/explore">Explore</a>
                         </li>
                         <li class="nav-item col-auto">
-                            <img src="/img/riwayat.png" alt="" class="buttonNav" href="page/Histori">
-                            <a class="nav-link fontNav" href="/page/History">History</a>
+                            <a href="/page/History">
+                                <img src="/img/riwayat.png" alt="" class="buttonNav">
+                                <a class="nav-link fontNav">History</a>
+                            </a>
                         </li>
                     </div>
                 </div>
