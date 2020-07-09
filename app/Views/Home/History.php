@@ -1,5 +1,26 @@
-<?= $this->extend('layout/History_template'); ?>
-<?= $this->section('History'); ?>
+<?= $this->extend('layout/templateBack'); ?>
+<?= $this->section('MainBack'); ?>
+
+
+<nav class="nav nav-pills nav-fill justify-content-center">
+    <div class="row no-gutters justify-content-center " style="margin-top: 60px">
+
+        <li class="nav-item col-xs text-center nav-margin">
+            <img class="status buttonNav" src="/img/Group 14.png" alt="">
+            <a class="nav-link fontNav" href="#">Selesai</a>
+
+        </li>
+        <li class="nav-item col-xs text-center nav-margin">
+            <img class="status buttonNav" src="/img/Group 8.png" alt="">
+            <a class="nav-link fontNav" href="#">Batal</a>
+        </li>
+        <li class="nav-item col-xs text-center nav-margin">
+            <img class="status buttonNav" src="/img/Group 10.png" alt="" href="page/Histori">
+            <a class="nav-link fontNav" href="page/Histori">Proses</a>
+        </li>
+    </div>
+</nav>
+
 
 <div class="card card-iden shadow">
     <h5 class="card-iden-h5">Selesai</h5>
@@ -107,4 +128,4 @@
     </div>
 </div>
 
-<?= $this->endSection('History'); ?>
+<?= $this->endSection('MainBack'); ?>
