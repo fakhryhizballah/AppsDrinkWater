@@ -15,7 +15,8 @@ class page extends BaseController
     public function History()
     {
         $data = [
-            'title' => 'Riwayat | spairum'
+            'title' => 'Riwayat | spairum',
+            'page' => 'Riwayat'
         ];
 
         return   view('Home/History', $data);
@@ -23,7 +24,8 @@ class page extends BaseController
     public function explore()
     {
         $data = [
-            'title' => 'Explore | spairum'
+            'title' => 'Explore | spairum',
+            'page' => 'Explore'
         ];
 
         return   view('Home/explore', $data);
