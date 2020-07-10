@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Models\user_m;
+use Config\Email;
+use CodeIgniter\Controller;
+use Myth\Auth\Entities\User;
 
 class Auth extends BaseController
 {
