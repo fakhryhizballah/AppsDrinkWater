@@ -8,11 +8,27 @@ use Myth\Auth\Entities\User;
 
 class Auth extends BaseController
 {
-	protected $authModel;
+	protected $auth;
+	/**
+	 * @var Auth
+	 */
+	protected $config;
+
+	/**
+	 * @var \CodeIgniter\Session\Session
+	 */
+	protected $session;
+
 	public function __construct()
 	{
-		$this->authModel = new user_m();
+		// Most services in this controller require
+		// the session to be started - so fire it up!
+		$this->session = service('session');
+
+		$this->config = config('Auth');
+		$this->auth = service('authentication');
 	}
+
 	public function index()
 	{
 		$data = [
