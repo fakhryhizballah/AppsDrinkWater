@@ -17,7 +17,7 @@ class login extends BaseController
         $data = [
             'title' => 'Login'
         ];
-        echo view('auth/login', $data);
+        return   view('auth/login', $data);
     }
 
     public function cek_login()

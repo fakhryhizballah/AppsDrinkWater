@@ -24,9 +24,6 @@
                         </div>
                     <?php } ?>
 
-                    <?php
-                    echo form_open('login/cek_login')
-                    ?>
                     <!-- <form class="user"> -->
                     <div class="form-group user-form">
                         <img class="icon" src="/img/Vector.png" alt="">
@@ -55,9 +52,6 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
                     <!-- </form> -->
-                    <?php
-                    echo form_close()
-                    ?>
                     <!-- <hr>
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>

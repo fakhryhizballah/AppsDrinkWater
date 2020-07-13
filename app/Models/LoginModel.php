@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class LoginModel extends Model
 {
+    protected $table      = 'user';
     public function cek_login($username, $password)
     {
         return $this->db->table('user')
