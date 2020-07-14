@@ -60,7 +60,6 @@ class Auth extends BaseController
 					'required' => '{field} wajid di isi',
 					'valid_email' => 'alamat email tidak benar',
 					'is_unique' => '{field} sudah terdaftar'
-
 				]
 			],
 			'telp' => [
@@ -70,7 +69,6 @@ class Auth extends BaseController
 					'is_natural' => 'nomor telpon tidak benar',
 					//'min_length' => 'nomor telpon tidak valid',
 					'is_unique' => 'nomor telp sudah terdaftar'
-
 				]
 			],
 			'password' => [
@@ -78,7 +76,6 @@ class Auth extends BaseController
 				'errors' => [
 					'required' => '{field} wajid di isi',
 					'min_length[8]' => '{field} Minimal 8 karakter'
-
 				]
 			],
 			'password2' => [
@@ -86,7 +83,6 @@ class Auth extends BaseController
 				'errors' => [
 					'required' => 'password wajid di isi',
 					'matches' => 'password tidak sama'
-
 				]
 			]
 
@@ -106,7 +102,7 @@ class Auth extends BaseController
 			'cv' => $this->request->getVar('cv'),
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),
-			'password' => $this->request->getVar('password')
+			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
 
 		]);
 		session()->setFlashdata('Pesan', 'Registration success.');
