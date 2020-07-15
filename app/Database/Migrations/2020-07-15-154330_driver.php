@@ -23,7 +23,7 @@ class Driver extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
-			'emali'       => [
+			'email'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
 			],
