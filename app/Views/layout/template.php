@@ -13,6 +13,7 @@
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+<title><?= $title; ?></title>
 
 <body>
 
@@ -30,16 +31,17 @@
                         </li>
                         <li class="nav-item col-auto">
                             <img src="/img/explore.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="#">Explore</a>
+                            <a class="nav-link fontNav" href="/page/explore">Explore</a>
                         </li>
                         <li class="nav-item col-auto">
-                            <img src="/img/riwayat.png" alt="" class="buttonNav" href="page/Histori">
-                            <a class="nav-link fontNav" href="/page/History">History</a>
+                            <a href="/page/History">
+                                <img src="/img/riwayat.png" alt="" class="buttonNav">
+                                <a class="nav-link fontNav">History</a>
+                            </a>
                         </li>
                     </div>
                 </div>
             </nav>
-
 
         </div>
     </div>

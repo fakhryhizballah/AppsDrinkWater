@@ -2,8 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\Stasiun as ModelsStasiun;
+
 class page extends BaseController
 {
+    protected $stasiunModel;
+    public function __construct()
+    {
+        $this->stasiunModel = new ModelsStasiun();
+    }
     public function index()
     {
         $data = [
@@ -15,15 +22,19 @@ class page extends BaseController
     public function History()
     {
         $data = [
-            'title' => 'Riwayat | spairum'
+            'title' => 'Riwayat | spairum',
+            'page' => 'Riwayat'
         ];
 
         return   view('Home/History', $data);
     }
     public function explore()
     {
+        $stasiun = $this->stasiunModel->findAll();
         $data = [
-            'title' => 'Explore | spairum'
+            'title' => 'Explore | spairum',
+            'page' => 'Explore',
+            'stasiun' => $stasiun
         ];
 
         return   view('Home/explore', $data);
