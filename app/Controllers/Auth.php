@@ -14,9 +14,41 @@ class Auth extends BaseController
 	public function index()
 	{
 		$data = [
-			'title' => 'Login'
+			'title' => 'Login',
+			'validation' => \Config\Services::validation()
 		];
 		return view('auth/login', $data);
+	}
+	public function login()
+	{
+		$data = [
+			'title' => 'Login',
+			'validation' => \Config\Services::validation()
+		];
+		if (!$this->validate([
+			'email' => [
+				'rules' => 'required|trim|is_unique[user.email]',
+				'errors' => [
+					'required' => '{field} harus diisi.',
+					'is_unique' => '{field} sudah ada.'
+				]
+			],
+			'password' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} harus diisi.',
+				]
+			],
+		])) {
+			$validation = \config\Services::validation();
+
+			$data['validation'] = $validation;
+
+
+			return view('auth/login', $data);
+		} else {
+			return view("ber");
+		}
 	}
 
 	public function regis()

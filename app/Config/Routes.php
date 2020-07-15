@@ -35,10 +35,13 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Auth::index');
 $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
+// $routes->post('/login', 'Auth::login');
 
-// $routes->group('', ['filter' => 'login'], function ($routes) {
-// 	$routes->get('home', 'Home::home');
-// });
+
+$routes->group('', ['filter' => 'login'], function ($routes) {
+	$routes->get('home', 'Home::home');
+	$routes->get('page', 'page::index');
+});
 
 
 /**

@@ -18,10 +18,10 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Login!</h1>
                     </div>
-                    <form class="user">
+                    <form class="user" method="POST" action="/login">
                         <div class="form-group user-form">
                             <img class="icon" src="/img/Vector.png" alt="">
-                            <input type="text" class="form-control form-control-user" style="padding-left: 50px;" id="email" name="email" placeholder="Enter Email Address...">
+                            <input type="text" class="form-control form-control-user <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" style="padding-left: 50px;" id="email" name="email" placeholder="Enter Email Address...">
 
                         </div>
                         <div class="form-group user-form">
@@ -37,7 +37,7 @@
                         <button type="submit" class="btn btn-user btn-block">
                             Login
                         </button>
-                        <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p>
+                        <!-- <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p> -->
 
                         <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -46,10 +46,10 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
                     </form>
-                    <!-- <hr>
+                    <hr>
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
-                    </div> -->
+                    </div>
                     <div class="text-center">
                         <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
                     </div>
