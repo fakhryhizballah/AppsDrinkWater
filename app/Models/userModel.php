@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class userModel extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'driver';
     protected $useTimestamps = true;
     protected $allowedFields = ['aID', 'nama', 'email', 'cv', 'telp', 'password'];
 }

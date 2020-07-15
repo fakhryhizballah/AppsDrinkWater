@@ -6,10 +6,10 @@ use CodeIgniter\Model;
 
 class LoginModel extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'driver';
     public function cek_login($username, $password)
     {
-        return $this->db->table('user')
+        return $this->db->table('driver')
             ->where(array('username' => $username, 'password' => $password))
             ->get()->getRowArray();
     }
