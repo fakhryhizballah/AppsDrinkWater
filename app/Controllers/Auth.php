@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\user_m;
 use App\Models\userModel;
+use App\Models\LoginModel;
 
 class Auth extends BaseController
 {
@@ -12,6 +13,7 @@ class Auth extends BaseController
 	{
 		$this->authModel = new user_m();
 		$this->userModel = new userModel();
+		$this->LoginModel = new LoginModel();
 	}
 	public function index()
 	{
@@ -19,6 +21,35 @@ class Auth extends BaseController
 			'title' => 'Login'
 		];
 		return view('auth/login', $data);
+	}
+	public function login()
+	{
+		// dd($this->request->getVar());
+		$nama = $this->request->getVar('nama');
+		$password = !password_verify($this->request->getVar('password'), PASSWORD_DEFAULT);
+
+
+		$cek = $this->LoginModel->cek_login($nama, $password);
+		// dd($cek['nama'], $cek['password']);
+		if (empty($cek)) {
+			session()->setFlashdata('gagal', 'Akun tidak terdaftar');
+			return redirect()->to('/Auth');
+		}
+
+		if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
+			session()->set('nama', $cek['nama']);
+			return redirect()->to('/page');
+		} else {
+			session()->setFlashdata('gagal', 'Password salah');
+			return redirect()->to('/');
+		}
+	}
+
+	public function logout()
+	{
+		session()->destroy();
+		session()->setFlashdata('gagal', 'Berhasil Logout');
+		return redirect()->to('/');
 	}
 
 	public function regis()
@@ -102,7 +133,8 @@ class Auth extends BaseController
 			'cv' => $this->request->getVar('cv'),
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),
-			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
+			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+
 
 		]);
 		session()->setFlashdata('Pesan', 'Registration success.');

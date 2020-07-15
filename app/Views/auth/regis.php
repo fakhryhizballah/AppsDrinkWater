@@ -12,7 +12,7 @@
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
 
-                        <form class="user" method="POST" action="Auth/save">
+                        <form class="user" method="POST" action="save">
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('aID')) ? 'is-invalid' : ''; ?> " id="ID" name="aID" placeholder="ID account" autofocus value="<?= old('aID'); ?>" />
