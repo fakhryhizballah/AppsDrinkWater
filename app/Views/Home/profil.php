@@ -59,10 +59,18 @@
         </div>
         <div class="row">
             <div class="col">
-                <p class="card-iden-p1">Password</p>
+                <p class="card-iden-p1">Setting</p>
             </div>
             <div class="col">
-                <p class="card-iden-p2 text-muted"><u>Ganti Password</u></p>
+                <p class="card-iden-p2 text-muted"><u>Edit Profile</u></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="card-iden-p1"></p>
+            </div>
+            <div class="col">
+                <a href="/Auth/logout" class="stretched-link "><u>Logout</u></a>
             </div>
         </div>
     </div>
