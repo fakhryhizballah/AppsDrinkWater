@@ -54,3 +54,4 @@ class StasiunSeeder extends \CodeIgniter\Database\Seeder
         $this->db->table('mesin')->insertBatch($data);
     }
 }
+//oke
