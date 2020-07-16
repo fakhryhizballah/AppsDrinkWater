@@ -29,18 +29,18 @@ class Auth extends BaseController
 		$password = !password_verify($this->request->getVar('password'), PASSWORD_DEFAULT);
 
 
-		$cek = $this->LoginModel->cek_login($nama, $password);
-		// dd($cek['nama'], $cek['password']);
+		$cek = $this->LoginModel->cek_login($nama);
+		//dd($cek);
 		if (empty($cek)) {
 			session()->setFlashdata('gagal', 'Akun tidak terdaftar');
-			return redirect()->to('/Auth');
+			return redirect()->to('/');
 		}
 
 		if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
 			session()->set('nama', $cek['nama']);
 			return redirect()->to('/page');
 		} else {
-			session()->setFlashdata('gagal', 'Password salah');
+			session()->setFlashdata('gagal', 'Username atau Password salah');
 			return redirect()->to('/');
 		}
 	}

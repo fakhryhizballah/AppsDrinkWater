@@ -7,10 +7,11 @@ use CodeIgniter\Model;
 class LoginModel extends Model
 {
     protected $table      = 'driver';
-    public function cek_login($username, $password)
+
+    public function cek_login($nama)
     {
         return $this->db->table('driver')
-            ->where(array('username' => $username, 'password' => $password))
+            ->where(array('nama' => $nama))
             ->get()->getRowArray();
     }
 }
