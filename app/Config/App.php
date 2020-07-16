@@ -1,6 +1,4 @@
-<?php
-
-namespace Config;
+<?php namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
@@ -78,8 +76,7 @@ class App extends BaseConfig
 	| If false, no automatic detection will be performed.
 	|
 	*/
-	// false
-	public $negotiateLocale = true;
+	public $negotiateLocale = false;
 
 	/*
 	|--------------------------------------------------------------------------
