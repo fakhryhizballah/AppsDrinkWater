@@ -4,6 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\I18n\Time;
 
+
 class StasiunSeeder extends \CodeIgniter\Database\Seeder
 {
     public function run()
@@ -16,8 +17,8 @@ class StasiunSeeder extends \CodeIgniter\Database\Seeder
                 'status'        => '4',
                 'isi'           => '1000',
                 'indikator'     => '3',
-                'created_at'    => Time::now(),
-                'updated_at'    => Time::now()
+                'created_at'    => '2020-07-16 09:21:28',
+                'updated_at'    => '2020-07-16 09:21:28'
             ],
             [
                 'id_mesin'      => 'COV 0002 PNK 003',
@@ -26,8 +27,8 @@ class StasiunSeeder extends \CodeIgniter\Database\Seeder
                 'status'        => '5',
                 'isi'           => '0',
                 'indikator'     => '3',
-                'created_at'    => Time::now(),
-                'updated_at'    => Time::now(),
+                'created_at'    => '2020-07-16 09:21:28',
+                'updated_at'    => '2020-07-16 09:21:28'
             ],
             [
                 'id_mesin'      => 'COV 0003 PNK 003',
@@ -36,8 +37,8 @@ class StasiunSeeder extends \CodeIgniter\Database\Seeder
                 'status'        => '1',
                 'isi'           => '21000',
                 'indikator'     => '1',
-                'created_at'    => Time::now(),
-                'updated_at'    => Time::now(),
+                'created_at'    => '2020-07-16 09:21:28',
+                'updated_at'    => '2020-07-16 09:21:28'
             ],
             [
                 'id_mesin'      => 'COV 0004 PNK 004',
@@ -46,9 +47,9 @@ class StasiunSeeder extends \CodeIgniter\Database\Seeder
                 'status'        => '1',
                 'isi'           => '22500',
                 'indikator'     => '1',
-                'created_at'    => Time::now(),
-                'updated_at'    => Time::now(),
-            ],
+                'created_at'    => '2020-07-16 09:21:28',
+                'updated_at'    => '2020-07-16 09:21:28'
+            ]
         ];
 
         $this->db->table('mesin')->insertBatch($data);
