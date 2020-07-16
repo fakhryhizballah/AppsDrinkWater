@@ -15,9 +15,9 @@ class Stasiun extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'id mesin'       => [
+			'id_mesin'       => [
 				'type'           => 'VARCHAR',
-				'constraint'     => '50',
+				'constraint'     => '225',
 			],
 			'lokasi'       => [
 				'type'           => 'VARCHAR',
@@ -29,7 +29,7 @@ class Stasiun extends Migration
 			],
 			'status'       => [
 				'type'           => 'VARCHAR',
-				'constraint'     => '50',
+				'constraint'     => '225',
 			],
 			'isi'       => [
 				'type'           => 'VARCHAR',
@@ -44,8 +44,7 @@ class Stasiun extends Migration
 				'null'           => TRUE,
 			],
 			'updated_at'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255',
+				'type'           => 'DATETIME',
 				'null'           => TRUE,
 			],
 

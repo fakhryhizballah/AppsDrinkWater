@@ -15,7 +15,7 @@ class Admin extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'ID akun'       => [
+			'id_akun'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
@@ -41,8 +41,7 @@ class Admin extends Migration
 				'null'           => TRUE,
 			],
 			'updated_at'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255',
+				'type'           => 'DATETIME',
 				'null'           => TRUE,
 			],
 

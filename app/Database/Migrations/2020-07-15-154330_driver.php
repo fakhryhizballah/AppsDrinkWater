@@ -15,7 +15,7 @@ class Driver extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'aID'       => [
+			'id_driver'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
@@ -64,8 +64,7 @@ class Driver extends Migration
 				'null'           => TRUE,
 			],
 			'updated_at'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255',
+				'type'           => 'DATETIME',
 				'null'           => TRUE,
 			],
 
