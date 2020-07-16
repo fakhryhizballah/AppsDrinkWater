@@ -15,8 +15,8 @@
                         <form class="user" method="POST" action="save">
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('aID')) ? 'is-invalid' : ''; ?> " id="ID" name="aID" placeholder="ID account" autofocus value="<?= old('aID'); ?>" />
-                                <div class="invalid-feedback"><?= $validation->getError('aID'); ?></div>
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('id_driver')) ? 'is-invalid' : ''; ?> " id="id_driver" name="id_driver" placeholder="ID account" autofocus value="<?= old('id_driver'); ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('id_driver'); ?></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Nama" autofocus value="<?= old('nama'); ?>">

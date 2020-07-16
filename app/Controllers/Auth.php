@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\user_m;
-use App\Models\userModel;
+
+use App\Models\DriverModel;
 use App\Models\LoginModel;
 
 class Auth extends BaseController
@@ -11,8 +11,7 @@ class Auth extends BaseController
 	protected $authModel;
 	public function __construct()
 	{
-		$this->authModel = new user_m();
-		$this->userModel = new userModel();
+		$this->DriverModel = new DriverModel();
 		$this->LoginModel = new LoginModel();
 	}
 	public function index()
@@ -66,8 +65,8 @@ class Auth extends BaseController
 	{
 		//validasi
 		if (!$this->validate([
-			'aID' => [
-				'rules'  => 'required|is_unique[user.aID]',
+			'id_driver' => [
+				'rules'  => 'required|is_unique[driver.id_driver]',
 				'errors' => [
 					'required' => 'ID Account wajid di isi',
 					'is_unique' => 'Account sudah terdaftar'
@@ -86,7 +85,7 @@ class Auth extends BaseController
 				]
 			],
 			'email' => [
-				'rules'  => 'required|valid_email|is_unique[user.email]',
+				'rules'  => 'required|valid_email|is_unique[driver.email]',
 				'errors' => [
 					'required' => '{field} wajid di isi',
 					'valid_email' => 'alamat email tidak benar',
@@ -94,7 +93,7 @@ class Auth extends BaseController
 				]
 			],
 			'telp' => [
-				'rules'  => 'required|is_natural|is_unique[user.telp]',
+				'rules'  => 'required|is_natural|is_unique[driver.telp]',
 				'errors' => [
 					'required' => 'nomor telpon wajid di isi',
 					'is_natural' => 'nomor telpon tidak benar',
@@ -126,9 +125,9 @@ class Auth extends BaseController
 			'title' => 'Registrasi',
 			'validation' => \Config\Services::validation()
 		];
-		// dd($this->request->getVar());
-		$this->userModel->save([
-			'aID' => $this->request->getVar('aID'),
+		//dd($this->request->getVar());
+		$this->DriverModel->save([
+			'id_driver' => $this->request->getVar('id_driver'),
 			'nama' => $this->request->getVar('nama'),
 			'cv' => $this->request->getVar('cv'),
 			'email' => $this->request->getVar('email'),
@@ -138,7 +137,7 @@ class Auth extends BaseController
 
 		]);
 		session()->setFlashdata('Pesan', 'Registration success.');
-		return redirect()->to('/Auth');
+		return redirect()->to('/');
 	}
 
 	//--------------------------------------------------------------------
