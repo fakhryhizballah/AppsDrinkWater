@@ -93,11 +93,11 @@ class Auth extends BaseController
 				]
 			],
 			'telp' => [
-				'rules'  => 'required|is_natural|is_unique[driver.telp]',
+				'rules'  => 'required|is_natural|min_length[10]|is_unique[driver.telp]',
 				'errors' => [
 					'required' => 'nomor telpon wajid di isi',
 					'is_natural' => 'nomor telpon tidak benar',
-					//'min_length' => 'nomor telpon tidak valid',
+					'min_length' => 'nomor telpon tidak valid',
 					'is_unique' => 'nomor telp sudah terdaftar'
 				]
 			],

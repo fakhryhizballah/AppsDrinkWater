@@ -87,6 +87,20 @@ class Driver extends Controller
 
     public function up_telp($id)
     {
+        if (!$this->validate([
+            'telp' => [
+                'rules'  => 'required|is_natural|min_length[10]|is_unique[driver.telp]',
+                'errors' => [
+                    'required' => 'nomor telpon wajid di isi',
+                    'is_natural' => 'nomor telpon tidak benar',
+                    'min_length' => 'nomor telpon tidak valid',
+                    'is_unique' => 'nomor telp sudah terdaftar'
+                ]
+            ],
+        ])) {
+            $validation = \config\Services::validation();
+            return redirect()->to('/driver/edit')->withInput();
+        }
 
         // dd($this->request->getVar());
         $this->DriverModel->save([
