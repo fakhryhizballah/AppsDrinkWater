@@ -3,7 +3,7 @@
 
 
 <nav class="nav nav-pills nav-fill justify-content-center">
-    <div class="row no-gutters justify-content-center " style="margin-top: 60px">
+    <div class="row no-gutters justify-content-center ">
 
         <li class="nav-item col-xs text-center nav-margin">
             <img class="status buttonNav" src="/img/Group 14.png" alt="">

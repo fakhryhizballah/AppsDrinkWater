@@ -14,10 +14,10 @@ class DriverSeeder extends \CodeIgniter\Database\Seeder
                 'cv' => 'Kangen',
                 'telp' => '0895321701798',
                 'password' => '$2y$10$qW2lRi3eNBSweV/SiGZR3uAQIsvXno2a5TuKEHQ5LcmC8n7KtCA4u', //fakhry123
-                'profil' => NULL,
-                'Trip' => NULL,
-                'liter' => NULL,
-                'poin' => NULL,
+                'profil' => 'user.png',
+                'Trip' => 2,
+                'liter' => 40,
+                'poin' => 10,
                 'created_at' => '2020-07-16 09:21:28',
                 'updated_at' => '2020-07-16 09:21:28'
             ],
@@ -28,10 +28,10 @@ class DriverSeeder extends \CodeIgniter\Database\Seeder
                 'cv' => 'Kangen',
                 'telp' => '089918106',
                 'password' => '$2y$10$JjwdFcI7vUIS2UH9GNU1yORvtIGBCwv68wqF45sp9IKWI3Q1.2Eo6', //naufal234
-                'profil' => NULL,
-                'Trip' => NULL,
-                'liter' => NULL,
-                'poin' => NULL,
+                'profil' => 'user.png',
+                'Trip' => 0,
+                'liter' => 0,
+                'poin' => 0,
                 'created_at' => '2020-07-16 09:33:48',
                 'updated_at' => '2020-07-16 09:33:48'
             ],
@@ -42,10 +42,10 @@ class DriverSeeder extends \CodeIgniter\Database\Seeder
                 'cv' => 'Spairum',
                 'telp' => '089111',
                 'password' => '$2y$10$KGSV.Qz1L2gzeOXMKmfb3.4516sEDs0BKoERj6ClgM/m.kXCazF2a',
-                'profil' => NULL,
-                'Trip' => NULL,
-                'liter' => NULL,
-                'poin' => NULL,
+                'profil' => 'spairum.png',
+                'Trip' => 0,
+                'liter' => 0,
+                'poin' => 0,
                 'created_at' => '2020-07-16 09:35:13',
                 'updated_at' => '2020-07-16 09:35:13'
             ]

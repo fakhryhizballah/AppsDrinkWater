@@ -36,6 +36,7 @@ $routes->get('/', 'Auth::index');
 $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
 
+// $routes->addRedirect('driver/index', 'profil');
 // $routes->group('', ['filter' => 'login'], function ($routes) {
 // 	$routes->get('home', 'Home::home');
 // });

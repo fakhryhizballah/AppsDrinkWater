@@ -34,10 +34,9 @@ class Auth extends BaseController
 			session()->setFlashdata('gagal', 'Akun tidak terdaftar');
 			return redirect()->to('/');
 		}
-
 		if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
 			session()->set('nama', $cek['nama']);
-			return redirect()->to('/page');
+			return redirect()->to('/driver/');
 		} else {
 			session()->setFlashdata('gagal', 'Username atau Password salah');
 			return redirect()->to('/');
@@ -46,8 +45,8 @@ class Auth extends BaseController
 
 	public function logout()
 	{
-		session()->destroy();
-		session()->setFlashdata('gagal', 'Berhasil Logout');
+		session()->remove('nama');
+		session()->setFlashdata('peasn', 'Berhasil Logout');
 		return redirect()->to('/');
 	}
 
@@ -65,6 +64,7 @@ class Auth extends BaseController
 	{
 		//validasi
 		if (!$this->validate([
+
 			'id_driver' => [
 				'rules'  => 'required|is_unique[driver.id_driver]',
 				'errors' => [
@@ -132,7 +132,11 @@ class Auth extends BaseController
 			'cv' => $this->request->getVar('cv'),
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),
-			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+			'profil' => 'profil.png',
+			'Trip' => '0',
+			'liter' => '0',
+			'poin' => '0'
 
 
 		]);
