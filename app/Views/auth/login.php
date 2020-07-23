@@ -16,7 +16,7 @@
                 <img src="/img/IG.png" class="logo" alt="">
                 <div class="from-auth user">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Login!</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Login Driver</h1>
                     </div>
                     <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
                         <div class="alert-warning">
