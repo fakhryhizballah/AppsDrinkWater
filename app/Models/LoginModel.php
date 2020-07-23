@@ -11,6 +11,7 @@ class LoginModel extends Model
     public function cek_login($nama)
     {
         return $this->db->table('driver')
+            // ->where(array('nama' => $nama, 'password' => $password))
             ->where(array('nama' => $nama))
             ->get()->getRowArray();
     }

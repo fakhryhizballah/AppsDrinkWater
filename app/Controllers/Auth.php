@@ -25,18 +25,25 @@ class Auth extends BaseController
 	{
 		// dd($this->request->getVar());
 		$nama = $this->request->getVar('nama');
-		$password = !password_verify($this->request->getVar('password'), PASSWORD_DEFAULT);
+		// $password = password_verify($this->request->getVar('password'), PASSWORD_BCRYPT);
+		$pas = ($this->request->getVar('password'));
 
 
 		$cek = $this->LoginModel->cek_login($nama);
-		//dd($cek);
+		// dd($cek('nama')); 
 		if (empty($cek)) {
 			session()->setFlashdata('gagal', 'Akun tidak terdaftar');
 			return redirect()->to('/');
 		}
+		$password = password_verify($pas, ($cek['password']));
+		//dd($password);
+
+
 		if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
+			//dd($cek);
 			session()->set('nama', $cek['nama']);
-			return redirect()->to('/driver/');
+			//session()->set('id_diver', $cek['id_driver']);
+			return redirect()->to('/driver');
 		} else {
 			session()->setFlashdata('gagal', 'Username atau Password salah');
 			return redirect()->to('/');
@@ -132,7 +139,7 @@ class Auth extends BaseController
 			'cv' => $this->request->getVar('cv'),
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),
-			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
 			'profil' => 'profil.png',
 			'Trip' => '0',
 			'liter' => '0',

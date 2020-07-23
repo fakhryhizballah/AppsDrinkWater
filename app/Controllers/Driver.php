@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use App\Models\DriverModel;
 use App\Models\ExploreModel;
 use App\Models\LoginModel;
+use App\Models\HistoryModel;
 
 
 class Driver extends Controller
@@ -15,6 +16,7 @@ class Driver extends Controller
         $this->DriverModel = new DriverModel();
         $this->ExploreModel = new ExploreModel();
         $this->LoginModel = new LoginModel();
+        $this->HistoryModel = new HistoryModel();
     }
 
     public function index()
@@ -53,13 +55,17 @@ class Driver extends Controller
 
     public function History()
     {
+        $keyword = session()->get('id_driver');
+
         if (session()->get('nama') == '') {
             session()->setFlashdata('gagal', 'Login dulu');
             return redirect()->to('/');
         }
+        $history = $this->HistoryModel->findAll();
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
+            'history' => $history
 
         ];
 
