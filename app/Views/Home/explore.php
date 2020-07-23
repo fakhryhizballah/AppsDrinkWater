@@ -1,6 +1,5 @@
 <?= $this->extend('layout/templateBack'); ?>
 <?= $this->section('MainBack'); ?>
-<h5>Hai</h5>
 <?php foreach ($stasiun as $s) : ?>
     <div class="card card-iden shadow">
         <h5 class="card-iden-h5"><?= $s['lokasi']; ?></h5>

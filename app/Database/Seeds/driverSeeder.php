@@ -35,20 +35,6 @@ class DriverSeeder extends \CodeIgniter\Database\Seeder
                 'created_at' => '2020-07-16 09:33:48',
                 'updated_at' => '2020-07-16 09:33:48'
             ],
-            [
-                'id_driver' => 'DRVAdminPNK',
-                'nama' => 'Admin',
-                'email' => 'admin@spairum.com',
-                'cv' => 'Spairum',
-                'telp' => '089111',
-                'password' => '$2y$10$KGSV.Qz1L2gzeOXMKmfb3.4516sEDs0BKoERj6ClgM/m.kXCazF2a',
-                'profil' => 'spairum.png',
-                'Trip' => 0,
-                'liter' => 0,
-                'poin' => 0,
-                'created_at' => '2020-07-16 09:35:13',
-                'updated_at' => '2020-07-16 09:35:13'
-            ]
         ];
 
         // $this->db->table('driver')->insert($data);

@@ -42,7 +42,7 @@ class Auth extends BaseController
 		if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
 			//dd($cek);
 			session()->set('nama', $cek['nama']);
-			//session()->set('id_diver', $cek['id_driver']);
+			session()->set('id_driver', $cek['id_driver']);
 			return redirect()->to('/driver');
 		} else {
 			session()->setFlashdata('gagal', 'Username atau Password salah');
@@ -52,7 +52,7 @@ class Auth extends BaseController
 
 	public function logout()
 	{
-		session()->remove('nama');
+		session()->remove('nama', 'id_driver');
 		session()->setFlashdata('peasn', 'Berhasil Logout');
 		return redirect()->to('/');
 	}
@@ -140,7 +140,7 @@ class Auth extends BaseController
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),
 			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
-			'profil' => 'profil.png',
+			'profil' => 'user.png',
 			'Trip' => '0',
 			'liter' => '0',
 			'poin' => '0'

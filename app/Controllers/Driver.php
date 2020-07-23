@@ -55,12 +55,15 @@ class Driver extends Controller
 
     public function History()
     {
-        $keyword = session()->get('id_driver');
-
         if (session()->get('nama') == '') {
             session()->setFlashdata('gagal', 'Login dulu');
             return redirect()->to('/');
         }
+        $keyword = session()->get('id_driver');
+        // dd($keyword);
+        // $data = $this->HistoryModel->search($keyword);
+        $history = $this->HistoryModel->search($keyword);
+
         $history = $this->HistoryModel->findAll();
         $data = [
             'title' => 'Riwayat | Spairum.com',
