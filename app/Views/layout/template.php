@@ -16,8 +16,8 @@
 <title><?= $title; ?></title>
 
 <body>
-
     <?= $this->renderSection('content'); ?>
+
     <!-- footer-->
     <div class="foother">
         <div class="no-gutters">
@@ -26,15 +26,19 @@
                     <div class="row no-gutters justify-content-center">
 
                         <li class="nav-item col-auto">
-                            <img src="/img/Shape.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="/page/index">Profil</a>
+                            <a href="/driver/index">
+                                <img src="/img/Shape.png" alt="" class="buttonNav">
+                                <a class="nav-link fontNav" href="/driver">Profil</a>
+                            </a>
                         </li>
                         <li class="nav-item col-auto">
-                            <img src="/img/explore.png" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="/page/explore">Explore</a>
+                            <a href="/driver/explore">
+                                <img src="/img/explore.png" alt="" class="buttonNav">
+                                <a class="nav-link fontNav" href="/driver/explore">Explore</a>
+                            </a>
                         </li>
                         <li class="nav-item col-auto">
-                            <a href="/page/History">
+                            <a href="/driver/History">
                                 <img src="/img/riwayat.png" alt="" class="buttonNav">
                                 <a class="nav-link fontNav">History</a>
                             </a>
@@ -52,7 +56,22 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function previewImg() {
+            const profil = document.querySelector('#profil');
+            const profilLabel = document.querySelector('.custom-file-label');
+            const imgPreview = document.querySelector('.img-preview');
 
+            profilLabel.textContent = profil.files[0].name;
+            const fileProfil = new FileReader();
+
+            fileProfil.readAsDataURL(profil.files[0]);
+
+            fileProfil.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
 </body>
 
 </html>

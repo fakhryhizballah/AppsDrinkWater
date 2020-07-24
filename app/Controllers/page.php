@@ -13,6 +13,10 @@ class page extends BaseController
     }
     public function index()
     {
+        if (session()->get('nama') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Profil | Spairum'
         ];
