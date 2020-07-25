@@ -65,37 +65,22 @@
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
-                    </form>
-                    <hr>
-                    <div class="text-center">
-                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                    </div>
-                    <div class="text-center">
-                        <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                    </div>
-                    =======
-                    <!-- </form> -->
-                    <!-- <hr>
+                            <!-- </form> -->
+                            <!-- <hr>
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div> -->
-                    <<<<<<< HEAD <!-- <div class="text-center">
-                        <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                </div> -->
-                =======
-                <div class="text-center">
-                    <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
+                            <!-- <div class="text-center">
+                                <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
+                            </div> -->
+                        </div>
                 </div>
-                >>>>>>> 62b7fc5afb8ca7359153e231d8846cc2e5b32aa8
             </div>
-            >>>>>>> da81775193c4136d81e5b62fa5748e0ac04b0052
+
+
         </div>
+
     </div>
 
 
-</div>
-
-</div>
-
-
-<?= $this->endSection('auth'); ?>
+    <?= $this->endSection('auth'); ?>
