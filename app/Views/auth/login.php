@@ -54,41 +54,26 @@
                                                 <label class="custom-control-label" for="customCheck">Remember Me</label>
                                             </div>
                                         </div> -->
-                            <<<<<<< HEAD <button type="submit" class="btn btn-user btn-block">
+                            <button type="submit" class="btn btn-user btn-block">
                                 Login
-                                </button>
-                                <!-- <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p> -->
-                                =======
-                                <button type="submit" class="btn btn-user btn-block">
-                                    Login
-                                </button>
-                                <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p>
-                                >>>>>>> da81775193c4136d81e5b62fa5748e0ac04b0052
+                            </button>
+                            <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p>
 
-                                <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
+                            <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
-                                <<<<<<< HEAD </form> <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                                    </div>
-                                    =======
-                                    <!-- </form> -->
-                                    <!-- <hr>
+                            <!-- </form> -->
+                            <!-- <hr>
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div> -->
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                                    </div>
+                            <div class="text-center">
+                                <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
+                            </div>
                         </div>
-                        >>>>>>> da81775193c4136d81e5b62fa5748e0ac04b0052
                 </div>
             </div>
 
