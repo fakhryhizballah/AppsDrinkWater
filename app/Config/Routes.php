@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Auth::index');
 $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
+// $routes->post('/login', 'Auth::login');
 
 // $routes->addRedirect('driver/index', 'profil');
 // $routes->group('', ['filter' => 'login'], function ($routes) {
