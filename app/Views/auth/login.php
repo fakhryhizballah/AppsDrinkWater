@@ -66,13 +66,13 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
                             <!-- </form> -->
-                            <!-- <hr>
-                    <div class="text-center">
+                            <hr>
+                            <!-- <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div> -->
-                            <!-- <div class="text-center">
-                                <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                            </div> -->
+                            <div class="text-center">
+                                <a class="small" href="/daftar">Create an Account!</a>
+                            </div>
                         </div>
                 </div>
             </div>

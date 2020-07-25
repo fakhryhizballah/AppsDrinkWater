@@ -67,6 +67,15 @@ class Auth extends BaseController
 		];
 		return view('auth/regis', $data);
 	}
+	public function daftar()
+	{
+
+		$data = [
+			'title' => 'Registrasi',
+			//'validation' => \Config\Services::validation()
+		];
+		return view('auth/daftar', $data);
+	}
 
 	public function save()
 	{
