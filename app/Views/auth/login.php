@@ -57,7 +57,7 @@
                             <button type="submit" class="btn btn-user btn-block">
                                 Login
                             </button>
-                            <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p>
+                            <!-- <p class="font-weight-normal text-right" style="margin-top: 16px;">Forget <strong class="text-primary">Password<strong></p> -->
 
                             <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -70,9 +70,9 @@
                     <div class="text-center">
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div> -->
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <a class="small" href="<?= base_url(); ?>/regis">Create an Account!</a>
-                            </div>
+                            </div> -->
                         </div>
                 </div>
             </div>
