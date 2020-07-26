@@ -16,7 +16,7 @@
                 <img src="/img/IG.png" class="logo" alt="">
                 <div class="from-auth user">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Login Driver</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
                     </div>
                     <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
                         <div class="alert-warning">
@@ -41,12 +41,24 @@
                     <form class="user" method="POST" action="Auth/login">
                         <div class=" form-group user-form">
                             <img class="icon" src="/img/Vector.png" alt="">
-                            <input type="text" class="form-control form-control-user" style="padding-left: 50px;" id="username" name="nama" placeholder="username" required>
+                            <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" style="padding-left: 50px;" id="username" name="nama" placeholder="username" autofocus value="<?= old('nama'); ?>">
+                            <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
 
-                            </>
+
+
                             <div class="form-group user-form">
                                 <img class="icon" src="/img/Group 13.png" alt="">
                                 <input type="password" class="form-control form-control-user" style="padding-left: 50px;" id="password" name="password" placeholder="Password" required>
+                            </div>
+
+                            <div class="form-group user-form">
+                                <select class="form-control level  <?= ($validation->hasError('level')) ? 'is-invalid' : ''; ?>" id="level" name="level">
+                                    <option selected>Login sebagai</option>
+                                    <option value="1">User</option>
+                                    <option value="2">Driver</option>
+                                    <option value="3">Admin</option>
+                                </select>
+                                <div class="invalid-feedback"><?= $validation->getError('level'); ?></div>
                             </div>
                             <!-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

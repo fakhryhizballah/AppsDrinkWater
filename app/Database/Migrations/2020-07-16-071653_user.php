@@ -15,7 +15,7 @@ class User extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'id_akun'       => [
+			'id_user'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
@@ -24,6 +24,10 @@ class User extends Migration
 				'constraint'     => '225',
 			],
 			'email'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '255',
+			],
+			'telp'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
 			],
