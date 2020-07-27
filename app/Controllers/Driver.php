@@ -21,12 +21,14 @@ class Driver extends Controller
 
     public function index()
     {
-        $nama = session()->get('nama');
-        $akun = $this->LoginModel->cek_login($nama);
-        if (session()->get('nama') == '') {
+
+        if (session()->get('id_driver') == '') {
             session()->setFlashdata('gagal', 'Login dulu');
             return redirect()->to('/');
         }
+        $nama = session()->get('nama');
+        $akun = $this->LoginModel->cek_login($nama);
+
         $data = [
             'title' => 'Profil | Spairum.com',
             'akun' => $akun
@@ -39,7 +41,7 @@ class Driver extends Controller
     public function explore()
     {
 
-        if (session()->get('nama') == '') {
+        if (session()->get('id_driver') == '') {
             session()->setFlashdata('gagal', 'Login dulu');
             return redirect()->to('/');
         }
@@ -55,7 +57,7 @@ class Driver extends Controller
 
     public function History()
     {
-        if (session()->get('nama') == '') {
+        if (session()->get('id_driver') == '') {
             session()->setFlashdata('gagal', 'Login dulu');
             return redirect()->to('/');
         }

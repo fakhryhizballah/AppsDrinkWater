@@ -45,6 +45,24 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
                 'created_at'    => Time::now(),
                 'updated_at'    => Time::now()
             ],
+            [
+                'id_master'     => 'USR19',
+                'id_slave'      => 'COV 0002 PNK 003',
+                'Lokasi'        => 'Pelabuhan SengHie',
+                'status'        => 'Pembelian',
+                'isi'           => '1000',
+                'created_at'    => Time::now(),
+                'updated_at'    => Time::now()
+            ],
+            [
+                'id_master'     => 'neco',
+                'id_slave'      => 'COV 0001 PNK 002',
+                'Lokasi'        => 'Alun Alun Kapuas',
+                'status'        => 'pembelian',
+                'isi'           => '500',
+                'created_at'    => Time::now(),
+                'updated_at'    => Time::now()
+            ],
 
         ];
 

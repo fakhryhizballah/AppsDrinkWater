@@ -35,11 +35,23 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Auth::index');
 $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
-// $routes->post('/login', 'Auth::login');
+$routes->get('/daftar', 'Auth::daftar');
+
+$routes->get('/history', 'driver::history');
+$routes->get('/profil', 'driver::index');
+$routes->get('/explore', 'driver::explore');
+
+
+$routes->get('/home', 'user::index');
+$routes->get('/stasiun', 'user::stasiun');
+$routes->get('/riwayat', 'user::riwayat');
+
+// $routes->addRedirect('home/history', 'history');
+
 
 // $routes->addRedirect('driver/index', 'profil');
-// $routes->group('', ['filter' => 'login'], function ($routes) {
-// 	$routes->get('home', 'Home::home');
+//  $routes->group('', ['filter' => 'user'], function ($routes) {
+//  	$routes->get('stasiun', 'user::stasiun');
 // });
 
 

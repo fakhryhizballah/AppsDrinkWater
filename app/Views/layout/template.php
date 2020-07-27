@@ -26,19 +26,19 @@
                     <div class="row no-gutters justify-content-center">
 
                         <li class="nav-item col-auto">
-                            <a href="/driver/index">
+                            <a href="/driver">
                                 <img src="/img/Shape.png" alt="" class="buttonNav">
                                 <a class="nav-link fontNav" href="/driver">Profil</a>
                             </a>
                         </li>
                         <li class="nav-item col-auto">
-                            <a href="/driver/explore">
+                            <a href="/explore">
                                 <img src="/img/explore.png" alt="" class="buttonNav">
-                                <a class="nav-link fontNav" href="/driver/explore">Explore</a>
+                                <a class="nav-link fontNav" href="/explore">Explore</a>
                             </a>
                         </li>
                         <li class="nav-item col-auto">
-                            <a href="/driver/History">
+                            <a href="/history">
                                 <img src="/img/riwayat.png" alt="" class="buttonNav">
                                 <a class="nav-link fontNav">History</a>
                             </a>
