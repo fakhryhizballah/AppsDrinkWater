@@ -47,7 +47,7 @@ $routes->get('/stasiun', 'user::stasiun');
 $routes->get('/riwayat', 'user::riwayat');
 
 $routes->get('/admin', 'Admin::index');
-$routes->get('/driver', 'Admin::driver');
+$routes->get('/admdriver', 'Admin::admdriver');
 $routes->get('/ptcv', 'Admin::ptcv');
 
 
