@@ -100,15 +100,15 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown" role="button" data-toogle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="mitraDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Mitra</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdown">
-                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                <div class="dropdown-menu" aria-labelledby="mitraDropdown">
+                    <a class="dropdown-item" href="admin/driver">
                         <span>Driver</span>
                     </a>
-                    <a class="dropdown-item" href="<?= base_url('admin/ptcv'); ?>">
+                    <a class="dropdown-item" href="admin/ptcv">
                         <span>PT/CV</span>
                     </a>
                 </div>
@@ -121,22 +121,23 @@
                     <span>User</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/statiun'); ?>">
+                <a class="nav-link" href="<?= base_url('admin/stasiun'); ?>">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Stasiun</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown" role="button" data-toogle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="createDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
-                    <span>Create</span></a>
-                <div class="dropdown-menu" aria-labelledby="dropdown">
-                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                    <span>Create</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="createDropdown">
+                    <a class="dropdown-item" href="admin/crtmitra">
                         <span>Mitra/Supplier</span>
                     </a>
-                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                    <a class="dropdown-item" href="admin/crtdriver">
                         <span>Driver</span>
                     </a>
-                    <a class="dropdown-item" href="<?= base_url('admin/ptcv'); ?>">
+                    <a class="dropdown-item" href="'admin/crtstasiun">
                         <span>Stasiun</span>
                     </a>
                 </div>
@@ -211,7 +212,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Spairum <?= date('Y'); ?></span>
+                            <span> <strong>Copyright &copy; <?= date('Y'); ?> SPAIRUM.</strong> All rights reserved. V.1</span>
                         </div>
                     </div>
                 </footer>
