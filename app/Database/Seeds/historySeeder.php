@@ -11,7 +11,7 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
         $data = [
             [
                 'id_master'     => 'DRV0001PNK002001',
-                'id_slave'      => 'COV 0002 PNK 003',
+                'id_slave'      => 'COV0002PNK003',
                 'Lokasi'        => 'Pelabuhan SengHie',
                 'status'        => 'Pengisian',
                 'isi'           => '1000',
@@ -20,7 +20,7 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
             ],
             [
                 'id_master'     => 'DRV0001PNK002001',
-                'id_slave'      => 'COV 0001 PNK 002',
+                'id_slave'      => 'COV0001PNK002',
                 'Lokasi'        => 'Alun Alun Kapuas',
                 'status'        => 'Pengisian',
                 'isi'           => '500',
@@ -29,7 +29,7 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
             ],
             [
                 'id_master'     => 'DRV0001PNK002001',
-                'id_slave'      => 'COV 0002 PNK 003',
+                'id_slave'      => 'COV0002PNK003',
                 'Lokasi'        => 'Pelabuhan SengHie',
                 'status'        => 'Pengisian',
                 'isi'           => '500',
@@ -47,7 +47,7 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
             ],
             [
                 'id_master'     => 'USR19',
-                'id_slave'      => 'COV 0002 PNK 003',
+                'id_slave'      => 'COV0002PNK003',
                 'Lokasi'        => 'Pelabuhan SengHie',
                 'status'        => 'Pembelian',
                 'isi'           => '1000',
@@ -56,7 +56,7 @@ class HistorySeeder extends \CodeIgniter\Database\Seeder
             ],
             [
                 'id_master'     => 'neco',
-                'id_slave'      => 'COV 0001 PNK 002',
+                'id_slave'      => 'COV0001PNK002',
                 'Lokasi'        => 'Alun Alun Kapuas',
                 'status'        => 'pembelian',
                 'isi'           => '500',

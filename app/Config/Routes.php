@@ -46,10 +46,10 @@ $routes->get('/home', 'user::index');
 $routes->get('/stasiun', 'user::stasiun');
 $routes->get('/riwayat', 'user::riwayat');
 
+$routes->get('/admin', 'Admin::index');
 $routes->get('/driver', 'Admin::driver');
 $routes->get('/ptcv', 'Admin::ptcv');
 
-// $routes->get('/admin', 'Admin::index');
 
 // $routes->addRedirect('home/history', 'history');
 

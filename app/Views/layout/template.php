@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 </head>
 <title><?= $title; ?></title>
 
 <body>
+
     <?= $this->renderSection('content'); ?>
 
     <!-- footer-->
@@ -72,6 +74,10 @@
             }
         }
     </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-kQTsiZykwdlFQjzQvRYAuZAEMXjzoo8&callback=initMap">
+    </script>
+
 </body>
 
 </html>

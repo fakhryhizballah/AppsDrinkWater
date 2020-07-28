@@ -37,14 +37,6 @@
         </div>
         <div class="row">
             <div class="col">
-                <p class="card-iden-p1">Jumlah Air</p>
-            </div>
-            <div class="col">
-                <p class="card-iden-p2 "><strong>20 </strong> L</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
                 <p class="card-iden-p1">Status</p>
             </div>
             <div class="col">

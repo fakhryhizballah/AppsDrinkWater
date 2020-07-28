@@ -32,6 +32,25 @@ class User extends Controller
 
         return   view('user/home', $data);
     }
+    public function take()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+        $take = $this->request->getVar('take');
+        $hasi = $take  - $akun['debit'];
+        dd($hasi);
+        $data = [
+            'title' => 'Take | Spairum.com',
+            'akun' => $akun
+
+        ];
+
+        return   view('user/take', $data);
+    }
     public function stasiun()
     {
         $data = [

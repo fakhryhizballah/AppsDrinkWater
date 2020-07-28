@@ -48,23 +48,33 @@
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <div class="slidecontainer">
-                        <input type="range" min="100" max="1200" value="220" class="slider" id="myRange">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="text-mute small text-secondary ">Take a minimum of 100 mL</p>
+
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-auto mx-auto">
-                <button type="button" class="mb-2 btn btn-outline-primary btn-rounded">Take</button>
+            <div class="col">
+                <p class="text-mute small text-secondary ">Take a minimum of 100 mL</p>
             </div>
         </div>
     </div>
+    <form class="user" method="POST" action="user/take">
+        <div class="form-group user-form">
+            <div class="slidecontainer">
+                <input type="range" min="100" max="1200" value="220" class="slider" id="myRange" name="take">
+            </div>
+
+
+            <button type=" submit" class="btn btn-user btn-block btn-outline-primary btn-rounded">
+                Take
+            </button>
+    </form>
+    <div class="row">
+        <!-- <div class="col-auto mx-auto">
+                <button type="button" href="user/take" name="take" id="take" value="" class="mb-2 btn btn-outline-primary btn-rounded">Take</button>
+            </div> -->
+    </div>
+</div>
 </div>
 
 <?= $this->endSection('content'); ?>
