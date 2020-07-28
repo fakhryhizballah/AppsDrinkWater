@@ -105,10 +105,10 @@
                     <span>Mitra</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="mitraDropdown">
-                    <a class="dropdown-item" href="admin/driver">
+                    <a class="dropdown-item" href="/driver">
                         <span>Driver</span>
                     </a>
-                    <a class="dropdown-item" href="admin/ptcv">
+                    <a class="dropdown-item" href="/ptcv">
                         <span>PT/CV</span>
                     </a>
                 </div>

@@ -12,4 +12,20 @@ class Admin extends BaseController
         ];
         return view('admin/index', $data);
     }
+
+    public function driver()
+    {
+        $data = [
+            'title' => 'Driver'
+        ];
+        return view('admin/driver', $data);
+    }
+
+    public function ptcv()
+    {
+        $data = [
+            'title' => 'PT/CV'
+        ];
+        return view('admin/ptcv', $data);
+    }
 }
