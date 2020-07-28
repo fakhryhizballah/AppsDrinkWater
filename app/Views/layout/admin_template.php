@@ -28,11 +28,12 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-stethoscope"></i>
+            <a style="background-color: white;" class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-stethoscope"></i> -->
+                    <img src="/img/IG.png" class="logo" style="width: 70px; height:auto" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">Spairum</div>
+                <div class="sidebar-brand-text mx-3" style="color: black;">Spairum</div>
             </a>
 
             <!-- Divider -->
@@ -98,11 +99,22 @@
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/mitra'); ?>">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown" role="button" data-toogle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
-                    <span>Mitra</span></a>
+                    <span>Mitra</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdown">
+                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                        <span>Driver</span>
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('admin/ptcv'); ?>">
+                        <span>PT/CV</span>
+                    </a>
+                </div>
             </li>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/user'); ?>">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
@@ -113,10 +125,21 @@
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Stasiun</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/create'); ?>">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown" role="button" data-toogle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Create</span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown">
+                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                        <span>Mitra/Supplier</span>
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('admin/driver'); ?>">
+                        <span>Driver</span>
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('admin/ptcv'); ?>">
+                        <span>Stasiun</span>
+                    </a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
