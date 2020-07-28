@@ -99,18 +99,20 @@
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="mitraDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Mitra</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="mitraDropdown">
-                    <a class="dropdown-item" href="/driver">
-                        <span>Driver</span>
-                    </a>
-                    <a class="dropdown-item" href="/ptcv">
-                        <span>PT/CV</span>
-                    </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/driver">
+                            <span>Driver</span>
+                        </a>
+                        <a class="collapse-item" href="/ptcv">
+                            <span>PT/CV</span>
+                        </a>
+                    </div>
                 </div>
             </li>
 
@@ -255,9 +257,14 @@
         <!-- Core plugin JavaScript-->
         <script src="Asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
         <!-- Custom scripts for all pages-->
         <script src="Asset/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="Asset/vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="Asset/js/demo/chart-area-demo.js"></script>
 
         <!-- Untuk AJAX UBAH DATA -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
