@@ -13,7 +13,7 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
-    public function driver()
+    public function admdriver()
     {
         $data = [
             'title' => 'Driver'
