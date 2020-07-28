@@ -41,8 +41,7 @@ class User extends Controller
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $take = $this->request->getVar('take');
-        $hasi = $take  - $akun['debit'];
-        dd($hasi);
+        $hasi = $akun['debit'] - $take;
         $data = [
             'title' => 'Take | Spairum.com',
             'akun' => $akun
