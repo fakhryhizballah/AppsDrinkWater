@@ -73,7 +73,7 @@ class Auth extends BaseController
 				//dd($cek);
 				session()->set('nama', $cek['nama']);
 				session()->set('id_user', $cek['id_user']);
-				return redirect()->to('/home');
+				return redirect()->to('/user');
 			} else {
 				session()->setFlashdata('gagal', 'Username atau Password salah');
 				return redirect()->to('/');

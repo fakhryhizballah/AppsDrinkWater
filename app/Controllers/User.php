@@ -15,6 +15,7 @@ class User extends Controller
         $this->HistoryModel = new HistoryModel();
         $this->UserModel = new UserModel();
     }
+
     public function index()
     {
         if (session()->get('id_user') == '') {
@@ -32,6 +33,7 @@ class User extends Controller
 
         return   view('user/home', $data);
     }
+
     public function take()
     {
         if (session()->get('id_user') == '') {
@@ -50,6 +52,7 @@ class User extends Controller
 
         return   view('user/take', $data);
     }
+
     public function stasiun()
     {
         $data = [
