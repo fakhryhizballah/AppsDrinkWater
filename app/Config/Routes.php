@@ -41,7 +41,7 @@ $routes->get('/history', 'driver::history');
 $routes->get('/profil', 'driver::index');
 $routes->get('/explore', 'driver::explore');
 
-$routes->get('/user', 'user::index');
+// $routes->get('/user', 'user::index');
 $routes->get('/stasiun', 'user::stasiun');
 $routes->get('/riwayat', 'user::riwayat');
 
