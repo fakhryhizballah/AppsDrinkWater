@@ -37,13 +37,13 @@ $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
 $routes->get('/daftar', 'Auth::daftar');
 
-$routes->get('/history', 'driver::history');
-$routes->get('/profil', 'driver::index');
-$routes->get('/explore', 'driver::explore');
+$routes->get('/history', 'Driver::history');
+$routes->get('/profil', 'Driver::index');
+$routes->get('/explore', 'Driver::explore');
 
-// $routes->get('/user', 'user::index');
-$routes->get('/stasiun', 'user::stasiun');
-$routes->get('/riwayat', 'user::riwayat');
+$routes->get('/user', 'User::index');
+$routes->get('/stasiun', 'User::stasiun');
+$routes->get('/riwayat', 'User::riwayat');
 
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admdriver', 'Admin::admdriver');
