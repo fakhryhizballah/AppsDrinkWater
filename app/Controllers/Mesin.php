@@ -50,7 +50,7 @@ class Mesin extends ResourceController
         } else {
             $isi = $this->request->getVar('isi');
             $indikator = $this->request->getVar('indikator');
-            $updated_at = Time::now();
+            $updated_at = Time::now('Asia/Jakarta');
             $data = [
                 'isi' => $isi,
                 'indikator' => $indikator,
