@@ -10,25 +10,25 @@ class TransferSeeder extends \CodeIgniter\Database\Seeder
     {
         $data = [
             [
-                'id_mesin'      => 'COV0001PNK002', // Kode mesin, nomor urut, Kota, kecamatan, mitra
+                'Id_slave'      => 'COV0001PNK002', // Kode mesin, nomor urut, Kota, kecamatan, mitra
                 'vaule'           => '0',
                 'created_at'    => Time::now('Asia/Jakarta'),
                 'updated_at'    => Time::now('Asia/Jakarta')
             ],
             [
-                'id_mesin'      => 'COV0002PNK003',
+                'Id_slave'      => 'COV0002PNK003',
                 'vaule'           => '0',
                 'created_at'    => Time::now('Asia/Jakarta'),
                 'updated_at'    => Time::now('Asia/Jakarta')
             ],
             [
-                'id_mesin'      => 'COV0003PNK003',
+                'Id_slave'      => 'COV0003PNK003',
                 'vaule'           => '0',
                 'created_at'    => Time::now('Asia/Jakarta'),
                 'updated_at'    => Time::now('Asia/Jakarta')
             ],
             [
-                'id_mesin'      => 'COV0004PNK004',
+                'Id_slave'      => 'COV0004PNK004',
                 'vaule'           => '0',
                 'created_at'    => Time::now('Asia/Jakarta'),
                 'updated_at'    => Time::now('Asia/Jakarta')
