@@ -153,6 +153,9 @@
 
         <!-- page level script -->
         <script></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -41,6 +41,11 @@
     <!-- Custom scripts for all pages-->
     <script src="Asset/js/sb-admin-2.min.js"></script>
 
+    <!-- seetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="js/script.js"></script>
+
 </body>
 
 </html>
