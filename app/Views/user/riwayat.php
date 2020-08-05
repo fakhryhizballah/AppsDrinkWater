@@ -3,6 +3,7 @@
 
 <!-- page content here -->
 <h6 class="subtitle"> Transaction History</h6>
+
 <div class="row">
     <div class="col-12 px-0">
         <ul class="list-group list-group-flush border-top border-bottom">

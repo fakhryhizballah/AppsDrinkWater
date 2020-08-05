@@ -21,6 +21,7 @@
 
     <!-- my auth.css -->
     <link rel="stylesheet" href="/css/auth.css">
+
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -41,9 +42,8 @@
     <!-- Custom scripts for all pages-->
     <script src="Asset/js/sb-admin-2.min.js"></script>
 
-    <!-- seetalert -->
+    <!-- sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
     <script src="js/script.js"></script>
 
 </body>

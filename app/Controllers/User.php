@@ -6,6 +6,8 @@ use CodeIgniter\Controller;
 use App\Models\ExploreModel;
 use App\Models\HistoryModel;
 use App\Models\UserModel;
+use App\Models\TransferModel;
+use App\Models\StasiunModel;
 
 class User extends Controller
 {
@@ -14,6 +16,8 @@ class User extends Controller
         $this->ExploreModel = new ExploreModel();
         $this->HistoryModel = new HistoryModel();
         $this->UserModel = new UserModel();
+        $this->TransferModel = new TransferModel();
+        $this->StasiunModel = new StasiunModel();
     }
 
     public function index()
@@ -43,15 +47,89 @@ class User extends Controller
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $take = $this->request->getVar('take');
-        $hasi = $akun['debit'] - $take;
+        $hasil = $akun['debit'] - $take;
+        // dd($hasil);
+
+
+        if ($hasil >= "0") {
+            // dd($hasil);
+
+            session()->set('oke', $take);
+            return redirect()->to('/connect');
+        }
+        session()->setFlashdata('Pesan', 'Saldo anda tidak cukup silahkan isi ulang');
+        return redirect()->to('/user');
+
         $data = [
             'title' => 'Take | Spairum.com',
-            'akun' => $akun
-
+            'akun' => $akun,
         ];
-
         return   view('user/take', $data);
     }
+
+    public function connect()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'title' => 'Pindai | Spairum.com',
+        ];
+
+
+        return   view('layout/scan_qr', $data);
+    }
+    public function binding()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $id = $this->request->getVar('qrcode');
+        // dd($id);
+        $ambil = session()->get('oke');
+        $cek = $this->TransferModel->cek_mesin($id);
+        $mesin = $this->StasiunModel->cek_mesin($id);
+
+
+        if (empty($cek)) {
+            session()->setFlashdata('Pesan', 'itu bukan QR Spairum');
+            return redirect()->to('/connect');
+        }
+
+        $sisa = $akun['debit'] - $ambil;
+        $kere = $akun['kredit'] + $ambil;
+        // dd($kere);
+
+
+        $this->TransferModel->save([
+            'id' => $cek['id'],
+            'vaule' => $ambil,
+        ]);
+
+        $this->UserModel->save([
+            'id' => $akun['id'],
+            'debit' => $sisa,
+            'kredit' => $kere
+        ]);
+
+        $this->HistoryModel->save([
+            'id_master' => $akun['id_user'],
+            'Id_slave' => $id,
+            'Lokasi' => $mesin['lokasi'],
+            'status' => 'Pengambilan Air',
+            'isi' => $ambil
+        ]);
+
+        session()->setFlashdata('flash', 'silahkan ambil air');
+        return redirect()->to('/user');
+    }
+
 
     public function stasiun()
     {

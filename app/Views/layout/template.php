@@ -75,8 +75,9 @@
         }
     </script>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-kQTsiZykwdlFQjzQvRYAuZAEMXjzoo8&callback=initMap">
-    </script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

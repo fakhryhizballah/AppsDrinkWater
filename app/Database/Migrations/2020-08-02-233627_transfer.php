@@ -15,9 +15,11 @@ class Transfer extends Migration
 				'unsigned'       => true,
 				'auto_increment' => true,
 			],
-			'Id_slave' => [
+			'id_slave' => [
 				'type'           => 'TEXT',
 				'constraint'     => '100',
+
+
 			],
 			'vaule' => [
 				'type'           => 'TEXT',

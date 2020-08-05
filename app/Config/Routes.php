@@ -44,6 +44,7 @@ $routes->get('/explore', 'Driver::explore');
 $routes->get('/user', 'User::index');
 $routes->get('/stasiun', 'User::stasiun');
 $routes->get('/riwayat', 'User::riwayat');
+$routes->get('/connect', 'User::connect');
 
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admdriver', 'Admin::admdriver');

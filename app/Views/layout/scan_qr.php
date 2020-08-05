@@ -1,6 +1,5 @@
-<!doctype html>
-
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -9,7 +8,6 @@
 
     <!-- Material design icons CSS -->
     <link rel="stylesheet" href="Mandor/materializeicon/material-icons.css">
-
     <!-- Roboto fonts CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 
@@ -27,9 +25,11 @@
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+    <!-- scanner -->
+    <script src="scanner/vendor/modernizr/modernizr.js"></script>
+    <script src="scanner/vendor/vue/vue.min.js"></script>
+    <title><?= $title; ?></title>
 </head>
-<title><?= $title; ?></title>
-
 
 <body>
     <div class="sidebar">
@@ -78,9 +78,26 @@
             </div>
         </div>
         <!-- header ends -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('Pesan'); ?>"></div>
+
+        <div class="camera">
+            <video id="preview" class="kamera"></video>
+        </div>
+
+        <form action="user/binding" method="POST" id="myForm" class="user">
+            <!-- <?= csrf_field(); ?> -->
+            <div class="container">
+                <div class="form-group">
+                    <input type="hidden" class="form-control form-control-user" id="code" name="qrcode">
+                </div>
+            </div>
+            <!-- <fieldset class="scheduler-border">
+                <legend class="scheduler-border"> Form Scan </legend>
+                <input type="text" name="qrcode" id="code" autofocus>
+            </fieldset> -->
+        </form>
 
 
-        <?= $this->renderSection('content'); ?>
 
         <!-- footer-->
         <div class="foother">
@@ -138,27 +155,18 @@
         <!-- cookie js -->
         <script src="Mandor/cookie/jquery.cookie.js"></script>
 
-
-        <script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("take");
-            output.innerHTML = slider.value;
-
-            slider.oninput = function() {
-                output.innerHTML = this.value;
-            }
-        </script>
-
         <!-- template custom js -->
         <script src="js/main.js"></script>
 
         <!-- page level script -->
         <script></script>
-
+        <!-- scanner -->
+        <script src="scanner/js/app.js"></script>
+        <script src="scanner/vendor/instascan/instascan.min.js"></script>
+        <script src="scanner/js/scanner.js"></script>
+        <!-- sweet alernt -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="js/script.js"></script>
-
-
 </body>
 
 </html>

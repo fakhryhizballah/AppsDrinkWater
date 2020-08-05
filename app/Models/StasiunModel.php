@@ -23,4 +23,11 @@ class StasiunModel extends Model
     {
         return $this->db->table($this->table)->update($data, ['id_mesin' => $id]);
     }
+
+    public function cek_mesin($id_mesin)
+    {
+        return $this->db->table('mesin')
+            ->where(array('id_mesin' => $id_mesin))
+            ->get()->getRowArray();
+    }
 }

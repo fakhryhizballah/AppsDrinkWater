@@ -108,8 +108,8 @@ class Auth extends BaseController
 	{
 		// $array_items = ['nama', 'id_driver', 'id_user'];
 		// $session->remove($array_items);
+		session()->setFlashdata('flash', 'Berhasil Logout');
 		session_destroy();
-		session()->setFlashdata('peasn', 'Berhasil Logout');
 		return redirect()->to('/');
 	}
 
@@ -212,7 +212,7 @@ class Auth extends BaseController
 
 
 		]);
-		session()->setFlashdata('Pesan', 'Registration success.');
+		session()->setFlashdata('flash', 'Registration success.');
 		return redirect()->to('/');
 	}
 	public function userSave()
@@ -287,7 +287,7 @@ class Auth extends BaseController
 			'kredit' => '0',
 
 		]);
-		session()->setFlashdata('Pesan', 'Registration success.');
+		session()->setFlashdata('flash', 'Registration success.');
 		return redirect()->to('/');
 	}
 

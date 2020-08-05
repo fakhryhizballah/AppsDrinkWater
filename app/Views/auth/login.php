@@ -18,24 +18,30 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                     </div>
+
                     <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
                         <div class="alert-warning">
                             <?php echo session()->getFlashdata('gagal'); ?>
                         </div>
                     <?php } ?>
 
-                    <?php if (session()->getFlashdata('Pesan')) : ?>
+
+                    <?php if (session()->getFlashdata('flash')) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <strong><?= session()->getFlashdata('Pesan');  ?></strong>
+                            <strong><?= session()->getFlashdata('flash');  ?></strong>
                         </div>
 
                         <script>
                             $(".alert").alert();
                         </script>
                     <?php endif; ?>
+
+                    <!-- 
+                    <div class="flash-data" data-flashdata="<?= session()->getFlashdata('gagal'); ?>"></div>
+                    <div class="flash-data2" data-flashdata2="<?= session()->getFlashdata('gagal'); ?>"></div> -->
 
 
                     <form class="user" method="POST" action="Auth/login">

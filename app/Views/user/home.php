@@ -16,6 +16,8 @@
         </div>
     </div>
 </div>
+<div class="swal" data-swal="<?= session()->getFlashdata('Pesan'); ?>"></div>
+<div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
 <div class="container top-100">
     <div class="card mb-4 shadow">
         <div class="card-body border-bottom">
@@ -45,33 +47,27 @@
     </div>
     <h6 class="subtitle">Take drink Water</h6>
     <div class="card shadow border-0 mb-2">
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    <form class="user" method="POST" action="user/take">
-                        <div class="form-group user-form">
+        <form class="user" method="POST" action="user/take">
+            <div class="card-body">
+                <div class="form-group user-form">
+                    <div class="row">
+                        <div class="col">
                             <div class="slidecontainer">
                                 <input type="range" min="100" max="1200" value="220" class="slider" id="myRange" name="take">
                             </div>
-                            <button type=" submit" class="btn btn-user btn-block btn-outline-primary btn-rounded">
-                                Take
-                            </button>
                         </div>
-                    </form>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-mute small text-secondary">Take a minimum of 100 mL</p>
+                        </div>
+                    </div>
                 </div>
+                <button type=" submit" class="btn btn-user btn-block btn-outline-primary btn-rounded">
+                    Take
+                </button>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p class="text-mute small text-secondary ">Take a minimum of 100 mL</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- <div class="col-auto mx-auto">
-                    <button type="button" href="user/take" name="take" id="take" value="" class="mb-2 btn btn-outline-primary btn-rounded">Take</button>
-                </div> -->
-        </div>
+        </form>
     </div>
-</div>
 
-<?= $this->endSection('content'); ?>
+    <?= $this->endSection('content'); ?>
