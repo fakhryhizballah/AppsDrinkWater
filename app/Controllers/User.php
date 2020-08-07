@@ -8,6 +8,7 @@ use App\Models\HistoryModel;
 use App\Models\UserModel;
 use App\Models\TransferModel;
 use App\Models\StasiunModel;
+use CodeIgniter\I18n\Time;
 
 class User extends Controller
 {
@@ -110,12 +111,14 @@ class User extends Controller
         $this->TransferModel->save([
             'id' => $cek['id'],
             'vaule' => $ambil,
+            'updated_at' => Time::now('Asia/Jakarta')
         ]);
 
         $this->UserModel->save([
             'id' => $akun['id'],
             'debit' => $sisa,
-            'kredit' => $kere
+            'kredit' => $kere,
+            'updated_at' => Time::now('Asia/Jakarta')
         ]);
 
         $this->HistoryModel->save([
@@ -123,7 +126,8 @@ class User extends Controller
             'Id_slave' => $id,
             'Lokasi' => $mesin['lokasi'],
             'status' => 'Pengambilan Air',
-            'isi' => $ambil
+            'isi' => $ambil,
+            'updated_at' => Time::now('Asia/Jakarta')
         ]);
 
         session()->setFlashdata('flash', 'silahkan ambil air');
