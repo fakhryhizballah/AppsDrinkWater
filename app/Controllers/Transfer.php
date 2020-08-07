@@ -8,7 +8,7 @@ use CodeIgniter\RESTful\ResourceController;
 class Transfer extends ResourceController
 {
     protected $format = 'json';
-    protected $modelName = 'App\Models\transferModel';
+    protected $modelName = 'App\Models\TransferModel';
 
     public function index()
     {
