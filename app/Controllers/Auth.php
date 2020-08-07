@@ -6,6 +6,8 @@ namespace App\Controllers;
 use App\Models\DriverModel;
 use App\Models\LoginModel;
 use App\Models\UserModel;
+// use CodeIgniter\I18n\Time;
+
 
 class Auth extends BaseController
 {
@@ -15,6 +17,7 @@ class Auth extends BaseController
 		$this->DriverModel = new DriverModel();
 		$this->LoginModel = new LoginModel();
 		$this->UserModel = new UserModel();
+		// $this->Time = new Time('Asia/Jakarta');
 	}
 	public function index()
 	{
@@ -22,6 +25,9 @@ class Auth extends BaseController
 			'title' => 'Login',
 			'validation' => \Config\Services::validation()
 		];
+		// $myTime = Time::now('Asia/Pontianak');
+		// dd($myTime);
+
 		return view('auth/login', $data);
 	}
 	public function login()
@@ -220,17 +226,18 @@ class Auth extends BaseController
 		//validasi
 		if (!$this->validate([
 
-			'id_user' => [
-				'rules'  => 'required|is_unique[user.id_user]',
-				'errors' => [
-					'required' => 'ID Account wajid di isi',
-					'is_unique' => 'ID Account sudah terdaftar'
-				]
-			],
+			// 'id_user' => [
+			// 	'rules'  => 'required|is_unique[user.id_user]',
+			// 	'errors' => [
+			// 		'required' => 'ID Account wajid di isi',
+			// 		'is_unique' => 'ID Account sudah terdaftar'
+			// 	]
+			// ],
 			'nama' => [
-				'rules'  => 'required|is_unique[user.id_user]',
+				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
 				'errors' => [
 					'required' => '{field} wajid di isi',
+					'alpha_dash' => 'Tidak boleh mengunakan spasi',
 					'is_unique' => 'Nama Account sudah terdaftar'
 				]
 			],
@@ -276,8 +283,10 @@ class Auth extends BaseController
 			'validation' => \Config\Services::validation()
 		];
 		//dd($this->request->getVar());
+		$id = $this->request->getVar('nama');
+		$id_usr = substr(sha1($id), 0, 8);
 		$this->UserModel->save([
-			'id_user' => ($this->request->getVar('id_user')),
+			'id_user' => strtoupper($id_usr),
 			'nama' => $this->request->getVar('nama'),
 			'email' => $this->request->getVar('email'),
 			'telp' => $this->request->getVar('telp'),

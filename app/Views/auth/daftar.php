@@ -14,11 +14,11 @@
 
                         <form class="user" method="POST" action="auth/userSave">
                             <?= csrf_field(); ?>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('id_user')) ? 'is-invalid' : ''; ?> " id="id_user" name="id_user" placeholder="ID account" autofocus value="<?= old('id_user'); ?>" />
                                 <div class="invalid-feedback"><?= $validation->getError('id_user'); ?></div>
 
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Nama" autofocus value="<?= old('nama'); ?>">
                                 <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
