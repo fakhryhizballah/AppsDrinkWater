@@ -6,22 +6,36 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <!-- <div class="col-md-4">
-                <img class="card-img" src="">
-            </div> -->
-
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Fakhry</h5>
-                    <p class="card-text">D1021181063</p>
-                    <p class="card-text">gang</p>
-                    <p class="card-text"><small class="text-muted">Member since </small></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <table class="table bg-white">
+        <thead>
+            <tr style="text-align: center;">
+                <th scope="col">No</th>
+                <th scope="col">Nama PT / CV</th>
+                <th scope="col">Air Galon</th>
+                <th scope="col">Air Galon</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <!-- /.container-fluid -->
 

@@ -25,15 +25,13 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-white sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a style="background-color: white;" class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-stethoscope"></i> -->
-                    <img src="/img/IG.png" class="logo" style="width: 70px; height:auto" alt="">
+            <a style="background-color: white;" class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-text mx-3" style="color: black;">
+                    <span style="color: blue;">Admin</span> Web
                 </div>
-                <div class="sidebar-brand-text mx-3" style="color: black;">Spairum</div>
             </a>
 
             <!-- Divider -->
@@ -95,22 +93,25 @@
                 < ?php endforeach; ?> -->
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin'); ?>">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
-                    <span>Dashboard</span></a>
+                <a class="nav-link" href="<?= base_url('admin'); ?>" style="color: black;">
+                    <i class="fas fa-fw fa-home" style="color: black;"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
+                    <i class="fas fa-fw fa-handshake" style="color: black;"></i>
                     <span>Mitra</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="color: black;">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/driver">
+                        <a class="collapse-item" href="/admdriver">
+                            <i class="fas fa-fw fa-user"></i>
                             <span>Driver</span>
                         </a>
                         <a class="collapse-item" href="/ptcv">
-                            <span>PT/CV</span>
+                            <i class="fas fa-fw fa-building"></i>
+                            <span>PT / CV</span>
                         </a>
                     </div>
                 </div>
@@ -118,44 +119,50 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/user'); ?>">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                <a class="nav-link" href="<?= base_url('admin/user'); ?>" style="color: black;">
+                    <i class="fas fa-fw fa-user-tie" style="color: black;"></i>
                     <span>User</span></a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/stasiun'); ?>">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                <a class="nav-link" href="<?= base_url('admin/stasiun'); ?>" style="color: black;">
+                    <i class="fas fa-fw fa-landmark" style="color: black;"></i>
                     <span>Stasiun</span></a>
             </li>
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="createDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                <a class="nav-link dropdown-toggle" href="#" id="createDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                    <i class="fas fa-fw fa-plus-circle" style="color: black;"></i>
                     <span>Create</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="createDropdown">
                     <a class="dropdown-item" href="admin/crtmitra">
+                        <i class="fas fa-fw fa-handshake"></i>
+
                         <span>Mitra/Supplier</span>
                     </a>
                     <a class="dropdown-item" href="admin/crtdriver">
+                        <i class="fas fa-fw fa-user"></i>
                         <span>Driver</span>
                     </a>
                     <a class="dropdown-item" href="'admin/crtstasiun">
+                        <i class="fas fa-fw fa-landmark"></i>
                         <span>Stasiun</span>
                     </a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                <a class="nav-link" href="<?= base_url('auth/logout'); ?>" style="color: black;">
+                    <i class="fas fa-fw fa-sign-out-alt" style="color: black;"></i>
                     <span>Logout</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block" style="color: black;">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                <button class="rounded-circle border-0 bg-dark" id="sidebarToggle"></button>
             </div>
 
         </ul>
@@ -170,11 +177,19 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+
 
                     <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
 
                     <!-- Topbar Navbar -->
@@ -182,12 +197,74 @@
 
                         <!-- Nav Item - Messages -->
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1 mr-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw" style="color: blue;"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mr-3 mt-2">
+                            <div class="icon">
+                                <!-- <i class="fas fa-stethoscope"></i> -->
+                                <img src="/img/spairum logo.png" class="logo" style="width: 140px; height:auto" alt="">
+                            </div>
+
+                        </li>
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Fakhry</span>
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x" style="color: aqua;"></i>
+                                    <i class="fa fa-user fa-stack-1x" style="color: white;"></i>
+                                </span>
+
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <!-- <img class="img-profile rounded-circle" src="< ?= base_url('Asset/img/profile/') . $user['image']; ?>"> -->
                             </a>
                             <!-- Dropdown - User Information -->
@@ -196,13 +273,12 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     My Profile
                                 </a>
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
+                            </a>
                         </li>
 
                     </ul>

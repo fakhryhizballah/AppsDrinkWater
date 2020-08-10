@@ -18,13 +18,13 @@ class Admin extends BaseController
         $data = [
             'title' => 'Driver'
         ];
-        return view('admin/driver', $data);
+        return view('admin/admdriver', $data);
     }
 
     public function ptcv()
     {
         $data = [
-            'title' => 'PT/CV'
+            'title' => 'PT / CV'
         ];
         return view('admin/ptcv', $data);
     }
