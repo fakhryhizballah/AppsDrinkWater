@@ -98,6 +98,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
                     <i class="fas fa-fw fa-handshake" style="color: black;"></i>
@@ -116,7 +117,6 @@
                     </div>
                 </div>
             </li>
-
 
             <li class="nav-item">
                 <a class="nav-link" href="/admuser" style="color: black;">
@@ -138,7 +138,6 @@
                 <div class="dropdown-menu" aria-labelledby="createDropdown">
                     <a class="dropdown-item" href="/crtmitra">
                         <i class="fas fa-fw fa-handshake"></i>
-
                         <span>Mitra/Supplier</span>
                     </a>
                     <a class="dropdown-item" href="/crtdriver">

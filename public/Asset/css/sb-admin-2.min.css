@@ -9599,6 +9599,7 @@ a:focus {
   }
   .sidebar .nav-item .nav-link[data-toggle="collapse"].collapsed::after {
     content: "\f105";
+    color: black;
   }
   .sidebar .sidebar-brand .sidebar-brand-icon i {
     font-size: 2rem;
@@ -9737,7 +9738,7 @@ a:focus {
   color: #fff;
 }
 .sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
-  color: rgba(255, 255, 255, 0.5);
+  color: black;
 }
 .sidebar-dark .nav-item.active .nav-link {
   color: #fff;
