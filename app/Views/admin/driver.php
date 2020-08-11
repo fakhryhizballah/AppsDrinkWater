@@ -10,9 +10,12 @@
         <thead>
             <tr style="text-align: center;">
                 <th scope="col">No</th>
+                <th scope="col">ID Akun</th>
+                <th scope="col">Nama</th>
                 <th scope="col">Nama PT / CV</th>
-                <th scope="col">Total Air Galon yang Sudah Diantar</th>
-                <th scope="col">Total Air Galon yang Belum Dibayar</th>
+                <th scope="col">Jumlah Trip</th>
+                <th scope="col">Jumlah Liter</th>
+                <th scope="col">Point</th>
             </tr>
         </thead>
         <tbody style="text-align: center;">
@@ -21,18 +24,27 @@
                 <td>Aqua</td>
                 <td>200 Liter</td>
                 <td>100 Liter</td>
+                <td>200 Liter</td>
+                <td>100 Liter</td>
+                <td>100 Liter</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Pasqua</td>
                 <td>300 Liter</td>
                 <td>200 Liter</td>
+                <td>200 Liter</td>
+                <td>100 Liter</td>
+                <td>100 Liter</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td>Club</td>
                 <td>400 Liter</td>
                 <td>300 Liter</td>
+                <td>200 Liter</td>
+                <td>100 Liter</td>
+                <td>100 Liter</td>
             </tr>
         </tbody>
     </table>

@@ -119,13 +119,13 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/user'); ?>" style="color: black;">
+                <a class="nav-link" href="/admuser" style="color: black;">
                     <i class="fas fa-fw fa-user-tie" style="color: black;"></i>
                     <span>User</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/stasiun'); ?>" style="color: black;">
+                <a class="nav-link" href="/admstasiun" style="color: black;">
                     <i class="fas fa-fw fa-landmark" style="color: black;"></i>
                     <span>Stasiun</span></a>
             </li>
@@ -136,16 +136,16 @@
                     <span>Create</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="createDropdown">
-                    <a class="dropdown-item" href="admin/crtmitra">
+                    <a class="dropdown-item" href="/crtmitra">
                         <i class="fas fa-fw fa-handshake"></i>
 
                         <span>Mitra/Supplier</span>
                     </a>
-                    <a class="dropdown-item" href="admin/crtdriver">
+                    <a class="dropdown-item" href="/crtdriver">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Driver</span>
                     </a>
-                    <a class="dropdown-item" href="'admin/crtstasiun">
+                    <a class="dropdown-item" href="/crtstasiun">
                         <i class="fas fa-fw fa-landmark"></i>
                         <span>Stasiun</span>
                     </a>

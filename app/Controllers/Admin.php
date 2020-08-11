@@ -18,7 +18,7 @@ class Admin extends BaseController
         $data = [
             'title' => 'Driver'
         ];
-        return view('admin/admdriver', $data);
+        return view('admin/driver', $data);
     }
 
     public function ptcv()
@@ -27,5 +27,45 @@ class Admin extends BaseController
             'title' => 'PT / CV'
         ];
         return view('admin/ptcv', $data);
+    }
+
+    public function admuser()
+    {
+        $data = [
+            'title' => 'User'
+        ];
+        return view('admin/user', $data);
+    }
+
+    public function admstasiun()
+    {
+        $data = [
+            'title' => 'Stasiun'
+        ];
+        return view('admin/stasiun', $data);
+    }
+
+    public function crtmitra()
+    {
+        $data = [
+            'title' => 'Create Mitra'
+        ];
+        return view('admin/crt_mitra', $data);
+    }
+
+    public function crtdriver()
+    {
+        $data = [
+            'title' => 'Create Driver'
+        ];
+        return view('admin/crt_driver', $data);
+    }
+
+    public function crtstasiun()
+    {
+        $data = [
+            'title' => 'Create Stasiun'
+        ];
+        return view('admin/crt_stasiun', $data);
     }
 }

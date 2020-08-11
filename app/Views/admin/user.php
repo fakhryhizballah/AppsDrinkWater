@@ -10,9 +10,9 @@
         <thead>
             <tr style="text-align: center;">
                 <th scope="col">No</th>
-                <th scope="col">Nama PT / CV</th>
-                <th scope="col">Total Air Galon yang Sudah Diantar</th>
-                <th scope="col">Total Air Galon yang Belum Dibayar</th>
+                <th scope="col">ID User</th>
+                <th scope="col">Saldo User</th>
+                <th scope="col">Email</th>
             </tr>
         </thead>
         <tbody style="text-align: center;">
