@@ -12,7 +12,7 @@
     <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
-    <link href="Asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="Asset/sendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
@@ -327,34 +327,23 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="Asset/vendor/jquery/jquery.min.js"></script>
-        <script src="Asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="Asset/sendor/jquery/jquery.min.js"></script>
+        <script src="Asset/sendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="Asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="Asset/sendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="Asset/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="Asset/vendor/chart.js/Chart.min.js"></script>
+        <script src="Asset/sendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
         <script src="Asset/js/demo/chart-area-demo.js"></script>
 
         <!-- Untuk AJAX UBAH DATA -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-        <script src="Asset/js/jquery-3.2.1.min.js"></script>
-        <script src="Asset/js/scriptsuratrujukan.js"></script>
-
-        <script src="Asset/js/popper.min.js"></script>
-
-
-        <script src="Asset/js/script.js"></script>
-        <script src="Asset/js/scriptresep.js"></script>
-        <script src="Asset/js/script_obat.js"></script>
-
-        <link rel="stylesheet" href="Asset/plugins/jquery-ui/jquery-ui.css">
 
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
