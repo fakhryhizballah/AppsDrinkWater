@@ -10,7 +10,7 @@
                 </div>
                 <div class="col pl-0 align-self-center">
                     <h5 class="mb-1"><?= $akun['nama']; ?></h5>
-                    <p class="text-mute small"><?= $akun['id_user']; ?></p>
+                    <p class="text-mute small">ID : <?= $akun['id_user']; ?></p>
                 </div>
             </div>
         </div>

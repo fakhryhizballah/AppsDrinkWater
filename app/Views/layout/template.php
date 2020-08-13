@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
+    <meta http-equiv="refresh" content="10">
 </head>
 <title><?= $title; ?></title>
 
