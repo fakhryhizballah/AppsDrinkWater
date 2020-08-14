@@ -2,13 +2,28 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Controller;
+use App\Models\AdminModel;
 
-class Admin extends BaseController
+class Admin extends Controller
 {
+    public function __construct()
+    {
+        $this->AdminModel = new AdminModel();
+    }
     public function index()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
+        //dd($akun);
         $data = [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'akun' => $akun
+
         ];
         return view('admin/index', $data);
     }
