@@ -24,9 +24,12 @@ class UserModel extends Model
 
     public function cek_login($nama)
     {
+
+
         return $this->db->table('user')
-            // ->where(array('nama' => $nama, 'password' => $password))
             ->where(array('nama' => $nama))
+            ->orWhere(array('email' => $nama))
+            ->orWhere(array('telp' => $nama))
             ->get()->getRowArray();
     }
 }

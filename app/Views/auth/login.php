@@ -47,7 +47,7 @@
                     <form class="user" method="POST" action="Auth/login">
                         <div class=" form-group user-form">
                             <img class="icon" src="/img/Vector.png" alt="">
-                            <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" style="padding-left: 50px;" id="username" name="nama" placeholder="username" autofocus value="<?= old('nama'); ?>">
+                            <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" style="padding-left: 50px;" id="username" name="nama" placeholder="Username atau Email atau Nomor Telepon" autofocus value="<?= old('nama'); ?>">
                             <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
 
 

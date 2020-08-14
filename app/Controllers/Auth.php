@@ -75,7 +75,7 @@ class Auth extends BaseController
 			$password = password_verify($pas, ($cek['password']));
 			//dd($password);
 
-			if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
+			if (($cek['password'] == $password)) {
 				//dd($cek);
 				session()->set('nama', $cek['nama']);
 				session()->set('id_user', $cek['id_user']);
