@@ -6,6 +6,7 @@ namespace App\Controllers;
 use App\Models\DriverModel;
 use App\Models\LoginModel;
 use App\Models\UserModel;
+use App\Models\AdminModel;
 // use CodeIgniter\I18n\Time;
 
 
@@ -17,6 +18,7 @@ class Auth extends BaseController
 		$this->DriverModel = new DriverModel();
 		$this->LoginModel = new LoginModel();
 		$this->UserModel = new UserModel();
+		$this->AdminModel = new AdminModel();
 		// $this->Time = new Time('Asia/Jakarta');
 	}
 	public function index()
@@ -100,6 +102,25 @@ class Auth extends BaseController
 				session()->set('nama', $cek['nama']);
 				session()->set('id_driver', $cek['id_driver']);
 				return redirect()->to('/driver');
+			} else {
+				session()->setFlashdata('gagal', 'Username atau Password salah');
+				return redirect()->to('/');
+			}
+		} elseif ($level == '3') {
+			$cek = $this->AdminModel->cek_login($nama);
+			// dd($cek);
+			if (empty($cek)) {
+				session()->setFlashdata('gagal', 'Akun tidak terdaftar');
+				return redirect()->to('/');
+			}
+			$password = password_verify($pas, ($cek['password']));
+			//dd($password);
+
+			if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
+				//dd($cek);
+				session()->set('nama', $cek['nama']);
+				session()->set('id_akun', $cek['id_akun']);
+				return redirect()->to('/admin');
 			} else {
 				session()->setFlashdata('gagal', 'Username atau Password salah');
 				return redirect()->to('/');
