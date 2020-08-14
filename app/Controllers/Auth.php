@@ -362,22 +362,22 @@ class Auth extends BaseController
 	}
 
 	//--------------------------------------------------------------------
-	public function kirimEmail()
-	{
-		helper('text');
-		$token = random_string('numeric', 10);
+	// public function kirimEmail()
+	// {
+	// 	helper('text');
+	// 	$token = random_string('numeric', 10);
 
-		$this->email->setFrom('support@apps.spairum.com', 'Team Support');
-		$this->email->setTo('fakhryhiz@student.untan.ac.id');
-		$this->email->setSubject('Email OTP Verification');
-		$this->email->setMessage("<h1>Hallo </h1><p>Terimakasih telah mendaftar silahkan  melakukan verifikasi pada tautan dibawah :</p>
-		<a href='https://apps.spairum.com/otp/$token' style='display:block;width:115px;height:25px;background:#4e9caf;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold' > Verivikasi</a>
-		<p>Selanjutnya anda dapat melakukan login ke apps.spairum.com sebagai user</p>");
-		$this->email->send();
-		if (!$this->email->send()) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+	// 	$this->email->setFrom('support@apps.spairum.com', 'Team Support');
+	// 	$this->email->setTo('fakhryhiz@student.untan.ac.id');
+	// 	$this->email->setSubject('Email OTP Verification');
+	// 	$this->email->setMessage("<h1>Hallo </h1><p>Terimakasih telah mendaftar silahkan  melakukan verifikasi pada tautan dibawah :</p>
+	// 	<a href='https://apps.spairum.com/otp/$token' style='display:block;width:115px;height:25px;background:#4e9caf;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold' > Verivikasi</a>
+	// 	<p>Selanjutnya anda dapat melakukan login ke apps.spairum.com sebagai user</p>");
+	// 	$this->email->send();
+	// 	if (!$this->email->send()) {
+	// 		return false;
+	// 	} else {
+	// 		return true;
+	// 	}
+	// }
 }
