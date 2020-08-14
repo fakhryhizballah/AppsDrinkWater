@@ -130,26 +130,30 @@
                     <span>Stasiun</span></a>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="createDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse" style="color: black;">
                     <i class="fas fa-fw fa-plus-circle" style="color: black;"></i>
                     <span>Create</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="createDropdown">
-                    <a class="dropdown-item" href="/crtmitra">
-                        <i class="fas fa-fw fa-handshake"></i>
-                        <span>Mitra/Supplier</span>
-                    </a>
-                    <a class="dropdown-item" href="/crtdriver">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>Driver</span>
-                    </a>
-                    <a class="dropdown-item" href="/crtstasiun">
-                        <i class="fas fa-fw fa-landmark"></i>
-                        <span>Stasiun</span>
-                    </a>
+                <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="color: black;">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/crtmitra">
+                            <i class="fas fa-fw fa-handshake"></i>
+                            <span>Mitra/Supplier</span>
+                        </a>
+                        <a class="collapse-item" href="/crtdriver">
+                            <i class="fas fa-fw fa-user"></i>
+                            <span>Driver</span>
+                        </a>
+                        <a class="collapse-item" href="/crtstasiun">
+                            <i class="fas fa-fw fa-landmark"></i>
+                            <span>Stasiun</span>
+                        </a>
+                    </div>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout'); ?>" style="color: black;">
                     <i class="fas fa-fw fa-sign-out-alt" style="color: black;"></i>
