@@ -100,11 +100,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: black;">
                     <i class="fas fa-fw fa-handshake" style="color: black;"></i>
                     <span>Mitra</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="color: black;">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" style="color: black;">
+                    <!-- data-parent="#accordionSidebar" -->
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/admdriver">
                             <i class="fas fa-fw fa-user"></i>
@@ -132,11 +133,12 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse" style="color: black;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse" style="color: black;">
                     <i class="fas fa-fw fa-plus-circle" style="color: black;"></i>
                     <span>Create</span>
                 </a>
-                <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="color: black;">
+                <div id="collapse" class="collapse" aria-labelledby="headingTwo" style="color: black;">
+                    <!-- data-parent="#accordionSidebar" -->
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/crtmitra">
                             <i class="fas fa-fw fa-handshake"></i>
