@@ -28,7 +28,7 @@
                                 <div class="invalid-feedback"><?= $validation->getError('email'); ?></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" placeholder="No Telp" autofocus value="<?= old('telp'); ?>">
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" placeholder="Nomor Telepon" autofocus value="<?= old('telp'); ?>">
                                 <div class="invalid-feedback"><?= $validation->getError('telp'); ?></div>
                             </div>
                             <div class="form-group row">

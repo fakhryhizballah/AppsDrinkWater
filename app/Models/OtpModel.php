@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class OtpModel extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'otp';
     // Uncomment below if you want add primary key
     // protected $primaryKey = 'id';
     protected $useTimestamps    = true;
@@ -17,19 +17,13 @@ class UserModel extends Model
         'email',
         'telp',
         'password',
-        'profil',
-        'debit',
-        'kredit'
+        'link',
     ];
 
-    public function cek_login($nama)
+    public function cek($link)
     {
-
-
-        return $this->db->table('user')
-            ->where(array('nama' => $nama))
-            ->orWhere(array('email' => $nama))
-            ->orWhere(array('telp' => $nama))
+        return $this->db->table('otp')
+            ->where(array('link' => $link))
             ->get()->getRowArray();
     }
 }

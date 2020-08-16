@@ -36,6 +36,7 @@ $routes->get('/', 'Auth::index');
 $routes->get('/regis', 'Auth::regis');
 $routes->post('/save', 'Auth::save');
 $routes->get('/daftar', 'Auth::daftar');
+$routes->get('/otp/(:any)', 'Auth::otp/$1');
 
 $routes->get('/history', 'Driver::history');
 $routes->get('/profil', 'Driver::index');

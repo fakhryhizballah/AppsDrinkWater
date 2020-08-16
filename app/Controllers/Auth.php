@@ -7,6 +7,7 @@ use App\Models\DriverModel;
 use App\Models\LoginModel;
 use App\Models\UserModel;
 use App\Models\AdminModel;
+use App\Models\OtpModel;
 // use CodeIgniter\I18n\Time;
 
 
@@ -19,8 +20,11 @@ class Auth extends BaseController
 		$this->LoginModel = new LoginModel();
 		$this->UserModel = new UserModel();
 		$this->AdminModel = new AdminModel();
+		$this->OtpModel = new OtpModel();
 		// $this->Time = new Time('Asia/Jakarta');
+		$this->email = \Config\Services::email();
 	}
+
 	public function index()
 	{
 		$data = [
@@ -32,6 +36,9 @@ class Auth extends BaseController
 
 		return view('auth/login', $data);
 	}
+
+	//--------------------------------------------------------------------
+
 	public function login()
 	{
 		// dd($this->request->getVar());
@@ -77,7 +84,7 @@ class Auth extends BaseController
 			$password = password_verify($pas, ($cek['password']));
 			//dd($password);
 
-			if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
+			if (($cek['password'] == $password)) {
 				//dd($cek);
 				session()->set('nama', $cek['nama']);
 				session()->set('id_user', $cek['id_user']);
@@ -129,7 +136,7 @@ class Auth extends BaseController
 		dd($level);
 	}
 
-
+	//--------------------------------------------------------------------
 
 	public function logout()
 	{
@@ -158,6 +165,8 @@ class Auth extends BaseController
 		];
 		return view('auth/daftar', $data);
 	}
+
+	//--------------------------------------------------------------------
 
 	public function save()
 	{
@@ -242,18 +251,13 @@ class Auth extends BaseController
 		session()->setFlashdata('flash', 'Registration success.');
 		return redirect()->to('/');
 	}
+
+	//--------------------------------------------------------------------
+
 	public function userSave()
 	{
 		//validasi
 		if (!$this->validate([
-
-			// 'id_user' => [
-			// 	'rules'  => 'required|is_unique[user.id_user]',
-			// 	'errors' => [
-			// 		'required' => 'ID Account wajid di isi',
-			// 		'is_unique' => 'ID Account sudah terdaftar'
-			// 	]
-			// ],
 			'nama' => [
 				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
 				'errors' => [
@@ -306,21 +310,74 @@ class Auth extends BaseController
 		//dd($this->request->getVar());
 		$id = $this->request->getVar('nama');
 		$id_usr = substr(sha1($id), 0, 8);
-		$this->UserModel->save([
+		helper('text');
+		$token = random_string('alnum', 28);
+		$email = $this->request->getVar('email');
+		$user = $this->request->getVar('nama');
+		$this->OtpModel->save([
 			'id_user' => strtoupper($id_usr),
-			'nama' => $this->request->getVar('nama'),
-			'email' => $this->request->getVar('email'),
+			'nama' => $user,
+			'email' => $email,
 			'telp' => $this->request->getVar('telp'),
 			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
+			'link' => $token,
+
+		]);
+		$this->email->setFrom('support@apps.spairum.com', 'noreply-spairum');
+		$this->email->setTo($email);
+		$this->email->setSubject('OTP Verification Akun');
+		$this->email->setMessage("<h1>Hallo $user </h1><p>Terimakasih telah mendaftar silahkan  melakukan verifikasi pada tautan dibawah :</p>
+		<a href='https://apps.spairum.com/otp/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Verivikasi</a>
+		<p>Selanjutnya anda dapat melakukan login ke apps.spairum.com sebagai user</p>");
+		$this->email->send();
+
+		session()->setFlashdata('flash', 'Silakan cek email untuk verifikasi.');
+		return redirect()->to('/');
+	}
+
+	public function otp($link)
+	{
+		$cek = $this->OtpModel->cek($link);
+		if (empty($cek)) {
+			session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
+			return redirect()->to('/');
+		}
+		$this->UserModel->save([
+			'id_user' => $cek['id_user'],
+			'nama' => $cek['nama'],
+			'email' => $cek['email'],
+			'telp' => $cek['telp'],
+			'password' => $cek['password'],
 			'profil' => 'user.png',
 			'debit' => '0',
 			'kredit' => '0',
-
 		]);
-		session()->setFlashdata('flash', 'Registration success.');
+		$this->OtpModel->save([
+			'id' => $cek['id'],
+			'link' => substr(sha1($cek['link']), 0, 10),
+			'status' => 'tercerivikasi',
+		]);
+		session()->setFlashdata('flash', 'Registration success silahkan login.');
 		return redirect()->to('/');
 	}
 
 	//--------------------------------------------------------------------
+	// public function kirimEmail()
+	// {
+	// 	helper('text');
+	// 	$token = random_string('numeric', 10);
 
+	// 	$this->email->setFrom('support@apps.spairum.com', 'Team Support');
+	// 	$this->email->setTo('fakhryhiz@student.untan.ac.id');
+	// 	$this->email->setSubject('Email OTP Verification');
+	// 	$this->email->setMessage("<h1>Hallo </h1><p>Terimakasih telah mendaftar silahkan  melakukan verifikasi pada tautan dibawah :</p>
+	// 	<a href='https://apps.spairum.com/otp/$token' style='display:block;width:115px;height:25px;background:#4e9caf;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold' > Verivikasi</a>
+	// 	<p>Selanjutnya anda dapat melakukan login ke apps.spairum.com sebagai user</p>");
+	// 	$this->email->send();
+	// 	if (!$this->email->send()) {
+	// 		return false;
+	// 	} else {
+	// 		return true;
+	// 	}
+	// }
 }
