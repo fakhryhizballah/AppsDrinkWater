@@ -40,7 +40,7 @@
                     <p>2.24 L<i class="material-icons text-success vm small">arrow_upward</i><br><small class="text-mute">today</small></p>
                 </div> -->
                 <div class="col text-right">
-                    <p><span name="take" id="take"></span> mL<br><small class="text-mute">Take</small></p>
+                    <p><span name="take" id="take"></span>0 mL<br><small class="text-mute">Take</small></p>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="slidecontainer">
-                                <input type="range" min="100" max="1200" value="220" class="slider" id="myRange" name="take">
+                                <input type="range" min="10" max="120" value="22" class="slider" id="myRange" name="take">
                             </div>
                         </div>
                     </div>
@@ -69,5 +69,15 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("take");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
 
     <?= $this->endSection('content'); ?>

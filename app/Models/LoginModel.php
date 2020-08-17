@@ -10,7 +10,7 @@ class LoginModel extends Model
     protected $table      = 'driver';
 
     // public function cek_login($nama)
-    public function cek_login($email)
+    public function cek_login($nama)
     {
         return $this->db->table('driver')
             // ->where(array('nama' => $nama, 'password' => $password))

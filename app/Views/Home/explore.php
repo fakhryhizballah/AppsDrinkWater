@@ -40,7 +40,7 @@
                 <p class="card-iden-p1">Status</p>
             </div>
             <div class="col">
-                <p class="card-iden-p2 text-muted"><?= $s['indikator']; ?></p>
+                <p class="card-iden-p2 text-muted"><?= $s['status']; ?></p>
             </div>
         </div>
         <div class="row">

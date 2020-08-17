@@ -139,15 +139,7 @@
         <script src="Mandor/cookie/jquery.cookie.js"></script>
 
 
-        <script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("take");
-            output.innerHTML = slider.value;
 
-            slider.oninput = function() {
-                output.innerHTML = this.value;
-            }
-        </script>
 
         <!-- template custom js -->
         <script src="js/main.js"></script>
