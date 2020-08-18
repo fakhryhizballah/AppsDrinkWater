@@ -24,7 +24,7 @@
                 <p class="card-iden-p1">Isi Air dalam Stasiun</p>
             </div>
             <div class="col">
-                <p class="card-iden-p2"><?= $s['isi']; ?> L</p>
+                <p class="card-iden-p2"><?= $s['isi']; ?> mL</p>
             </div>
         </div>
         <div class="row">
@@ -40,7 +40,17 @@
                 <p class="card-iden-p1">Status</p>
             </div>
             <div class="col">
-                <p class="card-iden-p2 text-muted"><?= $s['status']; ?></p>
+
+                <h1 class="card-iden-p2 text-muted">
+                    <?php
+                    if ($s['status'] == '1') {
+                        echo "stanbay";
+                    } elseif ($s['status']  == '2') {
+                        echo "Sedang proses pengisian";
+                    } else {
+                        echo "Off";
+                    }
+                    ?></h1>
             </div>
         </div>
         <div class="row">
