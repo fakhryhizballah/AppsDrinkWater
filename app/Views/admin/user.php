@@ -11,31 +11,30 @@
             <tr style="text-align: center;">
                 <th scope="col">No</th>
                 <th scope="col">ID User</th>
-                <th scope="col">Saldo User</th>
+                <th scope="col">Nama</th>
                 <th scope="col">Email</th>
+                <th scope="col">Debit</th>
+                <th scope="col">Kredit</th>
+                <th scope="col">Update at</th>
+
             </tr>
         </thead>
         <tbody style="text-align: center;">
-            <tr>
-                <th scope="row">1</th>
-                <td>Aqua</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pasqua</td>
-                <td>300 Liter</td>
-                <td>200 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Club</td>
-                <td>400 Liter</td>
-                <td>300 Liter</td>
-            </tr>
+            <?php $i = 1; ?>
+            <?php foreach ($user as $u) : ?>
+                <tr>
+                    <th scope="row"><?= $i++; ?></th>
+                    <td><?= $u['id_user']; ?></td>
+                    <td><?= $u['nama']; ?></td>
+                    <td><?= $u['email']; ?></td>
+                    <td><?= $u['debit']; ?></td>
+                    <td><?= $u['kredit']; ?></td>
+                    <td><?= $u['updated_at']; ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
+    <?= $pager->Links('user', 'admin_pagination') ?>
 </div>
 <!-- /.container-fluid -->
 

@@ -4,12 +4,19 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\AdminModel;
+use App\Models\UserModel;
+use App\Models\ExploreModel;
+use App\Models\StasiunModel;
+
 
 class Admin extends Controller
 {
     public function __construct()
     {
         $this->AdminModel = new AdminModel();
+        $this->UserModel = new UserModel();
+        $this->ExploreModel = new ExploreModel();
+        $this->StasiunModel = new StasiunModel();
     }
     public function index()
     {
@@ -46,16 +53,27 @@ class Admin extends Controller
 
     public function admuser()
     {
+        $UserModel = $this->UserModel;
+        $user = $UserModel->paginate(5, 'user');
+
+        // dd($user);
         $data = [
-            'title' => 'User'
+            'title' => 'User',
+            'user' => $user,
+            'pager' => $UserModel->pager,
+
         ];
         return view('admin/user', $data);
     }
 
     public function admstasiun()
     {
+        $stasiun = $this->StasiunModel;
         $data = [
-            'title' => 'Stasiun'
+            'title' => 'Stasiun',
+            'stasiun' => $stasiun->paginate(5, 'stasiun'),
+            'pager' => $stasiun->pager,
+
         ];
         return view('admin/stasiun', $data);
     }
