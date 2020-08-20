@@ -10,30 +10,29 @@
         <thead>
             <tr style="text-align: center;">
                 <th scope="col">No</th>
-                <th scope="col">ID User</th>
-                <th scope="col">Saldo User</th>
-                <th scope="col">Email</th>
+                <th scope="col">ID Mesin</th>
+                <th scope="col">Lokasi</th>
+                <th scope="col">Geo</th>
+                <th scope="col">Status</th>
+                <th scope="col">Isi</th>
+                <th scope="col">Indikator</th>
+
             </tr>
         </thead>
         <tbody style="text-align: center;">
-            <tr>
-                <th scope="row">1</th>
-                <td>Aqua</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pasqua</td>
-                <td>300 Liter</td>
-                <td>200 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Club</td>
-                <td>400 Liter</td>
-                <td>300 Liter</td>
-            </tr>
+            <?php $i = 1; ?>
+            <?php foreach ($stasiun as $st) : ?>
+                <tr>
+                    <th scope="row"><?= $i; ?></th>
+                    <td><?= $st['id_mesin']; ?></td>
+                    <td><?= $st['lokasi']; ?></td>
+                    <td><?= $st['geo']; ?></td>
+                    <td><?= $st['status']; ?></td>
+                    <td><?= $st['isi']; ?></td>
+                    <td><?= $st['indikator']; ?></td>
+                </tr>
+                <?php $i++;  ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

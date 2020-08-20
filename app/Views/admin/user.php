@@ -13,10 +13,15 @@
                 <th scope="col">ID User</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
-                <th scope="col">Debit</th>
-                <th scope="col">Kredit</th>
-                <th scope="col">Update at</th>
+                <<<<<<< HEAD <th scope="col">Debit</th>
+                    <th scope="col">Kredit</th>
+                    <th scope="col">Update at</th>
 
+                    =======
+                    <th scope="col">No Telp</th>
+                    <th scope="col">Jumlah Debit</th>
+                    <th scope="col">Jumlah Kredit</th>
+                    >>>>>>> b4639e18e00ccfff1a527ea8a861159aee54f473
             </tr>
         </thead>
         <tbody style="text-align: center;">

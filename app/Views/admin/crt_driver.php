@@ -23,7 +23,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="telp" name="telp" placeholder="No Telp" autofocus value="<?= old('telp'); ?>">
+                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email" value="<?= old('email'); ?>">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-group user-form">
@@ -34,7 +34,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email" value="<?= old('email'); ?>">
+                                <input type="text" class="form-control form-control-user" id="telp" name="telp" placeholder="No Telp" autofocus value="<?= old('telp'); ?>">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-group row">

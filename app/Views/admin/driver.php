@@ -12,40 +12,30 @@
                 <th scope="col">No</th>
                 <th scope="col">ID Akun</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Email</th>
                 <th scope="col">Nama PT / CV</th>
+                <th scope="col">No Telp</th>
                 <th scope="col">Jumlah Trip</th>
                 <th scope="col">Jumlah Liter</th>
                 <th scope="col">Point</th>
             </tr>
         </thead>
         <tbody style="text-align: center;">
-            <tr>
-                <th scope="row">1</th>
-                <td>Aqua</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-                <td>100 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pasqua</td>
-                <td>300 Liter</td>
-                <td>200 Liter</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-                <td>100 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Club</td>
-                <td>400 Liter</td>
-                <td>300 Liter</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-                <td>100 Liter</td>
-            </tr>
+            <?php $i = 1; ?>
+            <?php foreach ($driver as $drv) : ?>
+                <tr>
+                    <th scope="row"><?= $i; ?></th>
+                    <td><?= $drv['id_driver']; ?></td>
+                    <td><?= $drv['nama']; ?></td>
+                    <td><?= $drv['email']; ?></td>
+                    <td><?= $drv['cv']; ?></td>
+                    <td><?= $drv['telp']; ?></td>
+                    <td><?= $drv['Trip']; ?></td>
+                    <td><?= $drv['liter']; ?></td>
+                    <td><?= $drv['poin']; ?></td>
+                </tr>
+                <?php $i++;  ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
