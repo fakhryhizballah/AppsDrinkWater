@@ -10,6 +10,7 @@ class UserModel extends Model
     // Uncomment below if you want add primary key
     // protected $primaryKey = 'id';
     protected $useTimestamps    = true;
+
     protected $allowedFields    =
     [
         'id_user',
@@ -24,8 +25,6 @@ class UserModel extends Model
 
     public function cek_login($nama)
     {
-
-
         return $this->db->table('user')
             ->where(array('nama' => $nama))
             ->orWhere(array('email' => $nama))

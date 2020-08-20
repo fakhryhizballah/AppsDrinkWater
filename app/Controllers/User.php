@@ -105,6 +105,7 @@ class User extends Controller
 
         $sisa = $akun['debit'] - $ambil;
         $kere = $akun['kredit'] + $ambil;
+        $Hambil = $ambil * '10';
         // dd($kere);
 
 
@@ -126,7 +127,7 @@ class User extends Controller
             'Id_slave' => $id,
             'Lokasi' => $mesin['lokasi'],
             'status' => 'Pengambilan Air',
-            'isi' => $ambil,
+            'isi' => $Hambil,
             'updated_at' => Time::now('Asia/Jakarta')
         ]);
 

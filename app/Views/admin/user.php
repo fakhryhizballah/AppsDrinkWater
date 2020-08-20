@@ -13,27 +13,33 @@
                 <th scope="col">ID User</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
-                <th scope="col">No Telp</th>
-                <th scope="col">Jumlah Debit</th>
-                <th scope="col">Jumlah Kredit</th>
+                <<<<<<< HEAD <th scope="col">Debit</th>
+                    <th scope="col">Kredit</th>
+                    <th scope="col">Update at</th>
+
+                    =======
+                    <th scope="col">No Telp</th>
+                    <th scope="col">Jumlah Debit</th>
+                    <th scope="col">Jumlah Kredit</th>
+                    >>>>>>> b4639e18e00ccfff1a527ea8a861159aee54f473
             </tr>
         </thead>
         <tbody style="text-align: center;">
             <?php $i = 1; ?>
-            <?php foreach ($user as $usr) : ?>
+            <?php foreach ($user as $u) : ?>
                 <tr>
-                    <th scope="row"><?= $i; ?></th>
-                    <td><?= $usr['id_user']; ?></td>
-                    <td><?= $usr['nama']; ?></td>
-                    <td><?= $usr['email']; ?></td>
-                    <td><?= $usr['telp']; ?></td>
-                    <td><?= $usr['debit']; ?></td>
-                    <td><?= $usr['kredit']; ?></td>
+                    <th scope="row"><?= $i++; ?></th>
+                    <td><?= $u['id_user']; ?></td>
+                    <td><?= $u['nama']; ?></td>
+                    <td><?= $u['email']; ?></td>
+                    <td><?= $u['debit']; ?></td>
+                    <td><?= $u['kredit']; ?></td>
+                    <td><?= $u['updated_at']; ?></td>
                 </tr>
-                <?php $i++;  ?>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?= $pager->Links('user', 'admin_pagination') ?>
 </div>
 <!-- /.container-fluid -->
 

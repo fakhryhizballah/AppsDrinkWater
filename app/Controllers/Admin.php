@@ -4,10 +4,9 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\AdminModel;
-use App\Models\DriverModel;
 use App\Models\UserModel;
+use App\Models\ExploreModel;
 use App\Models\StasiunModel;
-
 
 
 class Admin extends Controller
@@ -15,8 +14,8 @@ class Admin extends Controller
     public function __construct()
     {
         $this->AdminModel = new AdminModel();
-        $this->DriverModel = new DriverModel();
         $this->UserModel = new UserModel();
+        $this->ExploreModel = new ExploreModel();
         $this->StasiunModel = new StasiunModel();
     }
     public function index()
@@ -73,34 +72,27 @@ class Admin extends Controller
 
     public function admuser()
     {
-        if (session()->get('id_akun') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
-        $akun = $this->AdminModel->cek_login($nama);
-        $user = $this->UserModel->findAll();
+        $UserModel = $this->UserModel;
+        $user = $UserModel->paginate(5, 'user');
+
+        // dd($user);
         $data = [
             'title' => 'User',
-            'akun' => $akun,
-            'user' => $user
+            'user' => $user,
+            'pager' => $UserModel->pager,
+
         ];
         return view('admin/user', $data);
     }
 
     public function admstasiun()
     {
-        if (session()->get('id_akun') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
-        $akun = $this->AdminModel->cek_login($nama);
-        $stasiun = $this->StasiunModel->findAll();
+        $stasiun = $this->StasiunModel;
         $data = [
             'title' => 'Stasiun',
-            'akun' => $akun,
-            'stasiun' => $stasiun
+            'stasiun' => $stasiun->paginate(5, 'stasiun'),
+            'pager' => $stasiun->pager,
+
         ];
         return view('admin/stasiun', $data);
     }
