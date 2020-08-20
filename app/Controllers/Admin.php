@@ -7,6 +7,7 @@ use App\Models\AdminModel;
 use App\Models\UserModel;
 use App\Models\ExploreModel;
 use App\Models\StasiunModel;
+use App\Models\DriverModel;
 
 
 class Admin extends Controller
@@ -17,6 +18,7 @@ class Admin extends Controller
         $this->UserModel = new UserModel();
         $this->ExploreModel = new ExploreModel();
         $this->StasiunModel = new StasiunModel();
+        $this->DriverModel = new DriverModel();
     }
     public function index()
     {
