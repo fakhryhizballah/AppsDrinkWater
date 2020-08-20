@@ -81,7 +81,7 @@ class Admin extends Controller
         $nama = session()->get('nama');
         $akun = $this->AdminModel->cek_login($nama);
         $UserModel = $this->UserModel;
-        $user = $UserModel->paginate(5, 'user');
+        $user = $UserModel->findAll();
 
         // dd($user);
         $data = [
@@ -105,9 +105,9 @@ class Admin extends Controller
         $stasiun = $this->StasiunModel;
         $data = [
             'title' => 'Stasiun',
-            // 'stasiun' => $stasiun->paginate(5, 'stasiun'),
-            // 'pager' => $stasiun->pager,
-            'stasiun' => $stasiun,
+            'stasiun' => $stasiun->findAll(),
+            'pager' => $stasiun->pager,
+            // 'stasiun' => $stasiun,
 
             'akun' => $akun
 
