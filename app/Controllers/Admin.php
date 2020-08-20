@@ -72,6 +72,12 @@ class Admin extends Controller
 
     public function admuser()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $UserModel = $this->UserModel;
         $user = $UserModel->paginate(5, 'user');
 
@@ -80,6 +86,7 @@ class Admin extends Controller
             'title' => 'User',
             'user' => $user,
             'pager' => $UserModel->pager,
+            'akun' => $akun
 
         ];
         return view('admin/user', $data);
@@ -87,11 +94,19 @@ class Admin extends Controller
 
     public function admstasiun()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $stasiun = $this->StasiunModel;
         $data = [
             'title' => 'Stasiun',
             'stasiun' => $stasiun->paginate(5, 'stasiun'),
             'pager' => $stasiun->pager,
+            'akun' => $akun
+
 
         ];
         return view('admin/stasiun', $data);
