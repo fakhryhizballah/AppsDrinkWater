@@ -4,12 +4,15 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\AdminModel;
+use App\Models\DriverModel;
+
 
 class Admin extends Controller
 {
     public function __construct()
     {
         $this->AdminModel = new AdminModel();
+        $this->DriverModel = new DriverModel();
     }
     public function index()
     {
@@ -30,8 +33,10 @@ class Admin extends Controller
 
     public function admdriver()
     {
+        $driver = $this->DriverModel->findAll();
         $data = [
-            'title' => 'Driver'
+            'title' => 'Driver',
+            'driver' => $driver
         ];
         return view('admin/driver', $data);
     }
