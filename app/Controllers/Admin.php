@@ -105,8 +105,10 @@ class Admin extends Controller
         $stasiun = $this->StasiunModel;
         $data = [
             'title' => 'Stasiun',
-            'stasiun' => $stasiun->paginate(5, 'stasiun'),
-            'pager' => $stasiun->pager,
+            // 'stasiun' => $stasiun->paginate(5, 'stasiun'),
+            // 'pager' => $stasiun->pager,
+            'stasiun' => $stasiun,
+
             'akun' => $akun
 
 

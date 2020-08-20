@@ -33,7 +33,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <?= $pager->Links('user', 'admin_pagination') ?>
+
 </div>
 <!-- /.container-fluid -->
 
