@@ -269,7 +269,7 @@
                                     <i class="fa fa-user fa-stack-1x" style="color: white;"></i>
                                 </span>
 
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $akun['nama']; ?></span>
                                 <!-- <img class="img-profile rounded-circle" src="< ?= base_url('img/profile/') . $user['image']; ?>"> -->
                             </a>
                             <!-- Dropdown - User Information -->

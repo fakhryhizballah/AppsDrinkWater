@@ -27,20 +27,30 @@ class Admin extends Controller
         }
         $nama = session()->get('nama');
         $akun = $this->AdminModel->cek_login($nama);
+        $tuser = $this->UserModel->findAll();
+        $tstasiun = $this->StasiunModel->findAll();
         //dd($akun);
         $data = [
             'title' => 'Dashboard',
-            'akun' => $akun
-
+            'akun' => $akun,
+            'tuser' => $tuser,
+            'tstasiun' => $tstasiun
         ];
         return view('admin/index', $data);
     }
 
     public function admdriver()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $driver = $this->DriverModel->findAll();
         $data = [
             'title' => 'Driver',
+            'akun' => $akun,
             'driver' => $driver
         ];
         return view('admin/driver', $data);
@@ -48,17 +58,31 @@ class Admin extends Controller
 
     public function ptcv()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $data = [
-            'title' => 'PT / CV'
+            'title' => 'PT / CV',
+            'akun' => $akun
         ];
         return view('admin/ptcv', $data);
     }
 
     public function admuser()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $user = $this->UserModel->findAll();
         $data = [
             'title' => 'User',
+            'akun' => $akun,
             'user' => $user
         ];
         return view('admin/user', $data);
@@ -66,9 +90,16 @@ class Admin extends Controller
 
     public function admstasiun()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $stasiun = $this->StasiunModel->findAll();
         $data = [
             'title' => 'Stasiun',
+            'akun' => $akun,
             'stasiun' => $stasiun
         ];
         return view('admin/stasiun', $data);
@@ -76,24 +107,45 @@ class Admin extends Controller
 
     public function crtmitra()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $data = [
-            'title' => 'Create Mitra'
+            'title' => 'Create Mitra',
+            'akun' => $akun
         ];
         return view('admin/crt_mitra', $data);
     }
 
     public function crtdriver()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $data = [
-            'title' => 'Create Driver'
+            'title' => 'Create Driver',
+            'akun' => $akun
         ];
         return view('admin/crt_driver', $data);
     }
 
     public function crtstasiun()
     {
+        if (session()->get('id_akun') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->AdminModel->cek_login($nama);
         $data = [
-            'title' => 'Create Stasiun'
+            'title' => 'Create Stasiun',
+            'akun' => $akun
         ];
         return view('admin/crt_stasiun', $data);
     }
