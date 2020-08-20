@@ -29,7 +29,7 @@
                     <td><?= $st['geo']; ?></td>
                     <td><?= $st['status']; ?></td>
                     <td><?= $st['isi']; ?></td>
-                    <td><?= $st['Indikator']; ?></td>
+                    <td><?= $st['indikator']; ?></td>
                 </tr>
                 <?php $i++;  ?>
             <?php endforeach; ?>
