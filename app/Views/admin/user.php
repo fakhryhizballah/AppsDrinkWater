@@ -11,29 +11,27 @@
             <tr style="text-align: center;">
                 <th scope="col">No</th>
                 <th scope="col">ID User</th>
-                <th scope="col">Saldo User</th>
+                <th scope="col">Nama</th>
                 <th scope="col">Email</th>
+                <th scope="col">No Telp</th>
+                <th scope="col">Jumlah Debit</th>
+                <th scope="col">Jumlah Kredit</th>
             </tr>
         </thead>
         <tbody style="text-align: center;">
-            <tr>
-                <th scope="row">1</th>
-                <td>Aqua</td>
-                <td>200 Liter</td>
-                <td>100 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pasqua</td>
-                <td>300 Liter</td>
-                <td>200 Liter</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Club</td>
-                <td>400 Liter</td>
-                <td>300 Liter</td>
-            </tr>
+            <?php $i = 1; ?>
+            <?php foreach ($user as $usr) : ?>
+                <tr>
+                    <th scope="row"><?= $i; ?></th>
+                    <td><?= $usr['id_user']; ?></td>
+                    <td><?= $usr['nama']; ?></td>
+                    <td><?= $usr['email']; ?></td>
+                    <td><?= $usr['telp']; ?></td>
+                    <td><?= $usr['debit']; ?></td>
+                    <td><?= $usr['kredit']; ?></td>
+                </tr>
+                <?php $i++;  ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
