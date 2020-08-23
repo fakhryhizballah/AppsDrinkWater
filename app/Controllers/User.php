@@ -138,8 +138,10 @@ class User extends Controller
 
     public function stasiun()
     {
+        $stasiun = $this->StasiunModel->findAll();
         $data = [
             'title' => 'Home | Spairum.com',
+            'stasiun' => $stasiun
         ];
         return   view('user/stasiun', $data);
     }
