@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Manifes -->
+    <link rel="manifest" href="Manifes/manifes.json">
+    <meta name="theme-color" content="#2196f3">
+    <!-- <link rel="manifest" href="https://goo.gl/aESk5L"> -->
 
 </head>
 <title><?= $title; ?></title>
