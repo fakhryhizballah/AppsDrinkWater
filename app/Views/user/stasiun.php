@@ -43,6 +43,37 @@
             margin: 0;
             padding: 0;
         }
+
+        #tabel_markers {
+            position: fixed;
+            top: 50%;
+            left: 2%;
+            overflow-y: auto;
+            max-height: 300px;
+            max-width: 500px;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            background-color: #f2f2f2;
+            font-size: 9pt
+        }
+
+        #tabel_markers td,
+        #tabel_markers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #tabel_markers tr:hover {
+            background-color: #ddd;
+        }
+
+        #tabel_markers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+        }
     </style>
 </head>
 
@@ -51,6 +82,34 @@
     <div class="map"></div>
 
     <div id="map"></div>
+
+    <div id="tabel_markers">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <th colspan="6">
+                Data
+            </th>
+            <tr>
+                <td>No.</td>
+                <td>ID Stasiun</td>
+                <td>Lokasi</td>
+                <td>Koordinat</td>
+                <td>Status</td>
+            </tr>
+            <!--Mengambil data markers-->
+            <tr>
+                <?php $i = 1; ?>
+                <?php foreach ($stasiun as $row) : ?>
+                    <td><?= $i; ?></td>
+                    <td><?= $row["id_mesin"]; ?></td>
+                    <td><?= $row["lokasi"]; ?></td>
+                    <td><?= $row["geo"]; ?></td>
+                    <td><?= $row["status"]; ?></td>
+
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+        </table>
+    </div>
 
     <script>
         // Note: This example requires that you consent to location sharing when
