@@ -1,0 +1,17 @@
+{
+    "name": "Spairum",
+    "short_name": "Spairum",
+    "theme_color": "#2196f3",
+    "background_color": "#ffffff",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/index",
+    "icons": [{
+        "src": "img/logo.png",
+        "sizes": "402x402",
+        "type": "image/png",
+        "purpose": "any maskable"
+
+    }]
+}
