@@ -150,6 +150,8 @@ class User extends Controller
             return redirect()->to('/');
         }
         $keyword = session()->get('id_user');
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
 
         // $data = $this->HistoryModel->search($keyword);
         $history = $this->HistoryModel->search($keyword);
@@ -159,7 +161,8 @@ class User extends Controller
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
-            'history' => $history
+            'history' => $history,
+            'akun' => $akun
 
         ];
         return   view('user/riwayat', $data);
