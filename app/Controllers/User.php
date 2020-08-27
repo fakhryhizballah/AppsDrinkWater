@@ -143,7 +143,7 @@ class User extends Controller
             'title' => 'Home | Spairum.com',
             'stasiun' => $stasiun
         ];
-        return   view('user/stasiun', $data);
+        return view('user/stasiun', $data);
     }
     public function riwayat()
     {
