@@ -14,13 +14,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="Mandor/bootstrap-4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="Mandor/bootstrap-4.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Swiper CSS -->
     <link href="Mandor/swiper/css/swiper.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/home_style.css" rel="stylesheet">
+
 
     <!-- my style.css -->
     <link rel="stylesheet" href="css/style.css">
@@ -30,6 +30,9 @@
     <link rel="manifest" href="Manifes/manifes.json">
     <meta name="theme-color" content="#2196f3">
     <!-- <link rel="manifest" href="https://goo.gl/aESk5L"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="css/home_style.css" rel="stylesheet">
 
 </head>
 <title><?= $title; ?></title>
@@ -82,9 +85,10 @@
             </div>
         </div>
         <!-- header ends -->
+        <div style="margin-top: 10px;">
 
-
-        <?= $this->renderSection('content'); ?>
+            <?= $this->renderSection('content'); ?>
+        </div>
 
         <!-- footer-->
         <div class="foother">
@@ -106,9 +110,9 @@
                                 </a>
                             </li>
                             <li class="nav-item col-3">
-                                <a href="#">
+                                <a href="/topup">
                                     <img src="/img/wallet.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="#">Top Up</a>
+                                    <a class="nav-link fontNav" href="/topup">Top Up</a>
                                 </a>
                             </li>
                             <li class="nav-item col-3">
@@ -153,6 +157,13 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="js/script.js"></script>
+
+        <!-- page level script -->
+        <script>
+            $(window).on('load', function() {
+
+            });
+        </script>
 
 
 </body>
