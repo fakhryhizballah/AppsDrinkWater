@@ -92,7 +92,8 @@
                 <td>No.</td>
                 <td>ID Stasiun</td>
                 <td>Lokasi</td>
-                <td>Koordinat</td>
+                <td>Lat</td>
+                <td>Lng</td>
                 <td>Status</td>
             </tr>
             <!--Mengambil data markers-->
@@ -100,9 +101,10 @@
                 <?php $i = 1; ?>
                 <?php foreach ($stasiun as $row) : ?>
                     <td><?= $i; ?></td>
-                    <td><?= $row["id_mesin"]; ?></td>
+                    <td><?= $row["id_stasiun"]; ?></td>
                     <td><?= $row["lokasi"]; ?></td>
-                    <td><?= $row["geo"]; ?></td>
+                    <td><?= $row["lat"]; ?></td>
+                    <td><?= $row["lng"]; ?></td>
                     <td><?= $row["status"]; ?></td>
 
             </tr>
@@ -117,77 +119,91 @@
         // failed.", it means you probably did not give permission for the browser to
         // locate you.
         var map, infoWindow;
+        // <div id="mapid" style="width: 600px; height: 400px;"></div>
+        var mymap = L.map('map').setView([-0.024779, 109.328607], 15);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 
-        function initMap() {
-            // The location of Uluru
-            var uluru = {
-                lat: -0.024779,
-                lng: 109.328607
-            };
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {
-                    zoom: 15,
-                    center: uluru
-                });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: 'Stasiun'
-            });
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
 
-            var contentString = '<div id="content">' +
-                '<div id="siteNotice">' +
-                '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Spairum</h1>' +
-                '<div id="bodyContent">' +
-                '<b>Office Spairum</b>, ' +
-                '<p><a href="https://goo.gl/maps/3cX4HM8YPgz46EoH9">' +
-                'Klik Kunjungi</a> ' +
-                '</p>' +
-                '</div>' +
-                '</div>';
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
+        }).addTo(mymap);
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
+        <?php foreach ($stasiun as $key => $value) { ?>
+            L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['id_stasiun']; ?></b><br /><?= $value['lokasi']; ?>.");
+        <?php } ?>
 
+        // function initMap() {
+        //     // The location of Uluru
+        //     var uluru = {
+        //         lat: -0.024779,
+        //         lng: 109.328607
+        //     };
+        //     // The map, centered at Uluru
+        //     // var map = new google.maps.Map(
+        //     //     document.getElementById('map'), {
+        //     //         zoom: 15,
+        //     //         center: uluru
+        //     //     });
+        //     // The marker, positioned at Uluru
+        //     var marker = new google.maps.Marker({
+        //         position: uluru,
+        //         map: map,
+        //         title: 'Stasiun'
+        //     });
 
-            infoWindow = new google.maps.InfoWindow;
+        //     var contentString = '<div id="content">' +
+        //         '<div id="siteNotice">' +
+        //         '</div>' +
+        //         '<h1 id="firstHeading" class="firstHeading">Spairum</h1>' +
+        //         '<div id="bodyContent">' +
+        //         '<b>Office Spairum</b>, ' +
+        //         '<p><a href="https://goo.gl/maps/3cX4HM8YPgz46EoH9">' +
+        //         'Klik Kunjungi</a> ' +
+        //         '</p>' +
+        //         '</div>' +
+        //         '</div>';
+        //     var infowindow = new google.maps.InfoWindow({
+        //         content: contentString
+        //     });
 
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Lokasi anda');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                }, function() {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        }
+        //     marker.addListener('click', function() {
+        //         infowindow.open(map, marker);
+        //     });
 
 
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
+        //     infoWindow = new google.maps.InfoWindow;
+
+        //     // Try HTML5 geolocation.
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(function(position) {
+        //             var pos = {
+        //                 lat: position.coords.latitude,
+        //                 lng: position.coords.longitude
+        //             };
+
+        //             infoWindow.setPosition(pos);
+        //             infoWindow.setContent('Lokasi anda');
+        //             infoWindow.open(map);
+        //             map.setCenter(pos);
+        //         }, function() {
+        //             handleLocationError(true, infoWindow, map.getCenter());
+        //         });
+        //     } else {
+        //         // Browser doesn't support Geolocation
+        //         handleLocationError(false, infoWindow, map.getCenter());
+        //     }
+        // }
+
+
+        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent(browserHasGeolocation ?
+        //         'Error: The Geolocation service failed.' :
+        //         'Error: Your browser doesn\'t support geolocation.');
+        //     infoWindow.open(map);
+        // }
     </script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjKeVFWsG5gTOd4UegCxqJgKoRam9yJX0&callback=initMap">
     </script>
