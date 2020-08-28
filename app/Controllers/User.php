@@ -169,4 +169,22 @@ class User extends Controller
         ];
         return   view('user/riwayat', $data);
     }
+
+    public function topup()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $data = [
+            'title' => 'Riwayat | Spairum.com',
+            'page' => 'Riwayat',
+            'akun' => $akun
+
+        ];
+        return   view('user/topup', $data);
+    }
 }
