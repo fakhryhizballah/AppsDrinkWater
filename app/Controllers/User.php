@@ -138,10 +138,18 @@ class User extends Controller
 
     public function stasiun()
     {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
         $stasiun = $this->StasiunModel->findAll();
         $data = [
             'title' => 'Home | Spairum.com',
-            'stasiun' => $stasiun
+            'stasiun' => $stasiun,
+            'akun' => $akun
         ];
         return view('user/stasiun', $data);
     }

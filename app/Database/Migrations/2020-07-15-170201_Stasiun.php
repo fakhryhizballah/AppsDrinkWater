@@ -25,11 +25,11 @@ class Stasiun extends Migration
 			],
 			'lat'       => [
 				'type'           => 'VARCHAR',
-				'constraint'     => '225',
+				'constraint'     => '200',
 			],
 			'lng'       => [
 				'type'           => 'VARCHAR',
-				'constraint'     => '225',
+				'constraint'     => '200',
 			],
 			'status'       => [
 				'type'           => 'VARCHAR',
@@ -42,6 +42,14 @@ class Stasiun extends Migration
 			'indikator'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '50',
+			],
+			'ket'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '220',
+			],
+			'link'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '220',
 			],
 			'created_at'       => [
 				'type'           => 'DATETIME',
