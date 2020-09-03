@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 
 class StasiunModel extends Model
 {
-    protected $table            = 'stasiun';
+    protected $table            = 'mesin';
     protected $useTimestamps    = true;
 
     public function getStasiun($id = false)

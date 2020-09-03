@@ -101,7 +101,7 @@
                 <?php $i = 1; ?>
                 <?php foreach ($stasiun as $row) : ?>
                     <td><?= $i; ?></td>
-                    <td><?= $row["id_stasiun"]; ?></td>
+                    <td><?= $row["id_mesin"]; ?></td>
                     <td><?= $row["lokasi"]; ?></td>
                     <td><?= $row["lat"]; ?></td>
                     <td><?= $row["lng"]; ?></td>
@@ -131,7 +131,7 @@
         }).addTo(mymap);
 
         <?php foreach ($stasiun as $key => $value) { ?>
-            L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['id_stasiun']; ?></b><br /><?= $value['lokasi']; ?>.");
+            L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['id_mesin']; ?></b><br /><?= $value['lokasi']; ?>.");
         <?php } ?>
 
         // function initMap() {

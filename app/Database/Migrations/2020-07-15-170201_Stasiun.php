@@ -23,7 +23,11 @@ class Stasiun extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
-			'geo'       => [
+			'lat'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '225',
+			],
+			'lng'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
