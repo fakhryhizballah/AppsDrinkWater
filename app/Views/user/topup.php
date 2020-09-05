@@ -9,13 +9,13 @@
     <p class="text-secondary text-mute text-center mb-4">Experience the best of all the new chat box.</p>
 
     <div class="row">
-        <form>
+        <form class="vocer" method="POST" action="user/vocer">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="form-group float-label ">
-                    <input type="email" class="form-control" required="">
+                    <input type="number" class="form-control" id="vocer" name="vocer" required="">
                     <label class="form-control-label">Masukan kode vocer</label>
                 </div>
-                <button type="button" class="mb-2 btn btn-outline-primary btn-rounded">Top Up</button>
+                <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Top Up</button>
             </div>
         </form>
     </div>
@@ -32,11 +32,16 @@
                     </div>
                 </div>
                 <div class="col">
-                    <h3>Rp 2000 <small class="text-mute text-secondary">Paket Harian</small></h3>
+                    <h3>Rp 2.000 <small class="text-mute text-secondary">Paket Harian</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>1000mL</li>
                     </ul>
-                    <button type="button" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    <form class="vocer" method="POST" action="/snap">
+                        <input type="hidden" class="form-control" id="id" name="id" value="1000mL">
+                        <input type="hidden" class="form-control" id="paket" name="paket" value="Paket Harian">
+                        <input type="hidden" class="form-control" id="harga" name="harga" value="2000">
+                        <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -51,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <h3>Rp 1000 <small class="text-mute text-secondary">Paket Hemat</small></h3>
+                    <h3>Rp 10.000 <small class="text-mute text-secondary">Paket Hemat</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>5200mL</li>
                     </ul>
