@@ -295,9 +295,9 @@
                         </a>
                     </li>
                     <li class="nav-item col-3">
-                        <a href="#">
+                        <a href="/topup">
                             <img src="/img/wallet.svg" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="#">Top Up</a>
+                            <a class="nav-link fontNav" href="/topup">Top Up</a>
                         </a>
                     </li>
                     <li class="nav-item col-3">
