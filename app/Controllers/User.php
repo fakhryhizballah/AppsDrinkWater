@@ -271,8 +271,8 @@ class User extends BaseController
         $enable_payments = array(
             "credit_card", "mandiri_clickpay", "cimb_clicks",
             "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
-            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret",
-            "danamon_online", "akulaku"
+            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
+
         );
 
         // Fill transaction details
