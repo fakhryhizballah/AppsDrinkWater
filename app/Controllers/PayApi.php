@@ -61,11 +61,10 @@ class PayApi extends ResourceController
             $this->TransaksiModel->save([
                 'id_user' => $keyword,
                 'order_id' => $id,
-                'harga' = $harga,
+                'harga' => $harga,
                 'bank' => $bank,
                 'Payment_Code' => $kode,
                 'Merchant_Code' => "G842103672",
-
 
             ]);
         }
