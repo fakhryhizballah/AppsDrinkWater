@@ -21,4 +21,12 @@ class TransaksiModel extends Model
         'User_Id',
         'status',
     ];
+    public function search($keyword)
+    {
+        // $builder = $this->tabel('history');
+        // $builder->like('id_master', $keyword);
+        // return $builder;
+
+        return $this->table('transaksi')->like('id_user', $keyword);
+    }
 }

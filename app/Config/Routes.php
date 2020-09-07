@@ -45,6 +45,7 @@ $routes->get('/explore', 'Driver::explore');
 $routes->get('/user', 'User::index');
 $routes->get('/stasiun', 'User::stasiun');
 $routes->get('/riwayat', 'User::riwayat');
+$routes->get('/payriwayat', 'User::payriwayat');
 $routes->get('/connect', 'User::connect');
 $routes->get('/topup', 'User::topup');
 $routes->post('/snap', 'User::snap');

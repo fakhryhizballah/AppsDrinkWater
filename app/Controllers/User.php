@@ -178,6 +178,28 @@ class User extends BaseController
         ];
         return   view('user/riwayat', $data);
     }
+    public function payriwayat()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $keyword = session()->get('id_user');
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $history = $this->TransferModel->search($keyword);
+        $history = $this->TransferModel->findAll();
+        //d($history);
+        $data = [
+            'title' => 'Riwayat | Spairum.com',
+            'page' => 'Riwayat',
+            'history' => $history,
+            'akun' => $akun
+
+        ];
+        return   view('user/payriwayat', $data);
+    }
 
     public function topup()
     {
@@ -270,6 +292,11 @@ class User extends BaseController
         // Optional, remove this to display all available payment methods
         $enable_payments = array(
             "credit_card", "mandiri_clickpay", "cimb_clicks",
+            "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
+
+        );
+        $enable_payments = array(
             "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
             "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
 

@@ -3,7 +3,7 @@
 
 <!-- page content here -->
 <div class="container">
-    <h6 class="subtitle">History Pengambilan Air <a href="/payriwayat"><br>lihat History pembayaran</a></h6>
+    <h6 class="subtitle">lihat History pembayaran<a href="/payriwayat"><br>History Pengambilan Air</a></h6>
 </div>
 <div class="row">
     <div class="col-12 px-0">
