@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-<div class="view-back">
-    <?= $this->renderSection('MainBack'); ?>
-</div>
+<!-- <div class="view-back"> -->
+<?= $this->renderSection('MainBack'); ?>
+<!-- </div> -->
 <?= $this->endSection('content'); ?>

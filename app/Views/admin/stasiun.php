@@ -12,7 +12,8 @@
                 <th scope="col">No</th>
                 <th scope="col">ID Mesin</th>
                 <th scope="col">Lokasi</th>
-                <th scope="col">Geo</th>
+                <th scope="col">Lat</th>
+                <th scope="col">Lng</th>
                 <th scope="col">Status</th>
                 <th scope="col">Isi</th>
                 <th scope="col">Indikator</th>
@@ -26,7 +27,8 @@
                     <th scope="row"><?= $i; ?></th>
                     <td><?= $st['id_mesin']; ?></td>
                     <td><?= $st['lokasi']; ?></td>
-                    <td><?= $st['geo']; ?></td>
+                    <td><?= $st['lat']; ?></td>
+                    <td><?= $st['lng']; ?></td>
                     <td><?= $st['status']; ?></td>
                     <td><?= $st['isi']; ?></td>
                     <td><?= $st['indikator']; ?></td>
