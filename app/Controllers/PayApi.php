@@ -28,7 +28,8 @@ class Payapi extends ResourceController
     public function index()
     {
         $id = $this->request->getVar('order_id');
-        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
         // Config::$isProduction = true;
@@ -148,7 +149,12 @@ class Payapi extends ResourceController
         if ($harga == 2000) {
             $debit = 1000;
         }
-
+        if ($harga == 10000) {
+            $debit = 5200;
+        }
+        if ($harga == 25000) {
+            $debit = 15000;
+        }
 
 
         if ($type == "bank_transfer") {
@@ -162,7 +168,7 @@ class Payapi extends ResourceController
             ]);
 
             if ($status == "settlement") {
-                $id_user = $edit('id_user');
+                $id_user = $edit['id_user'];
                 $user = $this->UserModel->updateSaldo($id_user);
                 $total = $user['debit'] + $debit;
                 $this->UserModel->save([
@@ -178,13 +184,19 @@ class Payapi extends ResourceController
                     'isi' => $debit,
                     'updated_at' => Time::now('Asia/Jakarta')
                 ]);
+            } else {
+                $response = [
+                    'status' => 200,
+                    'error' => false,
+                    'data' =>   'belum bayar'
+                ];
+                return $this->respond($response, 200);
             }
-
 
             $response = [
                 'status' => 200,
                 'error' => false,
-                'data' =>   $total
+                'data' =>   $type
             ];
             return $this->respond($response, 200);
         }
@@ -198,7 +210,7 @@ class Payapi extends ResourceController
             ]);
 
             if ($status == "settlement") {
-                $id_user = $edit('id_user');
+                $id_user = $edit['id_user'];
                 $user = $this->UserModel->updateSaldo($id_user);
                 $total = $user['debit'] + $debit;
                 $this->UserModel->save([
@@ -214,8 +226,23 @@ class Payapi extends ResourceController
                     'isi' => $debit,
                     'updated_at' => Time::now('Asia/Jakarta')
                 ]);
+            } else {
+                $response = [
+                    'status' => 200,
+                    'error' => false,
+                    'data' =>   'belum bayar'
+                ];
+                return $this->respond($response, 200);
             }
+
+            $response = [
+                'status' => 200,
+                'error' => false,
+                'data' =>   $type
+            ];
+            return $this->respond($response, 200);
         }
+
         if ($type == "cstore") {
             $bank = $notif->store;
             $this->TransaksiModel->save([
@@ -225,7 +252,7 @@ class Payapi extends ResourceController
             ]);
 
             if ($status == "settlement") {
-                $id_user = $edit('id_user');
+                $id_user = $edit['id_user'];
                 $user = $this->UserModel->updateSaldo($id_user);
                 $total = $user['debit'] + $debit;
                 $this->UserModel->save([
@@ -241,7 +268,28 @@ class Payapi extends ResourceController
                     'isi' => $debit,
                     'updated_at' => Time::now('Asia/Jakarta')
                 ]);
+            } else {
+                $response = [
+                    'status' => 200,
+                    'error' => false,
+                    'data' =>   'belum bayar'
+                ];
+                return $this->respond($response, 200);
             }
+
+            $response = [
+                'status' => 200,
+                'error' => false,
+                'data' =>   $type
+            ];
+            return $this->respond($response, 200);
         }
+
+        $response = [
+            'status' => 200,
+            'error' => false,
+            'data' =>   $type
+        ];
+        return $this->respond($response, 200);
     }
 }

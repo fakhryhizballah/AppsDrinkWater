@@ -266,6 +266,18 @@ class Auth extends BaseController
 					'is_unique' => 'Nama Account sudah terdaftar'
 				]
 			],
+			'nama_depan' => [
+				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
+				'errors' => [
+					'required' => '{field} wajid di isi',
+				]
+			],
+			'nama_belakang' => [
+				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
+				'errors' => [
+					'required' => '{field} wajid di isi',
+				]
+			],
 			'email' => [
 				'rules'  => 'required|valid_email|is_unique[user.email]',
 				'errors' => [
@@ -317,6 +329,8 @@ class Auth extends BaseController
 		$this->OtpModel->save([
 			'id_user' => strtoupper($id_usr),
 			'nama' => $user,
+			'nama_depan' => $this->request->getVar('nama_depan'),
+			'nama_belakang' => $this->request->getVar('nama_belakang'),
 			'email' => $email,
 			'telp' => $this->request->getVar('telp'),
 			'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),

@@ -23,6 +23,14 @@ class User extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '225',
 			],
+			'nama_depan'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '225',
+			],
+			'nama_belakang'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '225',
+			],
 			'email'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',

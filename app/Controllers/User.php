@@ -166,12 +166,13 @@ class User extends BaseController
         // $data = $this->HistoryModel->search($keyword);
         $history = $this->HistoryModel->search($keyword);
 
-        $history = $this->HistoryModel->findAll();
+        $history = $this->HistoryModel->orderBy('created_at', 'DESC')->findAll();
         // dd($history);
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
-            'history' => $history,
+            'history' => $history->paginate(10),
+            'pager' => $model->pager,
             'akun' => $akun
 
         ];
@@ -188,7 +189,7 @@ class User extends BaseController
         $akun = $this->UserModel->cek_login($nama);
 
         $history = $this->TransaksiModel->search($keyword);
-        $history = $this->TransaksiModel->findAll();
+        $history = $this->TransaksiModel->orderBy('created_at', 'DESC')->findAll();
 
         // dd($history);
         $data = [
@@ -227,10 +228,11 @@ class User extends BaseController
         $keyword = session()->get('id_user');
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
-        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
-        // \Midtrans\Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = true;
 
         // Enable sanitization
         \Midtrans\Config::$isSanitized = true;
@@ -329,54 +331,5 @@ class User extends BaseController
         ];
 
         return   view('user/snap', $data);
-    }
-    public function notification()
-    {
-        // dd($id_order);
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
-        $nama = session()->get('nama');
-        $akun = $this->UserModel->cek_login($nama);
-
-
-        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
-
-        // // Uncomment for production environment
-        // // Config::$isProduction = true;
-
-        // // Enable sanitization
-        // \Midtrans\Config::$isSanitized = true;
-
-        // // Enable 3D-Secure
-        // \Midtrans\Config::$is3ds = true;
-
-        // $notif = new Notification();
-
-        // $transaction = $notif->transaction_status;
-        // $type = $notif->payment_type;
-        // $order_id = $notif->order_id;
-        // $fraud = $notif->fraud_status;
-
-
-        $data = [
-            'title' => 'Riwayat | Spairum.com',
-            'page' => 'Riwayat',
-            'akun' => $akun,
-            // 'snapToken' => $snapToken
-
-
-        ];
-
-
-        return   view('user/notification', $data);
-    }
-
-    public function finish()
-    {
-        $result = json_decode($this->input->post(result - json));
-        dd($result);
     }
 }
