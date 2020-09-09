@@ -192,7 +192,7 @@
         }).addTo(map);
         var ikon = L.divIcon({
             className: 'custom-div-icon',
-            html: "<div style='background-color:blue;' class='marker-pin'></div><img src='/img/deva.jpg' alt='' class='marker-user' style='border-radius: 50px;'>",
+            html: "<div style='background-color:blue;' class='marker-pin'></div><img src='/img/user/<?= $akun["profil"]; ?>' alt='' class='marker-user' style='border-radius: 50px;'>",
             iconUrl: 'img/user/<?= $akun["profil"]; ?>',
             iconSize: [35, 35],
 
@@ -302,11 +302,11 @@
         <div class="mt-4 mb-3">
             <div class="row">
                 <div class="col-auto">
-                    <figure class="avatar avatar-60 border-0"><img src="img/user/user.png" alt=""></figure>
+                    <figure class="avatar avatar-60 border-0"><img src="img/user/<?= $akun["profil"]; ?>" alt=""></figure>
                 </div>
                 <div class="col pl-0 align-self-center">
-                    <h5 class="mb-1">Ammy Jahnson</h5>
-                    <p class="text-mute small">Work, London, UK</p>
+                    <h5 class="mb-1"><?= $akun["nama"]; ?></h5>
+                    <p class="text-mute small"><?= $akun["id_user"]; ?></p>
                 </div>
             </div>
         </div>
