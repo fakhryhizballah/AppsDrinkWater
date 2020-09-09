@@ -115,7 +115,7 @@
                 <td>Lng</td>
                 <td>Status</td>
             </tr>
-            <!--Mengambil data markers-->
+            
     <tr>
         <?php $i = 1; ?>
         <?php foreach ($stasiun as $row) : ?>
@@ -132,187 +132,208 @@
 </table>
 </div> -->
 
-<script>
-    // Note: This example requires that you consent to location sharing when
-    // prompted by your browser. If you see the error "The Geolocation service
-    // failed.", it means you probably did not give permission for the browser to
-    // locate you.
-    var map, infoWindow;
-    // <div id="mapid" style="width: 600px; height: 400px;"></div>
-    var mymap = L.map('map').setView([-0.024779, 109.328607], 15);
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    <script>
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+        var infoWindow;
+        // <div id="mapid" style="width: 600px; height: 400px;"></div>
+        var map = L.map('map').fitWorld();
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11',
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
 
-    }).addTo(mymap);
+        }).addTo(map);
 
-    <?php foreach ($stasiun as $key => $value) { ?>
-        L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['lokasi']; ?></b><br /><?= $value['ket']; ?>. <br><a href='<?= $value['link']; ?> '>Buka Maps</a>");
-    <?php } ?>
+        <?php foreach ($stasiun as $key => $value) { ?>
+            L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(map).bindPopup("<b><?= $value['lokasi']; ?></b><br /><?= $value['ket']; ?>. <br><a href='<?= $value['link']; ?> '>Buka Maps</a>");
+        <?php } ?>
 
-    // function initMap() {
-    //     // The location of Uluru
-    //     var uluru = {
-    //         lat: -0.024779,
-    //         lng: 109.328607
-    //     };
-    //     // The map, centered at Uluru
-    //     // var map = new google.maps.Map(
-    //     //     document.getElementById('map'), {
-    //     //         zoom: 15,
-    //     //         center: uluru
-    //     //     });
-    //     // The marker, positioned at Uluru
-    //     var marker = new google.maps.Marker({
-    //         position: uluru,
-    //         map: map,
-    //         title: 'Stasiun'
-    //     });
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
 
-    //     var contentString = '<div id="content">' +
-    //         '<div id="siteNotice">' +
-    //         '</div>' +
-    //         '<h1 id="firstHeading" class="firstHeading">Spairum</h1>' +
-    //         '<div id="bodyContent">' +
-    //         '<b>Office Spairum</b>, ' +
-    //         '<p><a href="https://goo.gl/maps/3cX4HM8YPgz46EoH9">' +
-    //         'Klik Kunjungi</a> ' +
-    //         '</p>' +
-    //         '</div>' +
-    //         '</div>';
-    //     var infowindow = new google.maps.InfoWindow({
-    //         content: contentString
-    //     });
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
-    //     marker.addListener('click', function() {
-    //         infowindow.open(map, marker);
-    //     });
+            L.circle(e.latlng, radius).addTo(map);
+        }
 
+        function onLocationError(e) {
+            alert(e.message);
+        }
 
-    //     infoWindow = new google.maps.InfoWindow;
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
 
-    //     // Try HTML5 geolocation.
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(function(position) {
-    //             var pos = {
-    //                 lat: position.coords.latitude,
-    //                 lng: position.coords.longitude
-    //             };
+        map.locate({
+            setView: true,
+            maxZoom: 16
+        });
 
-    //             infoWindow.setPosition(pos);
-    //             infoWindow.setContent('Lokasi anda');
-    //             infoWindow.open(map);
-    //             map.setCenter(pos);
-    //         }, function() {
-    //             handleLocationError(true, infoWindow, map.getCenter());
-    //         });
-    //     } else {
-    //         // Browser doesn't support Geolocation
-    //         handleLocationError(false, infoWindow, map.getCenter());
-    //     }
-    // }
+        // function initMap() {
+        //     // The location of Uluru
+        //     var uluru = {
+        //         lat: -0.024779,
+        //         lng: 109.328607
+        //     };
+        //     // The map, centered at Uluru
+        //     // var map = new google.maps.Map(
+        //     //     document.getElementById('map'), {
+        //     //         zoom: 15,
+        //     //         center: uluru
+        //     //     });
+        //     // The marker, positioned at Uluru
+        //     var marker = new google.maps.Marker({
+        //         position: uluru,
+        //         map: map,
+        //         title: 'Stasiun'
+        //     });
+
+        //     var contentString = '<div id="content">' +
+        //         '<div id="siteNotice">' +
+        //         '</div>' +
+        //         '<h1 id="firstHeading" class="firstHeading">Spairum</h1>' +
+        //         '<div id="bodyContent">' +
+        //         '<b>Office Spairum</b>, ' +
+        //         '<p><a href="https://goo.gl/maps/3cX4HM8YPgz46EoH9">' +
+        //         'Klik Kunjungi</a> ' +
+        //         '</p>' +
+        //         '</div>' +
+        //         '</div>';
+        //     var infowindow = new google.maps.InfoWindow({
+        //         content: contentString
+        //     });
+
+        //     marker.addListener('click', function() {
+        //         infowindow.open(map, marker);
+        //     });
 
 
-    // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    //     infoWindow.setPosition(pos);
-    //     infoWindow.setContent(browserHasGeolocation ?
-    //         'Error: The Geolocation service failed.' :
-    //         'Error: Your browser doesn\'t support geolocation.');
-    //     infoWindow.open(map);
-    // }
-</script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjKeVFWsG5gTOd4UegCxqJgKoRam9yJX0&callback=initMap">
-</script>
+        //     infoWindow = new google.maps.InfoWindow;
 
-<div class="sidebar">
-    <div class="mt-4 mb-3">
-        <div class="row">
-            <div class="col-auto">
-                <figure class="avatar avatar-60 border-0"><img src="img/user/user.png" alt=""></figure>
-            </div>
-            <div class="col pl-0 align-self-center">
-                <h5 class="mb-1">Ammy Jahnson</h5>
-                <p class="text-mute small">Work, London, UK</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="list-group main-menu">
-                <a href="/home" class="list-group-item list-group-item-action active"><i class="material-icons icons-raised">home</i>Home</a>
+        //     // Try HTML5 geolocation.
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(function(position) {
+        //             var pos = {
+        //                 lat: position.coords.latitude,
+        //                 lng: position.coords.longitude
+        //             };
 
-                <!-- <a href="notification.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a> -->
-
-                <a href="/user/history" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">find_in_page</i>History</a>
-                <!-- <a href="controls.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">view_quilt<span class="new-notification"></span></i>Pages Controls</a> -->
-                <a href="#" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">important_devices</i>Settings</a>
-                <!-- <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#colorscheme"><i class="material-icons icons-raised">color_lens</i>Color scheme</a> -->
-                <a href="/auth/logout" class="list-group-item list-group-item-action"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- header -->
-<div class="header">
-    <div class="card fixed-top">
-        <div class="row no-gutters">
-            <div class="col-1">
-                <button class="btn  btn-link text-dark menu-btn"><i class="material-icons">menu</i></button>
-            </div>
-            <div class="col text-center"><img src="img/spairum logo.png" alt="" class="header-logo"></div>
-            <div class="col-11">
-                <!-- <a href="notification.html" class="btn  btn-link text-dark position-relative"><i class="material-icons">notifications_none</i><span class="counts">9+</span></a> -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- header ends -->
+        //             infoWindow.setPosition(pos);
+        //             infoWindow.setContent('Lokasi anda');
+        //             infoWindow.open(map);
+        //             map.setCenter(pos);
+        //         }, function() {
+        //             handleLocationError(true, infoWindow, map.getCenter());
+        //         });
+        //     } else {
+        //         // Browser doesn't support Geolocation
+        //         handleLocationError(false, infoWindow, map.getCenter());
+        //     }
+        // }
 
 
+        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent(browserHasGeolocation ?
+        //         'Error: The Geolocation service failed.' :
+        //         'Error: Your browser doesn\'t support geolocation.');
+        //     infoWindow.open(map);
+        // }
+    </script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjKeVFWsG5gTOd4UegCxqJgKoRam9yJX0&callback=initMap">
+    </script>
 
-
-<!-- footer-->
-<div class="foother">
-    <div class="no-gutters">
-        <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
-            <div class="col-12 mx-auto">
-                <div class="row no-gutters justify-content-center">
-
-                    <li class="nav-item col-3">
-                        <a href="/user">
-                            <img src="/img/ui.svg" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="/user">Home</a>
-                        </a>
-                    </li>
-                    <li class="nav-item col-3">
-                        <a href="/stasiun">
-                            <img src="/img/explore.svg" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="/stasiun">Explore</a>
-                        </a>
-                    </li>
-                    <li class="nav-item col-3">
-                        <a href="/topup">
-                            <img src="/img/wallet.svg" alt="" class="buttonNav">
-                            <a class="nav-link fontNav" href="/topup">Top Up</a>
-                        </a>
-                    </li>
-                    <li class="nav-item col-3">
-                        <a href="/riwayat">
-                            <img src="/img/history.svg" alt="" class="buttonNav">
-                            <a class="nav-link fontNav">History</a>
-                        </a>
-                    </li>
+    <div class="sidebar">
+        <div class="mt-4 mb-3">
+            <div class="row">
+                <div class="col-auto">
+                    <figure class="avatar avatar-60 border-0"><img src="img/user/user.png" alt=""></figure>
+                </div>
+                <div class="col pl-0 align-self-center">
+                    <h5 class="mb-1">Ammy Jahnson</h5>
+                    <p class="text-mute small">Work, London, UK</p>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="list-group main-menu">
+                    <a href="/home" class="list-group-item list-group-item-action active"><i class="material-icons icons-raised">home</i>Home</a>
 
+                    <!-- <a href="notification.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a> -->
+
+                    <a href="/user/history" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">find_in_page</i>History</a>
+                    <!-- <a href="controls.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">view_quilt<span class="new-notification"></span></i>Pages Controls</a> -->
+                    <a href="#" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">important_devices</i>Settings</a>
+                    <!-- <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#colorscheme"><i class="material-icons icons-raised">color_lens</i>Color scheme</a> -->
+                    <a href="/auth/logout" class="list-group-item list-group-item-action"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<!-- footer ends-->
+
+    <!-- header -->
+    <div class="header">
+        <div class="card fixed-top">
+            <div class="row no-gutters">
+                <div class="col-1">
+                    <button class="btn  btn-link text-dark menu-btn"><i class="material-icons">menu</i></button>
+                </div>
+                <div class="col text-center"><img src="img/spairum logo.png" alt="" class="header-logo"></div>
+                <div class="col-11">
+                    <!-- <a href="notification.html" class="btn  btn-link text-dark position-relative"><i class="material-icons">notifications_none</i><span class="counts">9+</span></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header ends -->
+
+
+
+
+    <!-- footer-->
+    <div class="foother">
+        <div class="no-gutters">
+            <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
+                <div class="col-12 mx-auto">
+                    <div class="row no-gutters justify-content-center">
+
+                        <li class="nav-item col-3">
+                            <a href="/user">
+                                <img src="/img/ui.svg" alt="" class="buttonNav">
+                                <a class="nav-link fontNav" href="/user">Home</a>
+                            </a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a href="/stasiun">
+                                <img src="/img/explore.svg" alt="" class="buttonNav">
+                                <a class="nav-link fontNav" href="/stasiun">Explore</a>
+                            </a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a href="/topup">
+                                <img src="/img/wallet.svg" alt="" class="buttonNav">
+                                <a class="nav-link fontNav" href="/topup">Top Up</a>
+                            </a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a href="/riwayat">
+                                <img src="/img/history.svg" alt="" class="buttonNav">
+                                <a class="nav-link fontNav">History</a>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <!-- footer ends-->
 
 
 
@@ -320,21 +341,21 @@
 
 
 
-<!-- jquery, popper and bootstrap js -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="Mandor/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <!-- jquery, popper and bootstrap js -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="Mandor/bootstrap-4.4.1/js/bootstrap.min.js"></script>
 
-<!-- swiper js -->
-<script src="Mandor/swiper/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="Mandor/swiper/js/swiper.min.js"></script>
 
-<!-- cookie js -->
-<script src="Mandor/cookie/jquery.cookie.js"></script>
+    <!-- cookie js -->
+    <script src="Mandor/cookie/jquery.cookie.js"></script>
 
-<!-- template custom js -->
-<script src="js/main.js"></script>
+    <!-- template custom js -->
+    <script src="js/main.js"></script>
 
-<!-- page level script -->
+    <!-- page level script -->
 
 
 </body>
