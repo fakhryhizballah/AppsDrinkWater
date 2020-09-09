@@ -166,13 +166,15 @@ class User extends BaseController
         // $data = $this->HistoryModel->search($keyword);
         $history = $this->HistoryModel->search($keyword);
 
-        $history = $this->HistoryModel->orderBy('created_at', 'DESC')->findAll();
+        // $history = $this->HistoryModel->orderBy('created_at', 'DESC')->findAll();
+        $history = $this->HistoryModel->orderBy('created_at', 'DESC');
         // dd($history);
+        $pager = \Config\Services::pager();
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
-            'history' => $history->paginate(10),
-            'pager' => $model->pager,
+            'history' => $history->paginate(3, 'riwayat'),
+            'pager' => $history->pager,
             'akun' => $akun
 
         ];

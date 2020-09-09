@@ -3,15 +3,16 @@
     "short_name": "Spairum",
     "theme_color": "#2196f3",
     "background_color": "#ffffff",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
-    "start_url": "/index",
+    "start_url": "/user",
     "icons": [{
-        "src": "img/logo.png",
-        "sizes": "402x402",
-        "type": "image/png",
-        "purpose": "any maskable"
+            "src": "img/logo.png",
+            "sizes": "402x402",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
 
-    }]
+    ]
 }

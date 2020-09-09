@@ -25,12 +25,12 @@
     <div class="card shadow border-0 mb-3">
         <div class="card-body">
             <div class="row h-100">
-                <div class="col-auto pr-0">
+                <!-- <div class="col-auto pr-0">
                     <div class="avatar avatar-60 no-shadow border-0">
                         <div class="overlay gradient-success"></div>
                         <i class="material-icons text-success md-36">person</i>
                     </div>
-                </div>
+                </div> -->
                 <div class="col">
                     <h3>Rp 2.000 <small class="text-mute text-secondary">Paket Harian</small></h3>
                     <ul class="list pl-4 my-3">
@@ -50,12 +50,12 @@
     <div class="card shadow border-0 mb-3">
         <div class="card-body">
             <div class="row h-100">
-                <div class="col-auto pr-0">
+                <!-- <div class="col-auto pr-0">
                     <div class="avatar avatar-60 no-shadow border-0">
                         <div class="overlay gradient-danger"></div>
                         <i class="material-icons text-danger md-36">cloud</i>
                     </div>
-                </div>
+                </div> -->
                 <div class="col">
                     <h3>Rp 10.000 <small class="text-mute text-secondary">Paket Hemat</small></h3>
                     <ul class="list pl-4 my-3">
@@ -74,12 +74,12 @@
     <div class="card shadow border-0 mb-3">
         <div class="card-body">
             <div class="row h-100">
-                <div class="col-auto pr-0">
+                <!-- <div class="col-auto pr-0">
                     <div class="avatar avatar-60 no-shadow border-0">
                         <div class="overlay gradient-info"></div>
                         <i class="material-icons text-info md-36">airplanemode_active</i>
                     </div>
-                </div>
+                </div> -->
                 <div class="col">
                     <h3>Rp 25.000 <small class="text-mute text-secondary">Paket Besar</small></h3>
                     <ul class="list pl-4 my-3">
