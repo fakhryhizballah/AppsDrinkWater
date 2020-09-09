@@ -35,6 +35,7 @@
                     <h3>Rp 2.000 <small class="text-mute text-secondary">Paket Harian</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>1000mL</li>
+                        <li>Tidak tersedia untuk pembayaran bank</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
                         <input type="hidden" class="form-control" id="id" name="id" value="1000mL">
@@ -60,7 +61,12 @@
                     <ul class="list pl-4 my-3">
                         <li>5200mL</li>
                     </ul>
-                    <button type="button" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    <form class="vocer" method="POST" action="/snap">
+                        <input type="hidden" class="form-control" id="id" name="id" value="5200mL">
+                        <input type="hidden" class="form-control" id="paket" name="paket" value="Paket Hemat">
+                        <input type="hidden" class="form-control" id="harga" name="harga" value="10000">
+                        <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -80,7 +86,12 @@
                         <li>15000mL</li>
                         <li>cocok untuk stasiun di kantor</li>
                     </ul>
-                    <button type="button" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    <form class="vocer" method="POST" action="/snap">
+                        <input type="hidden" class="form-control" id="id" name="id" value="15000mL">
+                        <input type="hidden" class="form-control" id="paket" name="paket" value="Paket Besar">
+                        <input type="hidden" class="form-control" id="harga" name="harga" value="25000">
+                        <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
+                    </form>
                 </div>
             </div>
         </div>

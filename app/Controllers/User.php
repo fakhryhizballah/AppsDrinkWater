@@ -9,6 +9,7 @@ use App\Models\HistoryModel;
 use App\Models\UserModel;
 use App\Models\TransferModel;
 use App\Models\StasiunModel;
+use App\Models\TransaksiModel;
 use CodeIgniter\I18n\Time;
 
 class User extends BaseController
@@ -20,6 +21,7 @@ class User extends BaseController
         $this->UserModel = new UserModel();
         $this->TransferModel = new TransferModel();
         $this->StasiunModel = new StasiunModel();
+        $this->TransaksiModel = new TransaksiModel();
     }
 
     public function index()
@@ -50,8 +52,6 @@ class User extends BaseController
         $akun = $this->UserModel->cek_login($nama);
         $take = $this->request->getVar('take');
         $hasil = $akun['debit'] - $take;
-        // dd($hasil);
-
 
         if ($hasil >= "0") {
             // dd($hasil);
@@ -79,7 +79,6 @@ class User extends BaseController
         $data = [
             'title' => 'Pindai | Spairum.com',
         ];
-
 
         return   view('layout/scan_qr', $data);
     }
@@ -167,12 +166,13 @@ class User extends BaseController
         // $data = $this->HistoryModel->search($keyword);
         $history = $this->HistoryModel->search($keyword);
 
-        $history = $this->HistoryModel->findAll();
-        //d($history);
+        $history = $this->HistoryModel->orderBy('created_at', 'DESC')->findAll();
+        // dd($history);
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
-            'history' => $history,
+            'history' => $history->paginate(10),
+            'pager' => $model->pager,
             'akun' => $akun
 
         ];
@@ -188,9 +188,10 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
 
-        $history = $this->TransferModel->search($keyword);
-        $history = $this->TransferModel->findAll();
-        //d($history);
+        $history = $this->TransaksiModel->search($keyword);
+        $history = $this->TransaksiModel->orderBy('created_at', 'DESC')->findAll();
+
+        // dd($history);
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
@@ -227,10 +228,11 @@ class User extends BaseController
         $keyword = session()->get('id_user');
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
-        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
-        // \Midtrans\Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = true;
 
         // Enable sanitization
         \Midtrans\Config::$isSanitized = true;
@@ -290,16 +292,15 @@ class User extends BaseController
             'shipping_address' => $shipping_address
         );
         // Optional, remove this to display all available payment methods
-        $enable_payments = array(
-            "credit_card", "mandiri_clickpay", "cimb_clicks",
-            "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
-            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
+        // $enable_payments = array(
+        //     "credit_card", "mandiri_clickpay", "cimb_clicks",
+        //     "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+        //     "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
 
-        );
+        // );
         $enable_payments = array(
-            "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+            "bri_epay", "echannel", "permata_va",
             "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
-
         );
 
         // Fill transaction details
@@ -330,54 +331,5 @@ class User extends BaseController
         ];
 
         return   view('user/snap', $data);
-    }
-    public function notification()
-    {
-        // dd($id_order);
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
-        $nama = session()->get('nama');
-        $akun = $this->UserModel->cek_login($nama);
-
-
-        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
-
-        // // Uncomment for production environment
-        // // Config::$isProduction = true;
-
-        // // Enable sanitization
-        // \Midtrans\Config::$isSanitized = true;
-
-        // // Enable 3D-Secure
-        // \Midtrans\Config::$is3ds = true;
-
-        // $notif = new Notification();
-
-        // $transaction = $notif->transaction_status;
-        // $type = $notif->payment_type;
-        // $order_id = $notif->order_id;
-        // $fraud = $notif->fraud_status;
-
-
-        $data = [
-            'title' => 'Riwayat | Spairum.com',
-            'page' => 'Riwayat',
-            'akun' => $akun,
-            // 'snapToken' => $snapToken
-
-
-        ];
-
-
-        return   view('user/notification', $data);
-    }
-
-    public function finish()
-    {
-        $result = json_decode($this->input->post(result - json));
-        dd($result);
     }
 }
