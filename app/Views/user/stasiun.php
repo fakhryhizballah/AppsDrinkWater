@@ -56,9 +56,50 @@
         body {
 
             height: 100%;
-
             margin: 0;
             padding: 0;
+        }
+
+        .marker-pin {
+            width: 40px;
+            height: 40px;
+            border-radius: 50% 50% 50% 0;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -15px 0 0 -15px;
+        }
+
+        .marker-user {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -10px 0 0 -10px;
+        }
+
+        /* to draw white circle */
+        /* .marker-pin::after {
+            content: '';
+            width: 24px;
+            height: 24px;
+            margin: 3px 0 0 3px;
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+        } */
+
+        /* to align icon */
+        .custom-div-icon i {
+            position: absolute;
+            width: 22px;
+            font-size: 22px;
+            left: 0;
+            right: 0;
+            margin: 10px auto;
+            text-align: center;
         }
 
         #tabel_markers {
@@ -146,18 +187,27 @@
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
-
+            tileSize: 512,
+            zoomOffset: -1
         }).addTo(map);
+        var ikon = L.divIcon({
+            className: 'custom-div-icon',
+            html: "<div style='background-color:blue;' class='marker-pin'></div><img src='/img/deva.jpg' alt='' class='marker-user' style='border-radius: 50px;'>",
+            iconUrl: 'img/user/<?= $akun["profil"]; ?>',
+            iconSize: [35, 35],
+
+        });
 
         <?php foreach ($stasiun as $key => $value) { ?>
             L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(map).bindPopup("<b><?= $value['lokasi']; ?></b><br /><?= $value['ket']; ?>. <br><a href='<?= $value['link']; ?> '>Buka Maps</a>");
         <?php } ?>
 
         function onLocationFound(e) {
-            var radius = e.accuracy / 2;
 
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+            L.marker(e.latlng, {
+                icon: ikon
+            }).addTo(map);
 
             L.circle(e.latlng, radius).addTo(map);
         }
