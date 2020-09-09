@@ -9,7 +9,8 @@
                     <h5 class="font-weight-normal mb-1">Rp <?php echo $harga; ?> </h5>
                     <p class="text-mute small text-secondary mb-2">Tipe Paket <?php echo $paket; ?></p>
                     <div class="text-mute small text-secondary mb-2" id="result_id"></div>
-                    <!-- <p class="text-mute small text-secondary mb-2"><?php echo $snapToken; ?></p> -->
+                    <p class="text-mute small text-secondary mb-2">Token: <?php echo $snapToken; ?></p>
+                    <p class="text-mute small text-secondary mb-2"><?= $snapToken; ?></p>
 
                 </div>
                 <div class="col-auto pl-0">

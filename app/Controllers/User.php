@@ -9,6 +9,7 @@ use App\Models\HistoryModel;
 use App\Models\UserModel;
 use App\Models\TransferModel;
 use App\Models\StasiunModel;
+use App\Models\TransaksiModel;
 use CodeIgniter\I18n\Time;
 
 class User extends BaseController
@@ -20,6 +21,7 @@ class User extends BaseController
         $this->UserModel = new UserModel();
         $this->TransferModel = new TransferModel();
         $this->StasiunModel = new StasiunModel();
+        $this->TransaksiModel = new TransaksiModel();
     }
 
     public function index()
@@ -50,8 +52,6 @@ class User extends BaseController
         $akun = $this->UserModel->cek_login($nama);
         $take = $this->request->getVar('take');
         $hasil = $akun['debit'] - $take;
-        // dd($hasil);
-
 
         if ($hasil >= "0") {
             // dd($hasil);
@@ -79,7 +79,6 @@ class User extends BaseController
         $data = [
             'title' => 'Pindai | Spairum.com',
         ];
-
 
         return   view('layout/scan_qr', $data);
     }
@@ -168,7 +167,7 @@ class User extends BaseController
         $history = $this->HistoryModel->search($keyword);
 
         $history = $this->HistoryModel->findAll();
-        //d($history);
+        // dd($history);
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
@@ -188,9 +187,10 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
 
-        $history = $this->TransferModel->search($keyword);
-        $history = $this->TransferModel->findAll();
-        //d($history);
+        $history = $this->TransaksiModel->search($keyword);
+        $history = $this->TransaksiModel->findAll();
+
+        // dd($history);
         $data = [
             'title' => 'Riwayat | Spairum.com',
             'page' => 'Riwayat',
@@ -290,16 +290,15 @@ class User extends BaseController
             'shipping_address' => $shipping_address
         );
         // Optional, remove this to display all available payment methods
-        $enable_payments = array(
-            "credit_card", "mandiri_clickpay", "cimb_clicks",
-            "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
-            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
+        // $enable_payments = array(
+        //     "credit_card", "mandiri_clickpay", "cimb_clicks",
+        //     "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+        //     "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
 
-        );
+        // );
         $enable_payments = array(
-            "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+            "bri_epay", "echannel", "permata_va",
             "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret", "Alfamart",
-
         );
 
         // Fill transaction details

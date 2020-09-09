@@ -26,7 +26,13 @@ class TransaksiModel extends Model
         // $builder = $this->tabel('history');
         // $builder->like('id_master', $keyword);
         // return $builder;
-
         return $this->table('transaksi')->like('id_user', $keyword);
+    }
+
+    public function editpay($order_id)
+    {
+        return $this->db->table('transaksi')
+            ->where(array('order_id' => $order_id))
+            ->get()->getRowArray();
     }
 }
