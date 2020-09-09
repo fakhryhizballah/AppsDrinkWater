@@ -8,11 +8,17 @@
     "scope": "/",
     "start_url": "/user",
     "icons": [{
-            "src": "img/logo.png",
-            "sizes": "402x402",
+            "src": "img/logo2.png",
+            "sizes": "574x574",
             "type": "image/png",
             "purpose": "any maskable"
         }
 
-    ]
+    ],
+    "prefer_related_applications": true
+
+    // "related_applications": [{
+    //     "platform": "play",
+    //     "id": "com.google.samples.apps.iosched"
+    // }]
 }

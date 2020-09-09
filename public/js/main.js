@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     /* Browser fullscreen experience on double click */
     if (self == top) {
-        $('body').on('dblclick', function (e) {
+        $('body').on('dblclick', function(e) {
 
             if (!document.fullscreenElement && // alternative standard method
                 !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { // current working methods
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 
     /* float label checking input is not empty */
-    $('.float-label .form-control').on('blur', function () {
+    $('.float-label .form-control').on('blur', function() {
         if ($(this).val() || $(this).val().length != 0) {
             $(this).closest('.float-label').addClass('active');
         } else {
@@ -43,23 +43,23 @@ $(document).ready(function () {
     })
 
     /* menu open close wrapper screen click close menu */
-    $('.menu-btn').on('click', function (e) {
+    $('.menu-btn').on('click', function(e) {
         e.stopPropagation();
         if ($('body').hasClass('sidemenu-open') == true) {
             $('body, html').removeClass('sidemenu-open');
-            setTimeout(function () {
+            setTimeout(function() {
                 $('body, html').removeClass('menuactive');
             }, 500);
         } else {
             $('body, html').addClass('sidemenu-open menuactive');
         }
     });
-    $('.wrapper, .closesidemenu').on('click', function () {
+    $('.wrapper, .closesidemenu').on('click', function() {
 
         if ($('body').hasClass('sidemenu-open') == true) {
 
             $('body, html').removeClass('sidemenu-open');
-            setTimeout(function () {
+            setTimeout(function() {
                 $('body, html').removeClass('menuactive');
             }, 500);
         }
@@ -71,7 +71,7 @@ $(document).ready(function () {
     if ($('body').hasClass('filtermenu-open') == true) {
         $('.filter-btn').find('i').html('close');
     }
-    $('.filter-btn').on('click', function () {
+    $('.filter-btn').on('click', function() {
         if ($('body').hasClass('filtermenu-open') == true) {
             $('body').removeClass('filtermenu-open');
             $(this).find('i').html('filter_list')
@@ -84,7 +84,7 @@ $(document).ready(function () {
 
 
     /* background image to cover */
-    $('.background').each(function () {
+    $('.background').each(function() {
         var imagewrap = $(this);
         var imagecurrent = $(this).find('img').attr('src');
         imagewrap.css('background-image', 'url("' + imagecurrent + '")');
@@ -93,8 +93,8 @@ $(document).ready(function () {
 
 
     /* drag and scroll like mobile remove while creating mobile app */
-    (function ($) {
-        $.dragScroll = function (options) {
+    (function($) {
+        $.dragScroll = function(options) {
             var settings = $.extend({
                 scrollVertical: true,
                 scrollHorizontal: true,
@@ -104,14 +104,14 @@ $(document).ready(function () {
             var clicked = false,
                 clickY, clickX;
 
-            var getCursor = function () {
+            var getCursor = function() {
                 if (settings.cursor) return settings.cursor;
                 if (settings.scrollVertical && settings.scrollHorizontal) return 'url(img/touch.png), move';
                 if (settings.scrollVertical) return 'row-resize';
                 if (settings.scrollHorizontal) return 'col-resize';
             }
 
-            var updateScrollPos = function (e, el) {
+            var updateScrollPos = function(e, el) {
                 $('html').css('cursor', getCursor());
                 var $el = $(el);
                 settings.scrollVertical && $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
@@ -119,15 +119,15 @@ $(document).ready(function () {
             }
 
             $(document).on({
-                'mousemove': function (e) {
+                'mousemove': function(e) {
                     clicked && updateScrollPos(e, this);
                 },
-                'mousedown': function (e) {
+                'mousedown': function(e) {
                     clicked = true;
                     clickY = e.pageY;
                     clickX = e.pageX;
                 },
-                'mouseup': function () {
+                'mouseup': function() {
                     clicked = false;
                     $('html').css('cursor', 'url(img/logo-cursor.png), auto');
                 }
@@ -146,7 +146,7 @@ $(document).ready(function () {
         $('html').removeClass('blue-theme deeppurple-theme orange-theme pink-theme');
         $('html').addClass($.cookie("theme-color"));
     }
-    $('.theme-color .btn').on('click', function () {
+    $('.theme-color .btn').on('click', function() {
         $('html').removeClass('blue-theme');
         $('html').removeClass($.cookie("theme-color"));
         $.cookie("theme-color", $(this).attr('data-theme'), {
@@ -164,7 +164,7 @@ $(document).ready(function () {
         $('#theme-dark').prop('checked', false);
         $('html').addClass($.cookie("theme-color-layout"));
     }
-    $('#theme-dark').on('change', function () {
+    $('#theme-dark').on('change', function() {
         if ($(this).is(':checked') === true) {
             $('html').removeClass('theme-light');
             $('html').removeClass($.cookie("theme-color-layout"));
@@ -192,7 +192,7 @@ $(document).ready(function () {
         $('#theme-rtl').prop('checked', true);
         $('html').addClass($.cookie("rtl-layout"));
     }
-    $('#theme-rtl').on('change', function () {
+    $('#theme-rtl').on('change', function() {
         if ($(this).is(':checked') === true) {
             $.cookie("rtl-layout", 'rtl', {
                 expires: 1
@@ -213,7 +213,7 @@ $(document).ready(function () {
 
 
 
-$(window).on('load', function () {
+$(window).on('load', function() {
     $('.loader-screen').fadeOut('slow');
 
     /* header active on scroll more than 50 px*/
@@ -223,7 +223,7 @@ $(window).on('load', function () {
         $('.header').removeClass('active')
     }
 
-    $(window).on('scroll', function () {
+    $(window).on('scroll', function() {
         /* header active on scroll more than 50 px*/
         if ($(this).scrollTop() >= 30) {
             $('.header').addClass('active')
@@ -238,7 +238,7 @@ $(window).on('load', function () {
 
     /* page load itdetify for page level scripts */
     if ($(".pagethankyou").length) {
-        setTimeout(function () {
+        setTimeout(function() {
             window.location.href = "index.html";
         }, 2000);
     }
@@ -289,13 +289,13 @@ $(window).on('load', function () {
         });
 
         /* notification view and hide */
-        setTimeout(function () {
+        setTimeout(function() {
             $('.notification').addClass('active');
-            setTimeout(function () {
+            setTimeout(function() {
                 $('.notification').removeClass('active');
             }, 3500);
         }, 500);
-        $('.closenotification').on('click', function () {
+        $('.closenotification').on('click', function() {
             $(this).closest('.notification').removeClass('active')
         });
     }
@@ -339,7 +339,19 @@ $(window).on('load', function () {
 
 });
 
-$(window).on('resize', function () {
+$(window).on('resize', function() {
     /* login row */
     $('.login-row').css('min-height', ($(window).height() - 80));
 });
+
+// PWA 
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(function(registration) {
+            console.log('Registration successful, scope is:', registration.scope);
+        })
+        .catch(function(error) {
+            console.log('Service worker registration failed, error:', error);
+        });
+}

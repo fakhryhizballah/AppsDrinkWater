@@ -39,6 +39,12 @@
 
 
 <body>
+
+    <div class="preloader">
+        <div class="loading">
+            <img src="img/2.gif" width="100%">
+        </div>
+    </div>
     <div class="sidebar">
         <div class="mt-4 mb-3">
             <div class="row">
@@ -68,7 +74,7 @@
         </div>
     </div>
     <a href="javascript:void(0)" class="closesidemenu"><i class="material-icons icons-raised bg-dark ">close</i></a>
-    <div class="wrapper homepage">
+    < class="wrapper homepage">
 
         <!-- header -->
         <div class="header">
@@ -85,10 +91,10 @@
             </div>
         </div>
         <!-- header ends -->
-        <div style="margin-top: 10px;">
 
-            <?= $this->renderSection('content'); ?>
-        </div>
+
+        <?= $this->renderSection('content'); ?>
+
 
         <!-- footer-->
         <div class="foother">
@@ -163,6 +169,12 @@
             $(window).on('load', function() {
 
             });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $(".preloader").fadeOut();
+            })
         </script>
 
 
