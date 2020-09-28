@@ -65,6 +65,7 @@
                     <a href="/riwayat" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">find_in_page</i>History</a>
                     <!-- <a href="controls.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">view_quilt<span class="new-notification"></span></i>Pages Controls</a> -->
                     <a href="/editprofile" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">account_circle</i>Edit Profile</a>
+                    <a href="/changepassword" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">vpn_key</i>Change Password</a>
                     <a href="#" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">important_devices</i>Settings</a>
                     <!-- <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#colorscheme"><i class="material-icons icons-raised">color_lens</i>Color scheme</a> -->
                     <a href="/auth/logout" class="list-group-item list-group-item-action"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Logout</a>

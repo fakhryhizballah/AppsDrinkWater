@@ -58,24 +58,6 @@
             </div>
         </div>
 
-        <h6 class="subtitle">Change Password</h6>
-        <div class="form-group float-label">
-            <input type="password" id="inputPassword" class="form-control form-control-lg" required>
-            <label for="inputPassword" class="form-control-label">Current Password</label>
-        </div>
-        <div class="form-group float-label">
-            <input type="password" id="inputPassword1" class="form-control form-control-lg" required>
-            <label for="inputPassword1" class="form-control-label">New Password</label>
-        </div>
-        <div class="form-group float-label">
-            <input type="password" id="inputPassword2" class="form-control form-control-lg" required>
-            <label for="inputPassword2" class="form-control-label">Confirm New Password</label>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
-                <a href="" class="btn btn-lg btn-default btn-block btn-rounded shadow"><span>Update Password</span></a>
-            </div>
-        </div>
         <br>
         <a href="" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span>Submit</span></a>
         <br>

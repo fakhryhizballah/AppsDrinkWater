@@ -351,4 +351,21 @@ class User extends BaseController
 
         return view('user/editprofile', $data);
     }
+
+    public function changepassword()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $data = [
+            'title' => 'Change Password | Spairum.com',
+            'akun' => $akun
+        ];
+
+        return view('user/change_password', $data);
+    }
 }
