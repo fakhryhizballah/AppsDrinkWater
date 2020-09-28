@@ -20,8 +20,6 @@
     <!-- Swiper CSS -->
     <link href="Mandor/swiper/css/swiper.min.css" rel="stylesheet">
 
-
-
     <!-- my style.css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- My font -->
@@ -66,6 +64,7 @@
 
                     <a href="/riwayat" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">find_in_page</i>History</a>
                     <!-- <a href="controls.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">view_quilt<span class="new-notification"></span></i>Pages Controls</a> -->
+                    <a href="/editprofile" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">account_circle</i>Edit Profile</a>
                     <a href="#" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">important_devices</i>Settings</a>
                     <!-- <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#colorscheme"><i class="material-icons icons-raised">color_lens</i>Color scheme</a> -->
                     <a href="/auth/logout" class="list-group-item list-group-item-action"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Logout</a>
@@ -74,7 +73,7 @@
         </div>
     </div>
     <a href="javascript:void(0)" class="closesidemenu"><i class="material-icons icons-raised bg-dark ">close</i></a>
-    < class="wrapper homepage">
+    <div class="wrapper homepage">
 
         <!-- header -->
         <div class="header">

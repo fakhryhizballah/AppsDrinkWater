@@ -39,7 +39,7 @@ class User extends BaseController
 
         ];
 
-        return   view('user/home', $data);
+        return view('user/home', $data);
     }
 
     public function take()
@@ -66,7 +66,7 @@ class User extends BaseController
             'title' => 'Take | Spairum.com',
             'akun' => $akun,
         ];
-        return   view('user/take', $data);
+        return view('user/take', $data);
     }
 
     public function connect()
@@ -178,7 +178,7 @@ class User extends BaseController
             'akun' => $akun
 
         ];
-        return   view('user/riwayat', $data);
+        return view('user/riwayat', $data);
     }
     public function payriwayat()
     {
@@ -201,7 +201,7 @@ class User extends BaseController
             'akun' => $akun
 
         ];
-        return   view('user/payriwayat', $data);
+        return view('user/payriwayat', $data);
     }
 
     public function topup()
@@ -219,7 +219,7 @@ class User extends BaseController
             'akun' => $akun
 
         ];
-        return   view('user/topup', $data);
+        return view('user/topup', $data);
     }
     public function snap()
     {
@@ -332,6 +332,23 @@ class User extends BaseController
 
         ];
 
-        return   view('user/snap', $data);
+        return view('user/snap', $data);
+    }
+
+    public function editprofile()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $data = [
+            'title' => 'Edit Profile | Spairum.com',
+            'akun' => $akun
+        ];
+
+        return view('user/editprofile', $data);
     }
 }

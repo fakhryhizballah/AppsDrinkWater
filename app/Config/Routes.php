@@ -50,6 +50,7 @@ $routes->get('/connect', 'User::connect');
 $routes->get('/topup', 'User::topup');
 $routes->post('/snap', 'User::snap');
 $routes->add('/notification', 'User::notification');
+$routes->get('/editprofile', 'User::editprofile');
 
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admdriver', 'Admin::admdriver');
