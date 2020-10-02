@@ -21,7 +21,7 @@
     }).addTo(mymap);
 
     <?php foreach ($stasiun as $key => $value) { ?>
-        L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['lokasi']; ?></b><br /><?= $value['ket']; ?>. <br><a href='<?= $value['link']; ?> '>Buka Maps</a>");
+        L.marker([<?= $value['lat']; ?>, <?= $value['lng']; ?>]).addTo(mymap).bindPopup("<b><?= $value['lokasi']; ?></b><br /> Isi <?= $value['isi']; ?> mL. <br><a href='<?= $value['link']; ?> '>Buka Maps</a>");
     <?php } ?>
 </script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjKeVFWsG5gTOd4UegCxqJgKoRam9yJX0&callback=initMap">

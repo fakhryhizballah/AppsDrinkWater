@@ -20,7 +20,7 @@
 
                             </div> -->
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Nama" autofocus value="<?= old('nama'); ?>">
+                                <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Username" autofocus value="<?= old('nama'); ?>">
                                 <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
                             </div>
                             <div class="form-group row">

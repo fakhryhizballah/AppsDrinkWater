@@ -102,10 +102,10 @@ class User extends BaseController
             session()->setFlashdata('Pesan', 'itu bukan QR Spairum');
             return redirect()->to('/connect');
         }
-
-        $sisa = $akun['debit'] - $ambil;
-        $kere = $akun['kredit'] + $ambil;
         $Hambil = $ambil * '10';
+        $sisa = $akun['debit'] - $Hambil;
+        $kere = $akun['kredit'] + $Hambil;
+
         // dd($kere);
 
 

@@ -74,7 +74,7 @@
         </div>
     </div>
     <a href="javascript:void(0)" class="closesidemenu"><i class="material-icons icons-raised bg-dark ">close</i></a>
-    < class="wrapper homepage">
+    <div class="wrapper homepage">
 
         <!-- header -->
         <div class="header">
@@ -176,7 +176,7 @@
                 $(".preloader").fadeOut();
             })
         </script>
-
+    </div>
 
 </body>
 

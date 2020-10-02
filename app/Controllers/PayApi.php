@@ -32,7 +32,7 @@ class Payapi extends ResourceController
         \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
-        // Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = true;
 
         // Enable sanitization
         \Midtrans\Config::$isSanitized = true;
@@ -77,7 +77,7 @@ class Payapi extends ResourceController
                 ]);
                 session()->setFlashdata('Pesan', "Silahkan Lakukan Pembayaran di $bank");
                 return redirect()->to('/payriwayat');
-                dd($bank);
+                // dd($bank);
             }
             $bank = $notif->va_numbers[0]->bank;
             $kode = $notif->va_numbers[0]->va_number;
@@ -129,7 +129,7 @@ class Payapi extends ResourceController
         if ($type == "bca_klikpay") {
             $bank = $type;
             // $kode = $notif->payment_code;
-            dd($bank);
+            // dd($bank);
         }
 
         // $fraud = $notif->fraud_status;

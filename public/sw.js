@@ -1,7 +1,13 @@
 var CACHE_NAME = 'my_cace_spairum_v1';
 var urlsToCache = [
     '/',
-    '/img/logo.png'
+    '/img/logo.png',
+    '/img/2.gif',
+    '/css/style.css',
+    '/css/home_style.css',
+    '/css/home_style.css',
+    '/js/main.js',
+    '/js/script.js',
 
 ]
 
