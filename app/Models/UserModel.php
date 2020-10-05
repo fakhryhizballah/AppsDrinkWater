@@ -31,10 +31,31 @@ class UserModel extends Model
             ->orWhere(array('telp' => $nama))
             ->get()->getRowArray();
     }
-    public function  updateSaldo($id_user)
+    public function updateSaldo($id_user)
     {
         return $this->db->table('user')
             ->where(array('id_user' => $id_user))
             ->get()->getRowArray();
+    }
+
+    public function updateprofile($data, $id)
+    {
+        return $this->db->table('user')
+            ->where('id', $id)
+            ->update($data);
+    }
+
+    public function updateemail($data, $id)
+    {
+        return $this->db->table('user')
+            ->where('id', $id)
+            ->update($data);
+    }
+
+    public function updatepassword($data, $id)
+    {
+        return $this->db->table('user')
+            ->where('id', $id)
+            ->update($data);
     }
 }

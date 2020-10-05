@@ -352,6 +352,44 @@ class User extends BaseController
         return view('user/editprofile', $data);
     }
 
+    public function profileupdate()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+        $id = $akun['id'];
+        $data = [
+            'nama_depan' => $this->request->getVar('nama_depan'),
+            'nama_belakang' => $this->request->getVar('nama_belakang'),
+            'nama' => $this->request->getVar('nama'),
+            'telp' => $this->request->getVar('telp')
+
+        ];
+        // $this->UserModel->where('id', $id);
+        $this->UserModel->updateprofile($data, $id);
+        return redirect()->to('/user');
+    }
+
+    public function emailupdate()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+        $id = $akun['id'];
+        $data = [
+            'email' => $this->request->getVar('email2')
+
+        ];
+        $this->UserModel->updateemail($data, $id);
+        return redirect()->to('/user');
+    }
+
     public function changepassword()
     {
         if (session()->get('id_user') == '') {
@@ -367,5 +405,22 @@ class User extends BaseController
         ];
 
         return view('user/change_password', $data);
+    }
+
+    public function passwordupdate()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+        $id = $akun['id'];
+        $data = [
+            'password' => password_hash($this->request->getVar('password3'), PASSWORD_BCRYPT)
+
+        ];
+        $this->UserModel->updatepassword($data, $id);
+        return redirect()->to('/user');
     }
 }
