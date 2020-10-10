@@ -29,7 +29,24 @@ if (flashData) {
         title: flashData,
     })
 }
-
+const flashError = $(".flash-Error").data("flashdata");
+console.log(flashError);
+if (flashError) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: flashError,
+    })
+}
+const flashSuccess = $(".flash-Success").data("flashdata");
+console.log(flashSuccess);
+if (flashSuccess) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: flashSuccess,
+    })
+}
 // Rergis service worker
 
 if ('serviceWorker' in navigator) {

@@ -401,7 +401,8 @@ class User extends BaseController
 
         $data = [
             'title' => 'Change Password | Spairum.com',
-            'akun' => $akun
+            'akun' => $akun,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('user/change_password', $data);
@@ -416,11 +417,43 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
+        $password_old = $this->request->getVar('password_lama');
+        $cek = password_verify($password_old, ($akun['password']));
+        //dd($cek);
+        if (($akun['password'] == $cek)) {
+            if (!$this->validate([
+                'password_baru' => [
+                    'rules'  => 'required|min_length[8]',
+                    'errors' => [
+                        'required' => 'Password Baru wajid di isi',
+                        'min_length[8]' => 'Password Minimal 8 karakter'
+                    ]
+                ],
+                'password_ualangi' => [
+                    'rules'  => 'required|matches[password_baru]',
+                    'errors' => [
+                        'required' => 'password wajid di isi',
+                        'matches' => 'password tidak sama'
+                    ]
+                ]
+
+            ])) {
+                $validation = \config\Services::validation();
+
+                return redirect()->to('/changepassword')->withInput()->with('validation', $validation);
+            }
+        } else {
+            // dd($id);
+            session()->setFlashdata('salah', 'password lama anda salah');
+            return redirect()->to('/changepassword');
+        }
+
         $data = [
-            'password' => password_hash($this->request->getVar('password3'), PASSWORD_BCRYPT)
+            'validation' => \Config\Services::validation()
 
         ];
-        $this->UserModel->updatepassword($data, $id);
+        // $this->UserModel->updatepassword($data, $id);
+        session()->setFlashdata('Berhasil', 'Password anda telah di ubah');
         return redirect()->to('/user');
     }
 }

@@ -2,6 +2,7 @@
 <?= $this->section('content'); ?>
 
 <div class="container">
+    <div class="flash-Success" data-flashdata="<?= session()->getFlashdata('Berhasil'); ?>"></div>
     <div class="card bg-template shadow mt-4 h-190">
         <div class="card-body">
             <div class="row">
