@@ -51,11 +51,4 @@ class UserModel extends Model
             ->where('id', $id)
             ->update($data);
     }
-
-    public function updatepassword($data, $id)
-    {
-        return $this->db->table('user')
-            ->where('id', $id)
-            ->update($data);
-    }
 }

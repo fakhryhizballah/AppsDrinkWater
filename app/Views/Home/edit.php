@@ -28,14 +28,13 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/img/driver/person.png" class="img-thumbnail img-preview mx-auto d-block">
+                        <img src="/img/driver/<?= $akun['profil']; ?>" class="img-thumbnail img-preview mx-auto d-block">
                     </div>
                     <div class="col-md-8">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input <?= ($validation->hasError('profil')) ? 'is-invalid' : ''; ?>" id="profil" name="profil" onchange="previewImg()">
                             <label class="custom-file-label" for="profil">Pilih Gambar</label>
-                            <div class="invalid-feedback"><?= $validation->getError('profil'); ?>
-                            </div>
+                            <div class="invalid-feedback"><?= $validation->getError('profil'); ?></div>
                         </div>
                     </div>
                 </div>

@@ -3,18 +3,42 @@
 
 <div class="wrapper">
     <div class="container">
-        <div class="text-center">
-            <div class="figure-profile shadow my-4">
-                <figure><img src="/img/user/<?= $akun['profil']; ?>" alt=""></figure>
-                <div class="btn btn-dark text-white floating-btn">
-                    <i class="material-icons">camera_alt</i>
-                    <input type="file" class="float-file">
+        <form method="post" action="user/profileupdate" enctype="multipart/form-data">
+
+            <div class="text-center">
+                <div class="form-group">
+                    <div class="figure-profile shadow my-4">
+                        <figure><img class="img-thumbnail img-preview" src="/img/user/<?= $akun['profil']; ?>" alt=""></figure>
+
+                        <div class="btn btn-dark text-white floating-btn custom-file">
+                            <i class="material-icons">camera_alt</i>
+                            <input type="file" class="float-file  <?= ($validation->hasError('profil')) ? 'is-invalid' : ''; ?>" name="profil" id="profil" onchange="previewImg()">
+                            <input type="hidden" name="profilLama" id="profilLama" value="<?= $akun['profil']; ?>">
+                            <div class="invalid-feedback"><?= $validation->getError('profil'); ?></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <!-- <div class="col-md-2">
+                            <img src="/img/driver/<?= $akun['profil']; ?>" class="img-thumbnail img-preview mx-auto d-block">
+                        </div> -->
+                        <div class="col-md-8">
+                            <div class="custom-file">
+                                <!-- <input type="file" class="custom-file-input <?= ($validation->hasError('profil')) ? 'is-invalid' : ''; ?>" id="profil" name="profil" onchange="previewImg()"> -->
+                                <label class="custom-file-label" for="profil">Pilih Gambar</label>
+                                <div class="invalid-feedback"><?= $validation->getError('profil'); ?></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invalid-feedback"></div>
                 </div>
             </div>
-        </div>
 
-        <h6 class="subtitle">Edit Profile</h6>
-        <form method="post" action="user/profileupdate">
+
+            <h6 class="subtitle">Edit Profile</h6>
             <div class="row">
                 <div class="col-12 col-md-6" hidden>
                     <div class="form-group float-label active">
@@ -36,12 +60,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="form-group float-label active">
-                        <input type="text" id="nama" name="nama" class="form-control" required="" value="<?= $akun['nama']; ?>">
-                        <label class="form-control-label">Username</label>
-                    </div>
-                </div>
+
                 <div class="col-12 col-md-6">
                     <div class="form-group float-label active mb-0">
                         <input type="tel" id="telp" name="telp" class="form-control" required="" value="<?= $akun['telp']; ?>">
@@ -70,5 +89,23 @@
         </form>
     </div>
 </div>
+
+<!-- <script>
+    function previewImg() {
+        const profil = document.querySelector('#profil');
+        const imgprofil = document.querySelector('.img-preview');
+        const profilLabel = document.querySelector('.float-file');
+
+        profilLabel.textContent = profil.files[0].name;
+        const fileProfil = new FileReader();
+
+        fileProfil.readAsDataURL(profil.files[0]);
+
+        fileProfil.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+</script> -->
+
 
 <?= $this->endSection('content'); ?>

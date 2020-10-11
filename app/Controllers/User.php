@@ -346,7 +346,8 @@ class User extends BaseController
 
         $data = [
             'title' => 'Edit Profile | Spairum.com',
-            'akun' => $akun
+            'akun' => $akun,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('user/editprofile', $data);
@@ -361,11 +362,48 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
+
+        if (!$this->validate([
+            'profil' => [
+                'rules'  => 'is_image[profil]|mime_in[profil,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'is_image' => 'yang anda pilih bukan Gambar',
+                    'mime_in' => 'format file tidak mendukung'
+                ]
+            ],
+
+        ])) {
+            $validation = \config\Services::validation();
+
+            return redirect()->to('/editprofile')->withInput()->with('validation', $validation);
+        }
+
+        $fileProfil = $this->request->getFile('profil');
+
+        // apakah foto di ganti
+        $fotolama = $this->request->getVar('profilLama');
+
+        if ($fileProfil->getError() == 4) {
+            $potoProfil = $fotolama;
+        } else {
+            // $potoProfil = $fileProfil->getRandomName();
+            // $fileProfil->move('img/user', $potoProfil);
+            $potoProfil = $fileProfil->getName();
+            $fileProfil->move('img/user');
+        }
+        if ($fotolama != 'user.png') {
+            // dd($fotolama);
+            unlink('img/user/' . $akun['profil']);
+        }
+
+
         $data = [
             'nama_depan' => $this->request->getVar('nama_depan'),
             'nama_belakang' => $this->request->getVar('nama_belakang'),
-            'nama' => $this->request->getVar('nama'),
-            'telp' => $this->request->getVar('telp')
+            // 'nama' => $this->request->getVar('nama'),
+            'telp' => $this->request->getVar('telp'),
+            'profil' => $potoProfil
+
 
         ];
         // $this->UserModel->where('id', $id);
@@ -452,7 +490,10 @@ class User extends BaseController
             'validation' => \Config\Services::validation()
 
         ];
-        // $this->UserModel->updatepassword($data, $id);
+        $this->UserModel->save([
+            'id' => $id,
+            'password' => password_hash($this->request->getVar('password_baru'), PASSWORD_BCRYPT),
+        ]);
         session()->setFlashdata('Berhasil', 'Password anda telah di ubah');
         return redirect()->to('/user');
     }

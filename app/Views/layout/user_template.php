@@ -134,8 +134,6 @@
     </div>
     <!-- color chooser menu ends -->
 
-
-
     <a href="javascript:void(0)" class="closesidemenu"><i class="material-icons icons-raised bg-dark ">close</i></a>
     <div class="wrapper homepage">
 
@@ -201,9 +199,6 @@
 
 
 
-
-
-
         <!-- jquery, popper and bootstrap js -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
@@ -226,6 +221,24 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="js/script.js"></script>
+
+
+        <script>
+            function previewImg() {
+                const profil = document.querySelector('#profil');
+                const profilLabel = document.querySelector('.custom-file-label');
+                const imgPreview = document.querySelector('.img-preview');
+
+                profilLabel.textContent = profil.files[0].name;
+                const fileProfil = new FileReader();
+
+                fileProfil.readAsDataURL(profil.files[0]);
+
+                fileProfil.onload = function(e) {
+                    imgPreview.src = e.target.result;
+                }
+            }
+        </script>
 
         <!-- page level script -->
         <script>
