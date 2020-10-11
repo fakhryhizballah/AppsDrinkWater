@@ -52,6 +52,7 @@ $routes->post('/snap', 'User::snap');
 $routes->add('/notification', 'User::notification');
 $routes->get('/editprofile', 'User::editprofile');
 $routes->get('/changepassword', 'User::changepassword');
+$routes->get('/verivikasi/(:any)', 'user::verivikasi/$1');
 
 
 $routes->get('/admin', 'Admin::index');

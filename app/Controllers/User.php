@@ -22,6 +22,7 @@ class User extends BaseController
         $this->TransferModel = new TransferModel();
         $this->StasiunModel = new StasiunModel();
         $this->TransaksiModel = new TransaksiModel();
+        $this->email = \Config\Services::email();
     }
 
     public function index()
@@ -362,6 +363,13 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
+        $telp = $this->request->getVar('telp');
+        $image = \Config\Services::image();
+        if ($akun['telp'] == $telp) {
+            $rules_telp = 'required';
+        } else {
+            $rules_telp = 'required|is_natural|min_length[10]|is_unique[user.telp]';
+        }
 
         if (!$this->validate([
             'profil' => [
@@ -369,6 +377,15 @@ class User extends BaseController
                 'errors' => [
                     'is_image' => 'yang anda pilih bukan Gambar',
                     'mime_in' => 'format file tidak mendukung'
+                ]
+            ],
+            'telp' => [
+                'rules'  =>  $rules_telp,
+                'errors' => [
+                    'required' => 'nomor telpon wajid di isi',
+                    'is_natural' => 'nomor telpon tidak benar',
+                    'min_length' => 'nomor telpon tidak valid',
+                    'is_unique' => 'nomor telp sudah terdaftar'
                 ]
             ],
 
@@ -380,6 +397,9 @@ class User extends BaseController
 
         $fileProfil = $this->request->getFile('profil');
 
+
+        // dd($resize);
+
         // apakah foto di ganti
         $fotolama = $this->request->getVar('profilLama');
 
@@ -390,10 +410,11 @@ class User extends BaseController
             // $fileProfil->move('img/user', $potoProfil);
             $potoProfil = $fileProfil->getName();
             $fileProfil->move('img/user');
-        }
-        if ($fotolama != 'user.png') {
-            // dd($fotolama);
-            unlink('img/user/' . $akun['profil']);
+            $image->withFile("img/user/$potoProfil")->resize(100, 100, false, 'auto')->save("img/user/$potoProfil");
+            if ($fotolama != 'user.png') {
+                // dd($fotolama);
+                unlink('img/user/' . $akun['profil']);
+            }
         }
 
 
@@ -401,13 +422,22 @@ class User extends BaseController
             'nama_depan' => $this->request->getVar('nama_depan'),
             'nama_belakang' => $this->request->getVar('nama_belakang'),
             // 'nama' => $this->request->getVar('nama'),
-            'telp' => $this->request->getVar('telp'),
-            'profil' => $potoProfil
+            // 'telp' => $this->request->getVar('telp'),
+            // 'telp' => $telp,
+            'profil' => $potoProfil,
+            // 'validation' => \Config\Services::validation()
+
 
 
         ];
+        // dd($telp);
         // $this->UserModel->where('id', $id);
         $this->UserModel->updateprofile($data, $id);
+        $this->UserModel->save([
+            'id' => $akun['id'],
+            'telp' => $telp,
+        ]);
+        session()->setFlashdata('Berhasil', 'Profile anda telah di perbahruhi');
         return redirect()->to('/user');
     }
 
@@ -420,13 +450,51 @@ class User extends BaseController
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
-        $data = [
-            'email' => $this->request->getVar('email2')
+        $email = $this->request->getVar('email');
+        $token = random_string('alnum', 28);
 
-        ];
-        $this->UserModel->updateemail($data, $id);
+        $this->OtpModel->save([
+            'id_user' => $akun['id'],
+            'nama' => $akun['nama'],
+            'email' => $email,
+            'link' => $token,
+            'status' => 'Ganti Email',
+
+        ]);
+
+        $this->email->setFrom('support@apps.spairum.com', 'noreply-spairum');
+        $this->email->setTo($email);
+        $this->email->setSubject('OTP Verification Akun');
+        $this->email->setMessage("<h1>Hallo $nama </h1><p>Ada baru saja menganti Email melakukan verifikasi pada tautan dibawah :</p>
+		<a href='https://apps.spairum.com/verivikasi/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Verivikasi</a>
+		<p>Untuk menganti alamat email baru anda</p>);
+		<p>Salam Hormat Kami Tim Support Spairum</p>");
+        $this->email->send();
+
+        session()->setFlashdata('Berhasil', "Email $akun['nama'] akan diganti setelah anda memverivikasi email anda. cek di kotak masuk atau di spam");
         return redirect()->to('/user');
     }
+
+    public function verivikasi($link)
+	{
+		$cek = $this->OtpModel->cek($link);
+		if (empty($cek)) {
+			session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
+			return redirect()->to('/');
+		}
+		$this->UserModel->save([
+			'id' => $cek['id_user'],
+			'email' => $cek['email'],
+			
+		]);
+		$this->OtpModel->save([
+			'id' => $cek['id'],
+			'link' => substr(sha1($cek['link']), 0, 10),
+			'status' => 'email telah di perbahrui',
+		]);
+		session()->setFlashdata('flash', "Email $cek['nama'] telah di perbarui, silahkan login.");
+		return redirect()->to('/');
+	}
 
     public function changepassword()
     {

@@ -63,8 +63,9 @@
 
                 <div class="col-12 col-md-6">
                     <div class="form-group float-label active mb-0">
-                        <input type="tel" id="telp" name="telp" class="form-control" required="" value="<?= $akun['telp']; ?>">
+                        <input type="text" id="telp" name="telp" class="form-control <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" value="<?= $akun['telp']; ?>">
                         <label class="form-control-label">Nomor Telp</label>
+                        <div class="invalid-feedback"><?= $validation->getError('telp'); ?></div>
                     </div>
                 </div>
             </div>
@@ -74,15 +75,15 @@
             <br>
         </form>
 
-        <h6 class="subtitle">Change Email</h6>
+        <h6 class="subtitle">Ganti Email</h6>
         <form method="post" action="user/emailupdate">
             <div class="form-group float-label active">
-                <input type="email" id="email1" name="email1" class="form-control form-control-lg" value="<?= $akun['email']; ?>" required>
-                <label class="form-control-label">Current Email</label>
+                <input type="email" id="email1" name="email1" class="form-control form-control-lg" value="<?= $akun['email']; ?>" disabled>
+                <label class="form-control-label">Email Lama</label>
             </div>
             <div class="form-group float-label">
-                <input type="email" id="email2" name="email2" class="form-control form-control-lg" required>
-                <label class="form-control-label">New Email</label>
+                <input type="email" id="email" name="email" class="form-control form-control-lg" required>
+                <label class="form-control-label">Email Baru</label>
             </div>
 
             <button type="submit" class="btn btn-lg btn-default btn-block btn-rounded shadow"><span>Update Email</span></button>

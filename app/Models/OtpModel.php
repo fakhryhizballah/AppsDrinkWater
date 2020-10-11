@@ -18,6 +18,7 @@ class OtpModel extends Model
         'telp',
         'password',
         'link',
+        'status'
     ];
 
     public function cek($link)
