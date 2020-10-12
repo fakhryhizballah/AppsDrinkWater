@@ -3,6 +3,7 @@
 
 <div class="wrapper">
     <div class="container">
+        <div class="flash-Error" data-flashdata="<?= session()->getFlashdata('salah'); ?>"></div>
         <form method="post" action="user/profileupdate" enctype="multipart/form-data">
 
             <div class="text-center">
@@ -63,7 +64,7 @@
 
                 <div class="col-12 col-md-6">
                     <div class="form-group float-label active mb-0">
-                        <input type="text" id="telp" name="telp" class="form-control <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" value="<?= $akun['telp']; ?>">
+                        <input type="text" id="telp" name="telp" class="form-control form-control-user <?= ($validation->hasError('telp')) ? 'is-invalid' : ''; ?>" id="telp" name="telp" placeholder="" value="<?= $akun['telp']; ?>">
                         <label class="form-control-label">Nomor Telp</label>
                         <div class="invalid-feedback"><?= $validation->getError('telp'); ?></div>
                     </div>
@@ -81,9 +82,14 @@
                 <input type="email" id="email1" name="email1" class="form-control form-control-lg" value="<?= $akun['email']; ?>" disabled>
                 <label class="form-control-label">Email Lama</label>
             </div>
-            <div class="form-group float-label">
+            <!-- <div class="form-group float-label">
                 <input type="email" id="email" name="email" class="form-control form-control-lg" required>
                 <label class="form-control-label">Email Baru</label>
+            </div> -->
+            <div class="form-group float-label">
+                <input type="text" class="form-control form-control-user <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" placeholder="" value="">
+                <label class="form-control-label">Email Baru</label>
+                <div class="invalid-feedback"><?= $validation->getError('email'); ?></div>
             </div>
 
             <button type="submit" class="btn btn-lg btn-default btn-block btn-rounded shadow"><span>Update Email</span></button>

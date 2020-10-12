@@ -11,6 +11,7 @@ use App\Models\TransferModel;
 use App\Models\StasiunModel;
 use App\Models\TransaksiModel;
 use CodeIgniter\I18n\Time;
+use App\Models\OtpModel;
 
 class User extends BaseController
 {
@@ -23,6 +24,7 @@ class User extends BaseController
         $this->StasiunModel = new StasiunModel();
         $this->TransaksiModel = new TransaksiModel();
         $this->email = \Config\Services::email();
+        $this->OtpModel = new OtpModel();
     }
 
     public function index()
@@ -277,7 +279,7 @@ class User extends BaseController
         // Optional
         $shipping_address = array(
             'first_name'    => $akun['nama'],
-            'last_name'     => " ",
+            'last_name'     => $akun['nama_belakang'],
             'address'       => "",
             'city'          => "",
             'postal_code'   => "",
@@ -287,8 +289,8 @@ class User extends BaseController
 
         // Optional
         $customer_details = array(
-            'first_name'    => $akun['nama'],
-            'last_name'     => '',
+            'first_name'    => $akun['nama_depan'],
+            'last_name'     => $akun['nama_belakang'],
             'email'         => $akun['email'],
             'phone'         => $akun['telp'],
             'billing_address'  => $billing_address,
@@ -392,6 +394,8 @@ class User extends BaseController
         ])) {
             $validation = \config\Services::validation();
 
+            session()->setFlashdata('salah', 'Nomor telpon tidak bisa digunakan');
+
             return redirect()->to('/editprofile')->withInput()->with('validation', $validation);
         }
 
@@ -410,7 +414,7 @@ class User extends BaseController
             // $fileProfil->move('img/user', $potoProfil);
             $potoProfil = $fileProfil->getName();
             $fileProfil->move('img/user');
-            $image->withFile("img/user/$potoProfil")->resize(100, 100, false, 'auto')->save("img/user/$potoProfil");
+            $image->withFile("img/user/$potoProfil")->resize(300, 300, false, 'auto')->save("img/user/$potoProfil");
             if ($fotolama != 'user.png') {
                 // dd($fotolama);
                 unlink('img/user/' . $akun['profil']);
@@ -449,8 +453,22 @@ class User extends BaseController
         }
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
-        $id = $akun['id'];
+        if (!$this->validate([
+            'email' => [
+                'rules'  => 'required|valid_email|is_unique[user.email]',
+                'errors' => [
+                    'required' => '{field} wajid di isi',
+                    'valid_email' => 'alamat email tidak benar',
+                    'is_unique' => '{field} sudah terdaftar'
+                ]
+            ],
+        ])) {
+            $validation = \config\Services::validation();
+
+            return redirect()->to('/editprofile')->withInput()->with('validation', $validation);
+        }
         $email = $this->request->getVar('email');
+        helper('text');
         $token = random_string('alnum', 28);
 
         $this->OtpModel->save([
@@ -466,35 +484,35 @@ class User extends BaseController
         $this->email->setTo($email);
         $this->email->setSubject('OTP Verification Akun');
         $this->email->setMessage("<h1>Hallo $nama </h1><p>Ada baru saja menganti Email melakukan verifikasi pada tautan dibawah :</p>
-		<a href='https://apps.spairum.com/verivikasi/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Verivikasi</a>
+		<a href='https://apps.spairum.com/verifikasi/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> verifikasi</a>
 		<p>Untuk menganti alamat email baru anda</p>);
 		<p>Salam Hormat Kami Tim Support Spairum</p>");
         $this->email->send();
 
-        session()->setFlashdata('Berhasil', "Email $akun['nama'] akan diganti setelah anda memverivikasi email anda. cek di kotak masuk atau di spam");
+        session()->setFlashdata('Berhasil', "Email anda akan diganti setelah anda memverifikasi email anda. cek di kotak masuk atau di spam");
         return redirect()->to('/user');
     }
 
-    public function verivikasi($link)
-	{
-		$cek = $this->OtpModel->cek($link);
-		if (empty($cek)) {
-			session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
-			return redirect()->to('/');
-		}
-		$this->UserModel->save([
-			'id' => $cek['id_user'],
-			'email' => $cek['email'],
-			
-		]);
-		$this->OtpModel->save([
-			'id' => $cek['id'],
-			'link' => substr(sha1($cek['link']), 0, 10),
-			'status' => 'email telah di perbahrui',
-		]);
-		session()->setFlashdata('flash', "Email $cek['nama'] telah di perbarui, silahkan login.");
-		return redirect()->to('/');
-	}
+    public function verifikasi($link)
+    {
+        $cek = $this->OtpModel->cek($link);
+        if (empty($cek)) {
+            session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
+            return redirect()->to('/');
+        }
+        $this->UserModel->save([
+            'id' => $cek['id_user'],
+            'email' => $cek['email'],
+
+        ]);
+        $this->OtpModel->save([
+            'id' => $cek['id'],
+            'link' => substr(sha1($cek['link']), 0, 10),
+            'status' => 'email telah di perbahrui',
+        ]);
+        session()->setFlashdata('flash', "Email anda telah di perbarui, silahkan login.");
+        return redirect()->to('/');
+    }
 
     public function changepassword()
     {
