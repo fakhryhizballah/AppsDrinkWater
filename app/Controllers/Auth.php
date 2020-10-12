@@ -267,13 +267,13 @@ class Auth extends BaseController
 				]
 			],
 			'nama_depan' => [
-				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
+				'rules'  => 'required',
 				'errors' => [
 					'required' => '{field} wajid di isi',
 				]
 			],
 			'nama_belakang' => [
-				'rules'  => 'required|alpha_dash|is_unique[user.nama]',
+				'rules'  => 'required',
 				'errors' => [
 					'required' => '{field} wajid di isi',
 				]
@@ -339,13 +339,15 @@ class Auth extends BaseController
 		]);
 		$this->email->setFrom('support@apps.spairum.com', 'noreply-spairum');
 		$this->email->setTo($email);
+		// $this->email->setCC('teknis@rumahweb.com');
+		// $this->email->setBCC('falehry88@gmail.com');
 		$this->email->setSubject('OTP Verification Akun');
 		$this->email->setMessage("<h1>Hallo $user </h1><p>Terimakasih telah mendaftar silahkan  melakukan verifikasi pada tautan dibawah :</p>
 		<a href='https://apps.spairum.com/otp/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Verivikasi</a>
 		<p>Selanjutnya anda dapat melakukan login ke apps.spairum.com sebagai user</p>");
 		$this->email->send();
 
-		session()->setFlashdata('flash', 'Silakan cek email untuk verifikasi.');
+		session()->setFlashdata('flash', 'Silakan cek kotak masuk email atau spam untuk verifikasi.');
 		return redirect()->to('/');
 	}
 
@@ -359,6 +361,8 @@ class Auth extends BaseController
 		$this->UserModel->save([
 			'id_user' => $cek['id_user'],
 			'nama' => $cek['nama'],
+			'nama_depan' => $cek['nama_depan'],
+			'nama_belakang' => $cek['nama_belakang'],
 			'email' => $cek['email'],
 			'telp' => $cek['telp'],
 			'password' => $cek['password'],

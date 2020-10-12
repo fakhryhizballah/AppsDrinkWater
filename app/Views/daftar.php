@@ -25,12 +25,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama_depan')) ? 'is-invalid' : ''; ?>" id="nama_depan" name="nama_depan" placeholder="Nama Depan" autofocus value="<?= old('nama_depan'); ?>">
-                                    <div class="invalid-feedback"><?= $validation->getError('nama_depan'); ?></div>
+                                    <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama_depan" name="nama_depan" placeholder="Nama Depan" autofocus value="<?= old('nama'); ?>">
+                                    <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
                                 </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama_belakang')) ? 'is-invalid' : ''; ?>" id="nama_belakang" name="nama_belakang" placeholder="Nama Belakang" autofocus value="<?= old('nama_belakang'); ?>">
-                                    <div class="invalid-feedback"><?= $validation->getError('nama_belakang'); ?></div>
+                                    <input type="text" class="form-control form-control-user <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama_belakang" name="nama_belakang" placeholder="Nama Belakang" autofocus value="<?= old('nama'); ?>">
+                                    <div class="invalid-feedback"><?= $validation->getError('nama'); ?></div>
                                 </div>
                             </div>
                             <div class="form-group">

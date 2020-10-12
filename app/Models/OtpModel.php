@@ -14,11 +14,14 @@ class OtpModel extends Model
     [
         'id_user',
         'nama',
+        'nama_depan',
+        'nama_belakang',
         'email',
         'telp',
         'password',
         'link',
-        'status'
+        'status',
+
     ];
 
     public function cek($link)

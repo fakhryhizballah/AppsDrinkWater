@@ -59,7 +59,7 @@
 
                             <div class="form-group user-form">
                                 <select class="form-control level  <?= ($validation->hasError('level')) ? 'is-invalid' : ''; ?>" id="level" name="level">
-                                    <option selected>Login sebagai</option>
+                                    <option selected>Pilih login sebagai</option>
                                     <option value="1">User</option>
                                     <option value="2">Driver</option>
                                     <option value="3">Admin</option>
@@ -85,11 +85,12 @@
                                         </a> -->
                             <!-- </form> -->
                             <hr>
-                            <!-- <div class="text-center">
-                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                    </div> -->
                             <div class="text-center">
                                 <a class="small" href="/daftar">Create an Account!</a>
+                            </div>
+                            <hr>
+                            <div class="text-right">
+                                <a class="small" href="/lupa">lupa<strong class="text-primary">Password<strong></a>
                             </div>
                         </div>
                 </div>
