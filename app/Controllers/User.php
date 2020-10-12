@@ -35,6 +35,11 @@ class User extends BaseController
         }
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
+
+        if ($akun['nama_depan'] == null) {
+            session()->setFlashdata('salah', 'Silahkan lengkapi identitas anda');
+            return redirect()->to('editprofile');
+        }
         //dd($akun);
         $data = [
             'title' => 'Home | Spairum.com',
