@@ -1,36 +1,36 @@
-var CACHE_NAME = 'my_cace_spairum_v1';
-var urlsToCache = [
-    '/',
-    '/img/logo.png',
-    '/img/2.gif',
+const staticCacheName = 'site-static';
+const assets = [
+    '/user',
+    '/js/script.js',
+    '/js/main.js',
+    '/js/statics.js',
     '/css/style.css',
     '/css/home_style.css',
-    '/css/home_style.css',
-    '/js/main.js',
-    '/js/script.js',
+    '/css/sb-admin-2.css',
+    '/img/user/user.png',
+    '/img/logo.png',
+    'img/2.gif',
+    'Manifes/img/logo.png',
+    'Manifes/manifes.json'   
+];
 
-]
-
-self.addEventListener('install', function(event) {
-    // Perform install steps
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-
-        .then(function(cache) {
-            console.log('im install');
-            return cache.addAll(urlsToCache);
+// install service worker
+self.addEventListener('install', evt=> {
+    console.log('service worker has been installed');
+    evt.waitUntil(
+        caches.open(staticCacheName).then(function(cache){
+           cache.addAll(assets);
         })
     );
 });
 
-self.addEventListener('activate', function(event) {
-    console.log('Finally active. Ready to start serving content!');
+//activate service worker 
+self.addEventListener('activate', evt => {
+    console.log('service worker has been activate');
 });
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 76 and later from showing the mini-infobar
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    showInstallPromotion();
+// fetch event
+self.addEventListener('fetch', evt => {
+    console.log('fetch event', evt);
 });
+

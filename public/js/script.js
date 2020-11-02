@@ -49,12 +49,17 @@ if (flashSuccess) {
 }
 // Rergis service worker
 
+// if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('/sw.js').then(function(reg) {
+//         //  daftar
+//         console.log('Service tedaftar', reg);
+//     }, function(err) {
+//         // gagal daftar
+//         console.log('service tidak terdaftar', err);
+//     });
+// }
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(function(reg) {
-        //  daftar
-        console.log('Service tedaftar', reg);
-    }, function(err) {
-        // gagal daftar
-        console.log('service tidak terdaftar', err);
-    });
+    navigator.serviceWorker.register('/sw.js')
+    .then((reg)=> console.log('service worker registerd',reg))
+    .catch((err) => console.log('service worker not registered',err))
 }

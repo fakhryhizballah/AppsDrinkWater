@@ -27,7 +27,7 @@
     <!-- Manifes -->
     <link rel="manifest" href="Manifes/manifes.json">
     <meta name="theme-color" content="#2196f3">
-    <!-- <link rel="manifest" href="https://goo.gl/aESk5L"> -->
+
 
     <!-- Custom styles for this template -->
     <link href="css/home_style.css" rel="stylesheet">
@@ -217,7 +217,7 @@
         <script src="js/main.js"></script>
 
         <!-- page level script -->
-        <script></script>
+        <script src=""></script>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="js/script.js"></script>

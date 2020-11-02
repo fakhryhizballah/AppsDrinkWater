@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <link rel="manifest" href="Manifes/manifes.json">
+    <!-- <link rel="manifest" href="Manifes/manifes.json"> -->
     <meta name="theme-color" content="#2196f3">
 
 </head>
@@ -53,7 +53,7 @@
 
     <!-- sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
 
 </body>
 
