@@ -57,13 +57,6 @@ class Auth extends BaseController
 					'required' => '{field} wajid di isi'
 				]
 			],
-			'level' => [
-				'rules'  => 'numeric',
-				'errors' => [
-					'numeric' => 'Pilih tipe login sebagai ...',
-				]
-			]
-
 		])) {
 			$validation = \config\Services::validation();
 
@@ -73,67 +66,24 @@ class Auth extends BaseController
 			'title' => 'Registrasi',
 			'validation' => \Config\Services::validation()
 		];
-		//if 
-		if ($level == '1') {
-			$cek = $this->UserModel->cek_login($nama);
-			// dd($cek);
-			if (empty($cek)) {
-				session()->setFlashdata('gagal', 'Akun tidak terdaftar');
-				return redirect()->to('/');
-			}
-			$password = password_verify($pas, ($cek['password']));
-			//dd($password);
-
-			if (($cek['password'] == $password)) {
-				//dd($cek);
-				session()->set('nama', $cek['nama']);
-				session()->set('id_user', $cek['id_user']);
-				return redirect()->to('/user');
-			} else {
-				session()->setFlashdata('gagal', 'Username atau Password salah');
-				return redirect()->to('/');
-			}
-		} elseif ($level == '2') {
-			$cek = $this->LoginModel->cek_login($nama);
-			// dd($cek('nama')); 
-			if (empty($cek)) {
-				session()->setFlashdata('gagal', 'Akun tidak terdaftar');
-				return redirect()->to('/');
-			}
-			$password = password_verify($pas, ($cek['password']));
-			//dd($password);
-
-
-			if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
-				//dd($cek);
-				session()->set('nama', $cek['nama']);
-				session()->set('id_driver', $cek['id_driver']);
-				return redirect()->to('/driver');
-			} else {
-				session()->setFlashdata('gagal', 'Username atau Password salah');
-				return redirect()->to('/');
-			}
-		} elseif ($level == '3') {
-			$cek = $this->AdminModel->cek_login($nama);
-			// dd($cek);
-			if (empty($cek)) {
-				session()->setFlashdata('gagal', 'Akun tidak terdaftar');
-				return redirect()->to('/');
-			}
-			$password = password_verify($pas, ($cek['password']));
-			//dd($password);
-
-			if (($cek['nama'] == $nama) && ($cek['password'] == $password)) {
-				//dd($cek);
-				session()->set('nama', $cek['nama']);
-				session()->set('id_akun', $cek['id_akun']);
-				return redirect()->to('/admin');
-			} else {
-				session()->setFlashdata('gagal', 'Username atau Password salah');
-				return redirect()->to('/');
-			}
+		$cek = $this->UserModel->cek_login($nama);
+		// dd($cek);
+		if (empty($cek)) {
+			session()->setFlashdata('gagal', 'Akun tidak terdaftar');
+			return redirect()->to('/');
 		}
-		dd($level);
+		$password = password_verify($pas, ($cek['password']));
+		//dd($password);
+
+		if (($cek['password'] == $password)) {
+			//dd($cek);
+			session()->set('nama', $cek['nama']);
+			session()->set('id_user', $cek['id_user']);
+			return redirect()->to('/user');
+		} else {
+			session()->setFlashdata('gagal', 'Username atau Password salah');
+			return redirect()->to('/');
+		}
 	}
 
 	//--------------------------------------------------------------------

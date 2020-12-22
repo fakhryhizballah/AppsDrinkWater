@@ -57,7 +57,7 @@
                                 <input type="password" class="form-control form-control-user" style="padding-left: 50px;" id="password" name="password" placeholder="Password" required>
                             </div>
 
-                            <div class="form-group user-form">
+                            <!-- <div class="form-group user-form">
                                 <select class="form-control level  <?= ($validation->hasError('level')) ? 'is-invalid' : ''; ?>" id="level" name="level">
                                     <option selected>Pilih login sebagai</option>
                                     <option value="1">User</option>
@@ -65,7 +65,7 @@
                                     <option value="3">Admin</option>
                                 </select>
                                 <div class="invalid-feedback"><?= $validation->getError('level'); ?></div>
-                            </div>
+                            </div> -->
                             <!-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
