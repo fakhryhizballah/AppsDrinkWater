@@ -55,14 +55,6 @@ $routes->get('/changepassword', 'User::changepassword');
 $routes->get('/verifikasi/(:any)', 'user::verifikasi/$1');
 
 
-$routes->get('/admin', 'Admin::index');
-$routes->get('/admdriver', 'Admin::admdriver');
-$routes->get('/ptcv', 'Admin::ptcv');
-$routes->get('/admuser', 'Admin::admuser');
-$routes->get('/admstasiun', 'Admin::admstasiun');
-$routes->get('/crtmitra', 'Admin::crtmitra');
-$routes->get('/crtdriver', 'Admin::crtdriver');
-$routes->get('/crtstasiun', 'Admin::crtstasiun');
 
 
 
