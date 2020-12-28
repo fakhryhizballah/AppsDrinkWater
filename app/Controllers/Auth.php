@@ -6,7 +6,6 @@ namespace App\Controllers;
 use App\Models\DriverModel;
 use App\Models\LoginModel;
 use App\Models\UserModel;
-use App\Models\AdminModel;
 use App\Models\OtpModel;
 // use CodeIgniter\I18n\Time;
 
@@ -19,7 +18,6 @@ class Auth extends BaseController
 		$this->DriverModel = new DriverModel();
 		$this->LoginModel = new LoginModel();
 		$this->UserModel = new UserModel();
-		$this->AdminModel = new AdminModel();
 		$this->OtpModel = new OtpModel();
 		// $this->Time = new Time('Asia/Jakarta');
 		$this->email = \Config\Services::email();
