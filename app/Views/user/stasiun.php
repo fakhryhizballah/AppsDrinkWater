@@ -16,8 +16,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Swiper CSS -->
-    <link href="Mandor/swiper/css/swiper.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 
     <!-- my style.css -->
@@ -46,7 +46,8 @@
         #map {
             height: 100%;
             width: 100%;
-            margin-top: 54px;
+            margin-top: 53px;
+            /* margin-bottom: 54px; */
             position: fixed;
 
         }
@@ -54,7 +55,6 @@
         /* Optional: Makes the sample page fill the window. */
         html,
         body {
-
             height: 100%;
             margin: 0;
             padding: 0;
@@ -137,41 +137,46 @@
 <title><?= $title; ?></title>
 
 <body>
-    <div class="countainer">
-        <div class="map"></div>
+    <!-- header -->
+    <div class="header">
+        <div class="card fixed-top">
+            <div class="row no-gutters">
+                <div class="col text-center"><img src="img/spairum logo.png" alt="" class="header-logo"></div>
+            </div>
+        </div>
     </div>
-
+    <!-- header ends -->
+    <div class="footer">
+        <div class="no-gutters">
+            <div class="col-auto mx-auto">
+                <div class="row no-gutters justify-content-center">
+                    <div class=" col-3">
+                        <a href="/user" class="btn btn-link-default item">
+                            <i class="material-icons">home</i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/stasiun" class="btn btn-link-default item">
+                            <i class="material-icons">near_me</i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/topup" class="btn btn-link-default item">
+                            <i class="material-icons">account_balance_wallet</i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/riwayat" class="btn btn-link-default item">
+                            <i class="material-icons">history</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends-->
+    <div class="map"></div>
     <div id="map"></div>
-
-    <!-- <div id="tabel_markers">
-        <table border="1" cellpadding="10" cellspacing="0">
-            <th colspan="6">
-                Data
-            </th>
-            <tr>
-                <td>No.</td>
-                <td>ID Stasiun</td>
-                <td>Lokasi</td>
-                <td>Lat</td>
-                <td>Lng</td>
-                <td>Status</td>
-            </tr>
-            
-    <tr>
-        <?php $i = 1; ?>
-        <?php foreach ($stasiun as $row) : ?>
-            <td><?= $i; ?></td>
-            <td><?= $row["id_mesin"]; ?></td>
-            <td><?= $row["lokasi"]; ?></td>
-            <td><?= $row["lat"]; ?></td>
-            <td><?= $row["lng"]; ?></td>
-            <td><?= $row["status"]; ?></td>
-
-    </tr>
-    <?php $i++; ?>
-<?php endforeach; ?>
-</table>
-</div> -->
 
     <script>
         // Note: This example requires that you consent to location sharing when
@@ -223,181 +228,21 @@
             setView: true,
             maxZoom: 16
         });
-
-        // function initMap() {
-        //     // The location of Uluru
-        //     var uluru = {
-        //         lat: -0.024779,
-        //         lng: 109.328607
-        //     };
-        //     // The map, centered at Uluru
-        //     // var map = new google.maps.Map(
-        //     //     document.getElementById('map'), {
-        //     //         zoom: 15,
-        //     //         center: uluru
-        //     //     });
-        //     // The marker, positioned at Uluru
-        //     var marker = new google.maps.Marker({
-        //         position: uluru,
-        //         map: map,
-        //         title: 'Stasiun'
-        //     });
-
-        //     var contentString = '<div id="content">' +
-        //         '<div id="siteNotice">' +
-        //         '</div>' +
-        //         '<h1 id="firstHeading" class="firstHeading">Spairum</h1>' +
-        //         '<div id="bodyContent">' +
-        //         '<b>Office Spairum</b>, ' +
-        //         '<p><a href="https://goo.gl/maps/3cX4HM8YPgz46EoH9">' +
-        //         'Klik Kunjungi</a> ' +
-        //         '</p>' +
-        //         '</div>' +
-        //         '</div>';
-        //     var infowindow = new google.maps.InfoWindow({
-        //         content: contentString
-        //     });
-
-        //     marker.addListener('click', function() {
-        //         infowindow.open(map, marker);
-        //     });
-
-
-        //     infoWindow = new google.maps.InfoWindow;
-
-        //     // Try HTML5 geolocation.
-        //     if (navigator.geolocation) {
-        //         navigator.geolocation.getCurrentPosition(function(position) {
-        //             var pos = {
-        //                 lat: position.coords.latitude,
-        //                 lng: position.coords.longitude
-        //             };
-
-        //             infoWindow.setPosition(pos);
-        //             infoWindow.setContent('Lokasi anda');
-        //             infoWindow.open(map);
-        //             map.setCenter(pos);
-        //         }, function() {
-        //             handleLocationError(true, infoWindow, map.getCenter());
-        //         });
-        //     } else {
-        //         // Browser doesn't support Geolocation
-        //         handleLocationError(false, infoWindow, map.getCenter());
-        //     }
-        // }
-
-
-        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        //     infoWindow.setPosition(pos);
-        //     infoWindow.setContent(browserHasGeolocation ?
-        //         'Error: The Geolocation service failed.' :
-        //         'Error: Your browser doesn\'t support geolocation.');
-        //     infoWindow.open(map);
-        // }
     </script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjKeVFWsG5gTOd4UegCxqJgKoRam9yJX0&callback=initMap">
     </script>
-
-    <div class="sidebar">
-        <div class="mt-4 mb-3">
-            <div class="row">
-                <div class="col-auto">
-                    <figure class="avatar avatar-60 border-0"><img src="img/user/<?= $akun["profil"]; ?>" alt=""></figure>
-                </div>
-                <div class="col pl-0 align-self-center">
-                    <h5 class="mb-1"><?= $akun["nama"]; ?></h5>
-                    <p class="text-mute small"><?= $akun["id_user"]; ?></p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="list-group main-menu">
-                    <a href="/home" class="list-group-item list-group-item-action active"><i class="material-icons icons-raised">home</i>Home</a>
-
-                    <!-- <a href="notification.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a> -->
-
-                    <a href="/user/history" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">find_in_page</i>History</a>
-                    <!-- <a href="controls.html" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">view_quilt<span class="new-notification"></span></i>Pages Controls</a> -->
-                    <a href="#" class="list-group-item list-group-item-action"><i class="material-icons icons-raised">important_devices</i>Settings</a>
-                    <!-- <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#colorscheme"><i class="material-icons icons-raised">color_lens</i>Color scheme</a> -->
-                    <a href="/auth/logout" class="list-group-item list-group-item-action"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- header -->
-    <div class="header">
-        <div class="card fixed-top">
-            <div class="row no-gutters">
-                <div class="col-1">
-                    <button class="btn  btn-link text-dark menu-btn"><i class="material-icons">menu</i></button>
-                </div>
-                <div class="col text-center"><img src="img/spairum logo.png" alt="" class="header-logo"></div>
-                <div class="col-11">
-                    <!-- <a href="notification.html" class="btn  btn-link text-dark position-relative"><i class="material-icons">notifications_none</i><span class="counts">9+</span></a> -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- header ends -->
-
-
-
-
-    <!-- footer-->
-    <div class="foother">
-        <div class="no-gutters">
-            <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
-                <div class="col-12 mx-auto">
-                    <div class="row no-gutters justify-content-center">
-
-                        <li class="nav-item col-3">
-                            <a href="/user">
-                                <img src="/img/ui.svg" alt="" class="buttonNav">
-                                <a class="nav-link fontNav" href="/user">Home</a>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="/stasiun">
-                                <img src="/img/explore.svg" alt="" class="buttonNav">
-                                <a class="nav-link fontNav" href="/stasiun">Explore</a>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="/topup">
-                                <img src="/img/wallet.svg" alt="" class="buttonNav">
-                                <a class="nav-link fontNav" href="/topup">Top Up</a>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="/riwayat">
-                                <img src="/img/history.svg" alt="" class="buttonNav">
-                                <a class="nav-link fontNav">History</a>
-                            </a>
-                        </li>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
-    </div>
-    <!-- footer ends-->
-
-
 
 
 
 
 
     <!-- jquery, popper and bootstrap js -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="Mandor/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- swiper js -->
-    <script src="Mandor/swiper/js/swiper.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- cookie js -->
     <script src="Mandor/cookie/jquery.cookie.js"></script>
@@ -406,6 +251,11 @@
     <script src="js/main.js"></script>
 
     <!-- page level script -->
+    <script>
+        $(window).on('load', function() {
+
+        });
+    </script>
 
 
 </body>

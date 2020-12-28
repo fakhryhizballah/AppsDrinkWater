@@ -19,6 +19,8 @@
 
     <!-- Swiper CSS -->
     <link href="Mandor/swiper/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- my style.css -->
     <link rel="stylesheet" href="css/style.css">
@@ -142,7 +144,7 @@
             <div class="card fixed-top">
                 <div class="row no-gutters">
                     <div class="col-1">
-                        <button class="btn  btn-link text-dark menu-btn"><i class="material-icons">menu</i></button>
+                        <button class="btn  btn-link text-dark menu-btn"><i class="material-icons">more_horiz</i></button>
                     </div>
                     <div class="col text-center"><img src="img/spairum logo.png" alt="" class="header-logo"></div>
                     <div class="col-11">
@@ -158,40 +160,74 @@
 
 
         <!-- footer-->
-        <div class="foother">
+        <!-- <div class="foother">
             <div class="no-gutters">
-                <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
-                    <div class="col-12 mx-auto">
-                        <div class="row no-gutters justify-content-center">
-
-                            <li class="nav-item col-3">
-                                <a href="/user">
-                                    <img src="/img/ui.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="/user">Home</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="/stasiun">
-                                    <img src="/img/explore.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="/stasiun">Explore</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="/topup">
-                                    <img src="/img/wallet.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="/topup">Top Up</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="/riwayat">
-                                    <img src="/img/history.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav">History</a>
-                                </a>
-                            </li>
+                <div class="col-12 mx-auto">
+                    <div class="row no-gutters justify-content-center">
+                        <div class="nav-item col-3">
+                            <a href="/user" class="btn btn-link-default active">
+                                <img src="/img/ui.svg" alt="" class="buttonNav">
+                                <i class="nav-link fontNav" href="/user">Home</i>
+                            </a>
+                        </div>
+                        <div class="nav-item col-3">
+                            <a href="/stasiun" class="btn btn-link-default">
+                                <img src="/img/explore.svg" alt="" class="buttonNav">
+                                <i class="nav-link fontNav" href="/stasiun">Explore</i>
+                            </a>
+                        </div>
+                        <div class="nav-item col-3">
+                            <a href="/topup" class="btn btn-link-default">
+                                <img src="/img/wallet.svg" alt="" class="buttonNav">
+                                <i class="nav-link fontNav" href="/topup">Top Up</i>
+                            </a>
+                        </div>
+                        <div class="nav-item col-3">
+                            <a href="/riwayat" class="btn btn-link-default">
+                                <img src="/img/history.svg" alt="" class="buttonNav">
+                                <i class="nav-link fontNav">History</i>
+                            </a>
                         </div>
                     </div>
-                </nav>
-
+                </div>
+            </div>
+        </div> -->
+        <!-- footer ends-->
+        <!-- footer-->
+        <div class="footer">
+            <div class="no-gutters">
+                <div class="col-auto mx-auto">
+                    <div class="row no-gutters justify-content-center">
+                        <div class=" col-3">
+                            <a href="/user" class="btn btn-link-default item">
+                                <i class="material-icons">home</i>
+                                <!-- <img src="/img/ui.svg" alt="" class="buttonNav"> -->
+                                <!-- <p class="subtitle">Home</p> -->
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="/stasiun" class="btn btn-link-default item">
+                                <!-- <img src="/img/explore.svg" alt="" class=""> -->
+                                <i class="material-icons">near_me</i>
+                                <!-- <i class="fontNav">Explore</i> -->
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="/topup" class="btn btn-link-default item">
+                                <!-- <img src="/img/wallet.svg" alt="" class=""> -->
+                                <i class="material-icons">account_balance_wallet</i>
+                                <!-- <i class="fontNav">Top Up</i> -->
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="/riwayat" class="btn btn-link-default item">
+                                <!-- <img src="/img/history.svg" alt="" class=""> -->
+                                <i class="material-icons">history</i>
+                                <!-- <i class="material-icons fontNav">History</i> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- footer ends-->
@@ -199,19 +235,21 @@
 
 
 
+
         <!-- jquery, popper and bootstrap js -->
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/popper.min.js"></script>
         <script src="Mandor/bootstrap-4.4.1/js/bootstrap.min.js"></script>
 
+
         <!-- swiper js -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="Mandor/swiper/js/swiper.min.js"></script>
 
         <!-- cookie js -->
         <script src="Mandor/cookie/jquery.cookie.js"></script>
-
-
-
 
         <!-- template custom js -->
         <script src="js/main.js"></script>
