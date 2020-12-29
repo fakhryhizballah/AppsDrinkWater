@@ -25,14 +25,15 @@ class Auth extends BaseController
 
 	public function index()
 	{
-		$data = [
-			'title' => 'Login',
-			'validation' => \Config\Services::validation()
-		];
-		// $myTime = Time::now('Asia/Pontianak');
-		// dd($myTime);
-
-		return view('auth/login', $data);
+		if (session()->get('id_user') == '') {
+			session()->setFlashdata('gagal', 'Login dulu');
+			$data = [
+				'title' => 'Login',
+				'validation' => \Config\Services::validation()
+			];
+			return view('auth/login', $data);
+		}
+		return redirect()->to('/user');
 	}
 
 	//--------------------------------------------------------------------
