@@ -4,16 +4,16 @@
 <div class="container">
 
     <!-- page content here -->
-    <h3 class="font-weight-light text-center mt-4">Affordable<br><span class="text-template">Pricing</span> and
-        <span class="text-template">Plan</span></h3>
-    <p class="text-secondary text-mute text-center mb-4">Experience the best of all the new chat box.</p>
+    <h3 class="font-weight-light text-center mt-4">Isi Ulang Saldo Air<br><span class="text-template">Voucher</span> atau
+        <span class="text-template">TopUp</span></h3>
+    <p class="text-secondary text-mute text-center mb-4">Isi ulang saldo air bisa dengan vocer isi ulang atau menggunakan Qris/Gopay</p>
 
     <div class="row">
         <form class="vocer" method="POST" action="user/vocer">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="form-group float-label ">
-                    <input type="number" class="form-control" id="vocer" name="vocer" required="">
-                    <label class="form-control-label">Masukan kode vocer</label>
+                    <input type="text" class="form-control" id="vocer" name="vocer" required="">
+                    <label class="form-control-label">Masukan kode Voucher</label>
                 </div>
                 <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Top Up</button>
             </div>
@@ -36,6 +36,7 @@
                     <ul class="list pl-4 my-3">
                         <li>1000mL</li>
                         <li>Tidak tersedia untuk pembayaran bank</li>
+                        <li>Belum termasuk *PPN</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
                         <input type="hidden" class="form-control" id="id" name="id" value="1000mL">
@@ -59,10 +60,11 @@
                 <div class="col">
                     <h3>Rp 10.000 <small class="text-mute text-secondary">Paket Hemat</small></h3>
                     <ul class="list pl-4 my-3">
-                        <li>5200mL</li>
+                        <li>5.000mL</li>
+                        <li>Belum termasuk *PPN</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
-                        <input type="hidden" class="form-control" id="id" name="id" value="5200mL">
+                        <input type="hidden" class="form-control" id="id" name="id" value="5.000mL">
                         <input type="hidden" class="form-control" id="paket" name="paket" value="Paket Hemat">
                         <input type="hidden" class="form-control" id="harga" name="harga" value="10000">
                         <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
@@ -83,11 +85,11 @@
                 <div class="col">
                     <h3>Rp 25.000 <small class="text-mute text-secondary">Paket Besar</small></h3>
                     <ul class="list pl-4 my-3">
-                        <li>15000mL</li>
-                        <li>cocok untuk stasiun di kantor</li>
+                        <li>12500mL</li>
+                        <li>Belum termasuk *PPN</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
-                        <input type="hidden" class="form-control" id="id" name="id" value="15000mL">
+                        <input type="hidden" class="form-control" id="id" name="id" value="12.500mL">
                         <input type="hidden" class="form-control" id="paket" name="paket" value="Paket Besar">
                         <input type="hidden" class="form-control" id="harga" name="harga" value="25000">
                         <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Beli</button>
