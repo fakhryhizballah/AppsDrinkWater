@@ -12,6 +12,7 @@ use App\Models\StasiunModel;
 use App\Models\TransaksiModel;
 use CodeIgniter\I18n\Time;
 use App\Models\OtpModel;
+use App\Models\VoucherModel;
 
 class User extends BaseController
 {
@@ -25,6 +26,7 @@ class User extends BaseController
         $this->TransaksiModel = new TransaksiModel();
         $this->email = \Config\Services::email();
         $this->OtpModel = new OtpModel();
+        $this->VoucherModel = new VoucherModel();
     }
 
     public function index()
@@ -341,6 +343,58 @@ class User extends BaseController
         ];
 
         return view('user/snap', $data);
+    }
+
+    public function voucher()
+    {
+        if (session()->get('id_user') == '') {
+            session()->setFlashdata('gagal', 'Login dulu');
+            return redirect()->to('/');
+        }
+        $nama = session()->get('nama');
+        $akun = $this->UserModel->cek_login($nama);
+
+        $kvoucher = $this->request->getVar('kvoucher');
+        $getV = $this->VoucherModel->cari($kvoucher);
+        if (empty($getV)) {
+            session()->setFlashdata('Pesan', 'Kode Voucher Salah');
+            return redirect()->to('/topup');
+        }
+        if ($getV['ket'] == 'Baru') {
+            $saldo =  $akun['debit'] + $getV['nominal'];
+            $data = [
+                'debit' => $saldo,
+            ];
+            $this->UserModel->updateprofile($data, $akun['id']);
+
+            $data = [
+                'id_user' => $akun['id_user'],
+                'ket' => 'Lama'
+            ];
+            $this->VoucherModel->updatevoucher($data, $getV['id']);
+
+            $data = [
+                'id_master' => $akun['id_user'],
+                'Id_slave' => $getV['kvoucher'],
+                'Lokasi' => 'voucher',
+                'status' => 'Top Up',
+                'isi' => $getV['nominal']
+            ];
+            $this->HistoryModel->insert($data);
+            // dd($saldo);
+            session()->setFlashdata('Berhasil', 'Voucher berhasil digunakan');
+            return redirect()->to('/user');
+        }
+        session()->setFlashdata('Pesan', 'Kode voucher telah digunakan');
+        return redirect()->to('/topup');
+
+        $data = [
+            'title' => 'Edit Profile | Spairum.com',
+            'akun' => $akun,
+            'validation' => \Config\Services::validation()
+        ];
+
+        // return view('user/editprofile', $data);
     }
 
     public function editprofile()

@@ -2,23 +2,16 @@
 <?= $this->section('content'); ?>
 
 <div class="container">
-
+    <div class="swal" data-swal="<?= session()->getFlashdata('Pesan'); ?>"></div>
     <!-- page content here -->
     <h3 class="font-weight-light text-center mt-4">Isi Ulang Saldo Air<br><span class="text-template">Voucher</span> atau
         <span class="text-template">TopUp</span></h3>
     <p class="text-secondary text-mute text-center mb-4">Isi ulang saldo air bisa dengan vocer isi ulang atau menggunakan Qris/Gopay</p>
 
     <div class="row">
-        <form class="vocer" method="POST" action="user/vocer">
-            <!-- <div class="col-12 col-md-12 col-lg-12">
-                <div class="form-group float-label input-group-append">
-                    <input type="text" class="form-control" id="vocer" name="vocer" required="">
-                    <label class="form-control-label">Masukan kode Voucher</label>
-                </div>
-                <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Top Up</button>
-            </div> -->
+        <form class="vocer" method="POST" action="user/voucher">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Masukan kode Voucher" aria-label="Masukan kode Voucher">
+                <input type="text" class="form-control" id="kvoucher" name="kvoucher" placeholder="Masukan kode Voucher" aria-label="Masukan kode Voucher">
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-primary" type="button">proses</button>
                 </div>
