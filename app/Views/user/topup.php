@@ -10,12 +10,18 @@
 
     <div class="row">
         <form class="vocer" method="POST" action="user/vocer">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="form-group float-label ">
+            <!-- <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group float-label input-group-append">
                     <input type="text" class="form-control" id="vocer" name="vocer" required="">
                     <label class="form-control-label">Masukan kode Voucher</label>
                 </div>
                 <button type="submit" class="mb-2 btn btn-outline-primary btn-rounded">Top Up</button>
+            </div> -->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Masukan kode Voucher" aria-label="Masukan kode Voucher">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-primary" type="button">proses</button>
+                </div>
             </div>
         </form>
     </div>
@@ -32,7 +38,7 @@
                     </div>
                 </div> -->
                 <div class="col">
-                    <h3>Rp 2.000 <small class="text-mute text-secondary">Paket Harian</small></h3>
+                    <h3><span class="text-template">Rp 2.000</span> <small class="text-mute text-secondary">Paket Harian</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>1000mL</li>
                         <li>Tidak tersedia untuk pembayaran bank</li>
@@ -58,7 +64,7 @@
                     </div>
                 </div> -->
                 <div class="col">
-                    <h3>Rp 10.000 <small class="text-mute text-secondary">Paket Hemat</small></h3>
+                    <h3><span class="text-template">Rp 10.000</span><small class="text-mute text-secondary">Paket Hemat</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>5.000mL</li>
                         <li>Belum termasuk *PPN</li>
@@ -83,7 +89,7 @@
                     </div>
                 </div> -->
                 <div class="col">
-                    <h3>Rp 25.000 <small class="text-mute text-secondary">Paket Besar</small></h3>
+                    <h3><span class="text-template">Rp 25.000</span><small class="text-mute text-secondary">Paket Besar</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>12500mL</li>
                         <li>Belum termasuk *PPN</li>
