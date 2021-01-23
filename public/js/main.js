@@ -143,6 +143,7 @@ $(document).ready(function() {
 
     /* theme color cookie */
     if ($.type($.cookie("theme-color")) != 'undefined' && $.cookie("theme-color") != '') {
+        $('html').addClass($.cookie("orange-theme"));
         $('html').removeClass('blue-theme deeppurple-theme orange-theme pink-theme');
         $('html').addClass($.cookie("theme-color"));
     }

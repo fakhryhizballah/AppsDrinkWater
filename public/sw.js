@@ -26,11 +26,11 @@ self.addEventListener('install', evt=> {
 
 //activate service worker 
 self.addEventListener('activate', evt => {
-    console.log('service worker has been activate');
+    // console.log('service worker has been activate');
 });
 
 // fetch event
 self.addEventListener('fetch', evt => {
-    console.log('fetch event', evt);
+    // console.log('fetch event', evt);
 });
 
