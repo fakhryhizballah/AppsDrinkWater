@@ -12,7 +12,7 @@ class Transfer extends ResourceController
 
     public function index()
     {
-        return $this->respond($this->model->findAll(), 200);
+        // return $this->respond($this->model->findAll(), 200);
     }
 
     public function get($id = NULL)
