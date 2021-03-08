@@ -69,6 +69,7 @@ php_errors.log
 #-------------------------
 
 public/img/user/*
+!public/img/user/user.png
 
 #-------------------------
 # User Guide Temp Files
