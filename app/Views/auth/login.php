@@ -13,7 +13,7 @@
         <div class="row">
             <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
             <div class="col-lg">
-                <img src="/img/IG.png" class="logo" alt="">
+                <img src="/img/ig_gS2_icon.ico" class="logo" alt="logo spairum">
                 <div class="from-auth user">
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
