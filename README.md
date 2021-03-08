@@ -15,3 +15,4 @@ Porjet startup Pontianak
 #### Master branch
 
 v1.0.1 (fix Bug Auth)
+v1.0.2 (fix Bug user)
