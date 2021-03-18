@@ -48,21 +48,21 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPHost = 'apps.spairum.com';
+	public $SMTPHost = 'smtp.gmail.com';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var string
 	 */
-	public $SMTPUser = 'support@apps.spairum.com';
+	public $SMTPUser = 'infospairum@gmail.com';
 
 	/**
 	 * SMTP Password
 	 *
 	 * @var string
 	 */
-	public $SMTPPass = 'SupportAdmin';
+	public $SMTPPass = 'adminspairum123';
 
 	/**
 	 * SMTP Port

@@ -16,3 +16,10 @@ Porjet startup Pontianak
 
 v1.0.1 (fix Bug Auth)
 v1.0.2 (fix Bug user)
+
+## [v1.0.3] 18-3-2021
+
+### Changed
+
+- Change email host name from spairum.com to gmail.com
+- support@apps.spairum.com -> infospairum@gmail.com
