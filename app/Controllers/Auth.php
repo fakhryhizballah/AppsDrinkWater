@@ -25,15 +25,20 @@ class Auth extends BaseController
 
 	public function index()
 	{
-		if (session()->get('id_user') == '') {
-			$data = [
-				'title' => 'Login - Spairum',
-				'validation' => \Config\Services::validation()
-			];
-			return view('Auth/Login', $data);
-		} else {
-			return redirect()->to('/user');
-		}
+		// if (session()->get('id_user') == '') {
+		// 	$data = [
+		// 		'title' => 'Login - Spairum',
+		// 		'validation' => \Config\Services::validation()
+		// 	];
+		// 	return view('Auth/Login', $data);
+		// } else {
+		// 	return redirect()->to('/user');
+		// }
+		$data = [
+			'title' => 'Login - Spairum',
+			'validation' => \Config\Services::validation()
+		];
+		return view('Auth/Login', $data);
 	}
 
 	//--------------------------------------------------------------------
