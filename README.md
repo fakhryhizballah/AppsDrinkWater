@@ -23,3 +23,10 @@ v1.0.2 (fix Bug user)
 
 - Change email host name from spairum.com to gmail.com
 - support@apps.spairum.com -> infospairum@gmail.com
+
+## [v1.0.4] 19-3-2021
+
+### Changed
+
+- Improve style maill otp
+- Improve massage maill otp
