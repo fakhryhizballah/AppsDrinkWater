@@ -42,7 +42,7 @@ class Auth extends BaseController
 	{
 		// dd($this->request->getVar());
 		$nama = $this->request->getVar('nama');
-		$password = password_verify($this->request->getVar('password'), PASSWORD_BCRYPT);
+		// $password = password_verify($this->request->getVar('password'), PASSWORD_BCRYPT);
 		$pas = ($this->request->getVar('password'));
 		// $level = $this->request->getVar('level');
 		//validasi	
