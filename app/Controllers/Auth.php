@@ -30,7 +30,7 @@ class Auth extends BaseController
 				'title' => 'Login - Spairum',
 				'validation' => \Config\Services::validation()
 			];
-			return view('Auth/login', $data);
+			return view('auth/login', $data);
 		} else {
 			return redirect()->to('/user');
 		}
