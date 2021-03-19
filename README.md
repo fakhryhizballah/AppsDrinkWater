@@ -34,3 +34,7 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Error Auth Bug
+
+### Added
+
+- Keep login

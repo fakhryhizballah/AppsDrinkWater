@@ -25,16 +25,7 @@ class Auth extends BaseController
 
 	public function index()
 	{
-		// if (session()->get('id_user') == '') {
-		// 	session()->setFlashdata('gagal', 'Login dulu');
-		// 	$data = [
-		// 		'title' => 'Login',
-		// 		'validation' => \Config\Services::validation()
-		// 	];
-		// 	return view('auth/login', $data);
-		// }
-		// return redirect()->to('/user');
-		if (session()->get('Id_user') == '') {
+		if (session()->get('id_user') == '') {
 			$data = [
 				'title' => 'Login - Spairum',
 				'validation' => \Config\Services::validation()
@@ -103,7 +94,7 @@ class Auth extends BaseController
 
 	public function regis()
 	{
-		//session();
+
 		$data = [
 			'title' => 'Registrasi',
 			'validation' => \Config\Services::validation()
@@ -112,12 +103,15 @@ class Auth extends BaseController
 	}
 	public function daftar()
 	{
-
-		$data = [
-			'title' => 'Registrasi',
-			'validation' => \Config\Services::validation()
-		];
-		return view('auth/daftar', $data);
+		if (session()->get('id_user') == '') {
+			$data = [
+				'title' => 'Registrasi',
+				'validation' => \Config\Services::validation()
+			];
+			return view('auth/daftar', $data);
+		} else {
+			return redirect()->to('/user');
+		}
 	}
 
 	//--------------------------------------------------------------------
