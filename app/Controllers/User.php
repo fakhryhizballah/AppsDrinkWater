@@ -32,7 +32,7 @@ class User extends BaseController
     public function index()
     {
         if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
+            session()->setFlashdata('gagal', 'Login ya');
             return redirect()->to('/');
         }
         $nama = session()->get('nama');

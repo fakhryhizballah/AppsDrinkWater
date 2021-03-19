@@ -19,19 +19,25 @@
                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                     </div>
 
-                    <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
-                        <div class="alert-warning">
-                            <?php echo session()->getFlashdata('gagal'); ?>
-                        </div>
-                    <?php } ?>
-
-
                     <?php if (session()->getFlashdata('flash')) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <strong><?= session()->getFlashdata('flash');  ?></strong>
+                        </div>
+
+                        <script>
+                            $(".alert").alert();
+                        </script>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('gagal')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><?= session()->getFlashdata('gagal');  ?></strong>
                         </div>
 
                         <script>

@@ -30,3 +30,7 @@ v1.0.2 (fix Bug user)
 
 - Improve style maill otp
 - Improve massage maill otp
+
+### Fixed
+
+- Error Auth Bug

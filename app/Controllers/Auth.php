@@ -25,15 +25,24 @@ class Auth extends BaseController
 
 	public function index()
 	{
-		if (session()->get('id_user') == '') {
-			session()->setFlashdata('gagal', 'Login dulu');
+		// if (session()->get('id_user') == '') {
+		// 	session()->setFlashdata('gagal', 'Login dulu');
+		// 	$data = [
+		// 		'title' => 'Login',
+		// 		'validation' => \Config\Services::validation()
+		// 	];
+		// 	return view('auth/login', $data);
+		// }
+		// return redirect()->to('/user');
+		if (session()->get('Id_user') == '') {
 			$data = [
-				'title' => 'Login',
+				'title' => 'Login - Spairum',
 				'validation' => \Config\Services::validation()
 			];
-			return view('auth/login', $data);
+			return view('Auth/Login', $data);
+		} else {
+			return redirect()->to('/user');
 		}
-		return redirect()->to('/user');
 	}
 
 	//--------------------------------------------------------------------
@@ -42,14 +51,11 @@ class Auth extends BaseController
 	{
 		// dd($this->request->getVar());
 		$nama = $this->request->getVar('nama');
-		// $password = password_verify($this->request->getVar('password'), PASSWORD_BCRYPT);
+		$password = password_verify($this->request->getVar('password'), PASSWORD_BCRYPT);
 		$pas = ($this->request->getVar('password'));
-		$level = $this->request->getVar('level');
-
-		//validasi
+		// $level = $this->request->getVar('level');
+		//validasi	
 		if (!$this->validate([
-
-
 			'nama' => [
 				'rules'  => 'required',
 				'errors' => [
@@ -58,7 +64,6 @@ class Auth extends BaseController
 			],
 		])) {
 			$validation = \config\Services::validation();
-
 			return redirect()->to('/')->withInput()->with('validation', $validation);
 		}
 		$data = [
