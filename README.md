@@ -38,3 +38,9 @@ v1.0.2 (fix Bug user)
 ### Added
 
 - Keep login
+
+## [v1.0.5] 22-3-2021
+
+### Fixed
+
+- Layout auth
