@@ -44,3 +44,11 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Layout auth
+
+## [v1.0.6] 24-3-2021
+
+### Added
+
+- Forget Password via Link email
+- routes lupa password
+- Onproges baru mengirim otp lupa password
