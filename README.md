@@ -52,3 +52,9 @@ v1.0.2 (fix Bug user)
 - Forget Password via Link email
 - routes lupa password
 - Onproges baru mengirim otp lupa password
+
+## [v1.0.7] 26-3-2021
+
+### Fixed
+
+- otp Sesi fix scane
