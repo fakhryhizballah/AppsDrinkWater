@@ -30,4 +30,10 @@ class OtpModel extends Model
             ->where(array('link' => $link))
             ->get()->getRowArray();
     }
+    public function cekid($id_user)
+    {
+        return $this->db->table('otp')
+            ->where(array('id_user' => $id_user))
+            ->get()->getRowArray();
+    }
 }

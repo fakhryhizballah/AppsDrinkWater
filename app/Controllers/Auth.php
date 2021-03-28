@@ -406,13 +406,11 @@ class Auth extends BaseController
 		}
 		helper('text');
 		$token = random_string('alnum', 28);
-		$kode = random_string('numerik', 4);
+		$kode = substr(random_string('numerik', 4), 0, 4);
 		$email = $this->request->getVar('email');
 		$cek = $this->UserModel->cek_login($email);
 		$id_user = $cek['id_user'];
 		$cekid = $this->OtpModel->cekid($id_user);
-		dd($cekid);
-
 		if (empty($cek)) {
 			session()->setFlashdata('Pesan', 'Akun tidak terdaftar');
 			return redirect()->to('/daftar');
@@ -425,73 +423,73 @@ class Auth extends BaseController
 		$nama_depan = $cek['nama_depan'];
 		$nama_belakang = $cek['nama_belakang'];
 		session()->set('token', $kode);
+		session()->set('id', $id_user);
 
-		// $this->email->setFrom('infospairum@gmail.com', 'noreply-spairum');
-		// $this->email->setTo($email);
-		// $this->email->setSubject('OTP Verification Akun');
-		// $this->email->setMessage(
-		// 	"
-		// 	<table align='center' cellpadding='0' cellspacing='0' border='0' width='100%' bgcolor='#f0f0f0'>
-		//     <tr>
-		//     <td style='padding: 30px 30px 20px 30px;'>
-		//         <table cellpadding='0' cellspacing='0' border='0' width='100%' bgcolor='#ffffff' style='max-width: 650px; margin: auto;'>
-		//         <tr>
-		//             <td colspan='2' align='center' style='background-color: #0d8eff; padding: 40px;'>
-		//                 <a href='http://spairum.my.id/' target='_blank'><img src='https://spairum.my.id/Asset/img/spairum.png' width='50%' border='0' /></a>
-		//             </td>
-		//         </tr>
-		//         <tr>
-		//             <td colspan='2' align='center' style='padding: 50px 50px 0px 50px;'>
-		//                 <h1 style='padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;'>
-		//                     Email Spairum ini Untuk mengganti password akun
-		//                 </h1>
-		//             </td>
-		//         </tr>
-		//         <tr>
-		//             <td style='text-align: left; padding: 0px 50px;' valign='top'>
-		//                 <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'>
-		//                     Hi $nama_depan $nama_belakang,
-		//                 </p>
-		//                 <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'>
-		//                 Untuk menganti password baru anda bisa klik tautan pada tautan dibawah :
-		//                 </p>
-		//                 <a href='https://app.spairum.my.id/auth/changepassword/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Ganti Password sekarang</a>
-		// 				<br>
-		// 				<p>Atau Gunakan Kode </p>
-		// 				<h3>$kode</h3>
-		//                 <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'><br/>*Jangan pernah memberitahukan kode tersebut ke orang lain.</p>
+		$this->email->setFrom('infospairum@gmail.com', 'noreply-spairum');
+		$this->email->setTo($email);
+		$this->email->setSubject('OTP Verification Akun');
+		$this->email->setMessage(
+			"
+			<table align='center' cellpadding='0' cellspacing='0' border='0' width='100%' bgcolor='#f0f0f0'>
+		    <tr>
+		    <td style='padding: 30px 30px 20px 30px;'>
+		        <table cellpadding='0' cellspacing='0' border='0' width='100%' bgcolor='#ffffff' style='max-width: 650px; margin: auto;'>
+		        <tr>
+		            <td colspan='2' align='center' style='background-color: #0d8eff; padding: 40px;'>
+		                <a href='http://spairum.my.id/' target='_blank'><img src='https://spairum.my.id/Asset/img/spairum.png' width='50%' border='0' /></a>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td colspan='2' align='center' style='padding: 50px 50px 0px 50px;'>
+		                <h1 style='padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;'>
+		                    Email Spairum ini Untuk mengganti password akun
+		                </h1>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td style='text-align: left; padding: 0px 50px;' valign='top'>
+		                <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'>
+		                    Hi $nama_depan $nama_belakang,
+		                </p>
+		                <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'>
+		                Untuk menganti password baru anda bisa klik tautan pada tautan dibawah :
+		                </p>
+		                <a href='https://app.spairum.my.id/auth/changepassword/$token' style='display:block;width:115px;height:25px;background:#0008ff;padding:10px;text-align:center;border-radius:5px;color:white;font-weight:bold'> Ganti Password sekarang</a>
+						<br>
+						<p>Atau Gunakan Kode </p>
+						<h3>$kode</h3>
+		                <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;'><br/>*Jangan pernah memberitahukan kode tersebut ke orang lain.</p>
 
-		// 				</td>
-		//         </tr>
-		//         <tr>
-		//             <td style='text-align: left; padding: 30px 50px 50px 50px' valign='top'>
-		//                 <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;'>
-		//                     Thanks,<br/>
-		//                 </p>
-		//             </td>
-		//         </tr>
-		//         <tr>
-		//             <td colspan='2' align='center' style='padding: 20px 40px 40px 40px;' bgcolor='#f0f0f0'>
-		//                 <p style='font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;'>
-		//                     &copy; 2020
-		//                     <a href='https://spairum.my.id/about' target='_blank' style='color: #777; text-decoration: none'>Spairum-Pay</a>
-		//                     <br>
-		//                     Jl.Merdeka, Pontianak - Kalimantan Barat
-		//                     <br>
-		//                     Indonesia
-		//                 </p>
-		//             </td>
-		//         </tr>
-		//         </table>
-		//     </td>
-		//     </tr>
-		//     </table>
-		//     "
-		// );
-		// $this->email->send();
-		// session()->setFlashdata('Berhasil', 'Silakan cek kotak masuk email atau spam untuk verifikasi ganti password akun.');
+						</td>
+		        </tr>
+		        <tr>
+		            <td style='text-align: left; padding: 30px 50px 50px 50px' valign='top'>
+		                <p style='font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;'>
+		                    Thanks,<br/>
+		                </p>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td colspan='2' align='center' style='padding: 20px 40px 40px 40px;' bgcolor='#f0f0f0'>
+		                <p style='font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;'>
+		                    &copy; 2020
+		                    <a href='https://spairum.my.id/about' target='_blank' style='color: #777; text-decoration: none'>Spairum-Pay</a>
+		                    <br>
+		                    Jl.Merdeka, Pontianak - Kalimantan Barat
+		                    <br>
+		                    Indonesia
+		                </p>
+		            </td>
+		        </tr>
+		        </table>
+		    </td>
+		    </tr>
+		    </table>
+		    "
+		);
+		$this->email->send();
+		session()->setFlashdata('Berhasil', 'Silakan cek kotak masuk email atau spam untuk verifikasi ganti password akun.');
 		return redirect()->to('/auth/otplupa');
-		// return redirect()->to('/');
 	}
 	public function otplupa()
 	{
@@ -504,47 +502,106 @@ class Auth extends BaseController
 
 	public function changepassword($link = NULL)
 	{
+		if (session()->get('token') == '') {
+			session()->setFlashdata('gagal', 'Mau Kemana');
+			return redirect()->to('/');
+		}
 		$cek = $this->OtpModel->cek($link);
 		if (!empty($cek)) {
 			$id_user = $cek['id_user'];
-			$user = $this->UserModel->cek_id($id_user);
-			$data = [
-				'title' => 'Change Password | Spairum.com',
-				'akun' => $user,
-				'validation' => \Config\Services::validation()
-			];
 
 			$this->OtpModel->save([
 				'id' => $cek['id'],
 				'link' => substr(sha1($cek['link']), 0, 10),
 				'status' => 'Password di ganti (Link)',
 			]);
-			return view('/user/change_password', $data);
+			// return view('/auth/change_password', $data);
+			return redirect()->to('/auth/change_password');
 		}
 
 
-		// $token = $this->request->getVar('otp');
-		// if (session()->get('token') == $token) {
+		$token = $this->request->getVar('otp');
+		if (session()->get('token') == $token) {
+			$id_user = session()->get('id');
 
-		// 	$akun = $this->UserModel->cek_login($nama);
-		// 	$data = [
-		// 		'title' => 'Change Password | Spairum.com',
-		// 		'akun' => $akun,
-		// 		'validation' => \Config\Services::validation()
-		// 	];
+			$cek = $this->OtpModel->cekid($id_user);
 
-		// 	$this->OtpModel->save([
-		// 		'id' => $cek['id'],
-		// 		'link' => substr(sha1($cek['link']), 0, 10),
-		// 		'status' => 'Password di ganti (OTP)',
-		// 	]);
-		// 	return view('user/change_password', $data);
-		// }
-		// dd($token);
+			$this->OtpModel->save([
+				'id' => $cek['id'],
+				'link' => substr(sha1($cek['link']), 0, 10),
+				'status' => 'Password di ganti (OTP)',
+			]);
+			// return view('user/change_password', $data);
+			return redirect()->to('/auth/change_password');
+		}
 	}
+
+	public function change_password()
+	{
+		if (session()->get('token') == '') {
+			session()->setFlashdata('gagal', 'Mau Kemana');
+			return redirect()->to('/');
+		}
+
+		$id_user = session()->get('id');
+
+		$akun = $this->UserModel->cek_id($id_user);
+		$data = [
+			'title' => 'Change Password | Spairum.com',
+			'akun' => $akun,
+			'validation' => \Config\Services::validation()
+		];
+		return view('auth/change_password', $data);
+	}
+
 	public function passwordupdate()
 	{
-		$id_user = $this->request->getVar('id_user');
-		dd($id_user);
+		if (session()->get('token') == '') {
+			session()->setFlashdata('gagal', 'Mau Kemana');
+			return redirect()->to('/');
+		}
+
+		$id_user = session()->get('id');
+		$password = $this->request->getVar('password_ualangi');
+		$user = $this->UserModel->cek_id($id_user);
+		$cek = $this->OtpModel->cekid($id_user);
+
+		if (!$this->validate([
+			'password_baru' => [
+				'rules'  => 'required|min_length[8]',
+				'errors' => [
+					'required' => '{field} wajid di isi',
+					'min_length[8]' => '{field} Minimal 8 karakter'
+				]
+			],
+			'password_ualangi' => [
+				'rules'  => 'required|matches[password]',
+				'errors' => [
+					'required' => 'password wajid di isi',
+					'matches' => 'password tidak sama'
+				]
+			]
+
+		])) {
+			$validation = \config\Services::validation();
+			return redirect()->to('/auth/change_password')->withInput()->with('validation', $validation);
+		}
+		// if (empty($user)) {
+		// 	session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
+		// 	return redirect()->to('/daftar');
+		// }
+		$this->OtpModel->save([
+			'id' => $cek['id'],
+			'link' => substr(sha1($cek['link']), 0, 20),
+			'password' => password_hash($password, PASSWORD_BCRYPT),
+			'status' => 'Tercerivikasi Password Baru',
+		]);
+		$this->UserModel->save([
+			'id' => $user['id'],
+			'password' => password_hash($password, PASSWORD_BCRYPT),
+		]);
+		session_destroy();
+		session()->setFlashdata('Berhasil', 'Password anda telah diperbaharui.');
+		return redirect()->to('/');
 	}
 }

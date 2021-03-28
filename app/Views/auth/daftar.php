@@ -4,6 +4,19 @@
 <div class="container">
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
         <div class="card-body p-0">
+            <?php if (session()->getFlashdata('gagal')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong><?= session()->getFlashdata('gagal');  ?></strong>
+                </div>
+
+                <script>
+                    $(".alert").alert();
+                </script>
+            <?php endif; ?>
+            <div class="swal" data-swal="<?= session()->getFlashdata('Pesan'); ?>"></div>
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <div class="col-lg">

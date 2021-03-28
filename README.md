@@ -58,3 +58,13 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - otp Sesi fix scane
+
+## [v1.0.8] 28-3-2021
+
+### Fixed
+
+- Lupa password
+- Otp model cek id
+- user model cek id
+- ganti password
+- fix alern daftar dan login
