@@ -380,7 +380,7 @@ class Auth extends BaseController
 	{
 		if (session()->get('id_user') == '') {
 			$data = [
-				'title' => 'Registrasi',
+				'title' => 'Lupa Password',
 				'validation' => \Config\Services::validation()
 			];
 			return view('auth/lupa', $data);
@@ -561,35 +561,30 @@ class Auth extends BaseController
 			return redirect()->to('/');
 		}
 
+		// if (!$this->validate([
+		// 	'password_baru' => [
+		// 		'rules'  => 'required|min_length[8]',
+		// 		'errors' => [
+		// 			'required' => '{field} wajid di isi',
+		// 			'min_length[8]' => '{field} Minimal 8 karakter'
+		// 		]
+		// 	],
+		// 	'password_ualangi' => [
+		// 		'rules'  => 'required|matches[password]',
+		// 		'errors' => [
+		// 			'required' => 'password wajid di isi',
+		// 			'matches' => 'password tidak sama'
+		// 		]
+		// 	]
+		// ])) {
+		// 	$validation = \config\Services::validation();
+		// 	return redirect()->to('/auth/change_password')->withInput()->with('validation', $validation);
+		// }
+
 		$id_user = session()->get('id');
 		$password = $this->request->getVar('password_ualangi');
 		$user = $this->UserModel->cek_id($id_user);
 		$cek = $this->OtpModel->cekid($id_user);
-
-		if (!$this->validate([
-			'password_baru' => [
-				'rules'  => 'required|min_length[8]',
-				'errors' => [
-					'required' => '{field} wajid di isi',
-					'min_length[8]' => '{field} Minimal 8 karakter'
-				]
-			],
-			'password_ualangi' => [
-				'rules'  => 'required|matches[password]',
-				'errors' => [
-					'required' => 'password wajid di isi',
-					'matches' => 'password tidak sama'
-				]
-			]
-
-		])) {
-			$validation = \config\Services::validation();
-			return redirect()->to('/auth/change_password')->withInput()->with('validation', $validation);
-		}
-		// if (empty($user)) {
-		// 	session()->setFlashdata('gagal', 'Akun sudah di verifikasi');
-		// 	return redirect()->to('/daftar');
-		// }
 		$this->OtpModel->save([
 			'id' => $cek['id'],
 			'link' => substr(sha1($cek['link']), 0, 20),
