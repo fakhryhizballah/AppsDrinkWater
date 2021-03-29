@@ -68,3 +68,9 @@ v1.0.2 (fix Bug user)
 - user model cek id
 - ganti password
 - fix alern daftar dan login
+
+## [v1.0.9] 29-3-2021
+
+### Fixed
+
+- Mematiakn validasi new password
