@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="Login,Apps,spairum,spairum,masuk,apps,spairum">
-    <meta name="description" content="Ini merupakan aplikasi spairum untuk menghubungkan anda ke stasiun air minum,
+    <meta name="keywords" content="Login,Apps,spairum,spairum,masuk,apps,spairum,stasiun pengisian air minum untuk tumbler">
+    <meta name="description" content="stasiun pengisian air minum untuk tumbler ,Ini merupakan aplikasi spairum untuk menghubungkan anda ke stasiun air minum,
     .silah kan masuk Masuk ke Aplikasi Spairum">
     <meta name="author" content="Spairum">
     <link rel="icon" href="favicon.ico">

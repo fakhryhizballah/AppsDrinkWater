@@ -74,3 +74,9 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Mematiakn validasi new password
+
+## [v1.0.10] 29-3-2021
+
+### Fixed
+
+- Menambahkan des pada link login
