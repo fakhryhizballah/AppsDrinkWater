@@ -80,3 +80,9 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Menambahkan des pada link login
+
+## [v1.1.0] 29-3-2021
+
+### added
+
+- Menambahkan tabel Token
