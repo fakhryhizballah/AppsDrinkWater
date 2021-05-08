@@ -86,3 +86,8 @@ v1.0.2 (fix Bug user)
 ### added
 
 - Menambahkan tabel Token
+- Install JWT Firebase
+
+### Update
+
+-
