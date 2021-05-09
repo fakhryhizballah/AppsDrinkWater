@@ -81,7 +81,7 @@ v1.0.2 (fix Bug user)
 
 - Menambahkan des pada link login
 
-## [v1.1.0] 29-3-2021
+## [v1.1.0] 29-4-2021
 
 ### added
 
@@ -92,7 +92,7 @@ v1.0.2 (fix Bug user)
 
 - Composer CI
 
-## [v1.1.2] 29-3-2021
+## [v1.1.2] 9-5-2021
 
 ### added
 
