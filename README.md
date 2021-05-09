@@ -102,3 +102,9 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Auth Login user
+
+## [v1.1.3] 10-5-2021
+
+### Fixed
+
+- Warna teman no sesion time

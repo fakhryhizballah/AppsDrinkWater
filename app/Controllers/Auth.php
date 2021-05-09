@@ -105,6 +105,10 @@ class Auth extends BaseController
 			// setcookie("X-Sparum-Token", $jwt);
 			setCookie("X-Sparum-Token", $jwt, time() + (86400 * 30), "/", "", "true");
 
+			if (empty($_COOKIE['theme-color'])) {
+				setCookie("theme-color", "lightblue-theme", "", "/", "", "true");
+			}
+
 			return redirect()->to('/user');
 		} else {
 			session()->setFlashdata('gagal', 'Username atau Password salah');
