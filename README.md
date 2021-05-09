@@ -90,4 +90,4 @@ v1.0.2 (fix Bug user)
 
 ### Update
 
--
+- Composer CI
