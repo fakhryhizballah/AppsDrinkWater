@@ -45,17 +45,30 @@ $routes->get('/history', 'Driver::history');
 $routes->get('/profil', 'Driver::index');
 $routes->get('/explore', 'Driver::explore');
 
-$routes->get('/user', 'User::index');
-$routes->get('/stasiun', 'User::stasiun');
-$routes->get('/riwayat', 'User::riwayat');
-$routes->get('/payriwayat', 'User::payriwayat');
-$routes->get('/connect', 'User::connect');
-$routes->get('/topup', 'User::topup');
-$routes->post('/snap', 'User::snap');
-$routes->add('/notification', 'User::notification');
-$routes->get('/editprofile', 'User::editprofile');
-$routes->get('/changepassword', 'User::changepassword');
-$routes->get('/verifikasi/(:any)', 'user::verifikasi/$1');
+
+$routes->get('/user', 'User::index', ['filter' => 'AuthFilter']);
+$routes->get('/stasiun', 'User::stasiun', ['filter' => 'AuthFilter']);
+$routes->get('/riwayat', 'User::riwayat', ['filter' => 'AuthFilter']);
+$routes->get('/payriwayat', 'User::payriwayat', ['filter' => 'AuthFilter']);
+$routes->get('/connect', 'User::connect', ['filter' => 'AuthFilter']);
+$routes->get('/topup', 'User::topup', ['filter' => 'AuthFilter']);
+$routes->post('/snap', 'User::snap', ['filter' => 'AuthFilter']);
+$routes->add('/notification', 'User::notification', ['filter' => 'AuthFilter']);
+$routes->get('/editprofile', 'User::editprofile', ['filter' => 'AuthFilter']);
+$routes->get('/changepassword', 'User::changepassword', ['filter' => 'AuthFilter']);
+$routes->get('/verifikasi/(:any)', 'user::verifikasi/$1', ['filter' => 'AuthFilter']);
+
+// $routes->get('/user', 'User::index');
+// $routes->get('/stasiun', 'User::stasiun');
+// $routes->get('/riwayat', 'User::riwayat');
+// $routes->get('/payriwayat', 'User::payriwayat');
+// $routes->get('/connect', 'User::connect');
+// $routes->get('/topup', 'User::topup');
+// $routes->post('/snap', 'User::snap');
+// $routes->add('/notification', 'User::notification');
+// $routes->get('/editprofile', 'User::editprofile');
+// $routes->get('/changepassword', 'User::changepassword');
+// $routes->get('/verifikasi/(:any)', 'user::verifikasi/$1');
 
 
 

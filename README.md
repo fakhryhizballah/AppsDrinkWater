@@ -91,3 +91,14 @@ v1.0.2 (fix Bug user)
 ### Update
 
 - Composer CI
+
+## [v1.1.2] 29-3-2021
+
+### added
+
+- Login Filter JWT
+- Model Token login
+
+### Fixed
+
+- Auth Login user

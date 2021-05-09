@@ -7,7 +7,9 @@ use App\Models\DriverModel;
 use App\Models\LoginModel;
 use App\Models\UserModel;
 use App\Models\OtpModel;
+use App\Models\TokenModel;
 // use CodeIgniter\I18n\Time;
+use \Firebase\JWT\JWT;
 
 
 class Auth extends BaseController
@@ -19,19 +21,30 @@ class Auth extends BaseController
 		$this->LoginModel = new LoginModel();
 		$this->UserModel = new UserModel();
 		$this->OtpModel = new OtpModel();
+		$this->TokenModel = new TokenModel();
 		// $this->Time = new Time('Asia/Jakarta');
 		$this->email = \Config\Services::email();
+		helper('text');
+		helper('cookie');
 	}
 
+	public static string $key = 'ss';
 	public function index()
 	{
-		if (session()->get('id_user') == '') {
+		if (empty($_COOKIE['X-Sparum-Token'])) {
 			$data = [
 				'title' => 'Login - Spairum',
 				'validation' => \Config\Services::validation()
 			];
 			return view('auth/login', $data);
 		} else {
+			if ($_COOKIE['X-Sparum-Token'] == 'Logout') {
+				$data = [
+					'title' => 'Login - Spairum',
+					'validation' => \Config\Services::validation()
+				];
+				return view('auth/login', $data);
+			}
 			return redirect()->to('/user');
 		}
 	}
@@ -72,8 +85,26 @@ class Auth extends BaseController
 
 		if (($cek['password'] == $password)) {
 			//dd($cek);
-			session()->set('nama', $cek['nama']);
-			session()->set('id_user', $cek['id_user']);
+			// session()->set('nama', $cek['nama']);
+			// session()->set('id_user', $cek['id_user']);
+
+			$token = random_string('alnum', 28);
+			$key = $this->TokenModel->Key()['token'];
+			$payload = array(
+				'Key' => $token,
+				'id_user' => $cek['id_user'],
+				'nama' => $cek['nama']
+			);
+			$jwt = JWT::encode($payload, $key,);
+
+			$this->TokenModel->save([
+				'id_user' => $cek['id_user'],
+				'token'    => $token,
+				'status' => 'Login'
+			]);
+			// setcookie("X-Sparum-Token", $jwt);
+			setCookie("X-Sparum-Token", $jwt, time() + (86400 * 30), "/", "", "true");
+
 			return redirect()->to('/user');
 		} else {
 			session()->setFlashdata('gagal', 'Username atau Password salah');
@@ -85,10 +116,17 @@ class Auth extends BaseController
 
 	public function logout()
 	{
-		// $array_items = ['nama', 'id_driver', 'id_user'];
-		// $session->remove($array_items);
+		$jwt = $_COOKIE['X-Sparum-Token'];
+		$key = $this->TokenModel->Key()['token'];
+		$decoded = JWT::decode($jwt, $key, array('HS256'));
+		$token = $decoded->Key;
+		$id = $this->TokenModel->cek($token)['id'];
+		$this->TokenModel->update($id, [
+			'token'    => "Keluar",
+			'status' => 'logout'
+		]);
 		session()->setFlashdata('flash', 'Berhasil Logout');
-		session_destroy();
+		setCookie("X-Sparum-Token", "Logout", time() + (86400 * 30), "/", "", "true");
 		return redirect()->to('/');
 	}
 
@@ -598,5 +636,17 @@ class Auth extends BaseController
 		session_destroy();
 		session()->setFlashdata('Berhasil', 'Password anda telah diperbaharui.');
 		return redirect()->to('/');
+	}
+	public function tes()
+	{
+		$payload = array(
+			"Key" => "Login Spairum",
+			"User" => "password",
+		);
+		$jwt = JWT::encode($payload, self::$key,);
+		$decoded = JWT::decode($jwt, self::$key, array('HS256'));
+
+		print_r($decoded);
+		print_r($jwt);
 	}
 }

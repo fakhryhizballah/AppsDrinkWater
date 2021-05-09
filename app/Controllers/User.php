@@ -13,6 +13,9 @@ use App\Models\TransaksiModel;
 use CodeIgniter\I18n\Time;
 use App\Models\OtpModel;
 use App\Models\VoucherModel;
+use App\Models\TokenModel;
+use Exception;
+use \Firebase\JWT\JWT;
 
 class User extends BaseController
 {
@@ -27,38 +30,52 @@ class User extends BaseController
         $this->email = \Config\Services::email();
         $this->OtpModel = new OtpModel();
         $this->VoucherModel = new VoucherModel();
+        $this->TokenModel = new TokenModel();
+        helper('cookie');
     }
 
     public function index()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login ya');
+        if (empty($_COOKIE['X-Sparum-Token'])) {
+            session()->setFlashdata('gagal', 'Anda belum Login');
             return redirect()->to('/');
         }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        try {
+            $key = $this->TokenModel->Key()['token'];
+            $decoded = JWT::decode($jwt, $key, array('HS256'));
+        } catch (Exception $exception) {
+            session()->setFlashdata('gagal', 'Login Dulu');
+            return redirect()->to('/');
+        }
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $token = $decoded->Key;
+        // dd($token);
+        if (empty($this->TokenModel->cek($token))) {
+            session()->setFlashdata('gagal', 'Anda sudah Logout, Silahkan Masuk lagi');
+            return redirect()->to('/');
+        }
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         if ($akun['nama_depan'] == null) {
             session()->setFlashdata('salah', 'Silahkan lengkapi identitas anda');
             return redirect()->to('editprofile');
         }
-        //dd($akun);
         $data = [
             'title' => 'Home | Spairum.com',
             'akun' => $akun
-
         ];
-
         return view('user/home', $data);
     }
 
     public function take()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
         $take = $this->request->getVar('take');
         $hasil = $akun['debit'] - $take;
@@ -81,10 +98,10 @@ class User extends BaseController
 
     public function connect()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
+        // if (session()->get('id_user') == '') {
+        //     session()->setFlashdata('gagal', 'Login dulu');
+        //     return redirect()->to('/');
+        // }
 
         $data = [
             'title' => 'Pindai | Spairum.com',
@@ -94,11 +111,10 @@ class User extends BaseController
     }
     public function binding()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $id = $this->request->getVar('qrcode');
@@ -148,11 +164,10 @@ class User extends BaseController
 
     public function stasiun()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $stasiun = $this->StasiunModel->findAll();
@@ -165,12 +180,11 @@ class User extends BaseController
     }
     public function riwayat()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $keyword = $decoded->id_user;
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         // $data = $this->HistoryModel->search($keyword);
@@ -192,12 +206,11 @@ class User extends BaseController
     }
     public function payriwayat()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $keyword = $decoded->id_user;
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $history = $this->TransaksiModel->search($keyword);
@@ -216,11 +229,10 @@ class User extends BaseController
 
     public function topup()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $data = [
@@ -233,11 +245,11 @@ class User extends BaseController
     }
     public function snap()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        // $keyword = $decoded->id_user;
+        $nama = $decoded->nama;
         $nama = session()->get('nama');
         $akun = $this->UserModel->cek_login($nama);
         // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
@@ -347,11 +359,10 @@ class User extends BaseController
 
     public function voucher()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $kvoucher = $this->request->getVar('kvoucher');
@@ -399,11 +410,10 @@ class User extends BaseController
 
     public function editprofile()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
 
         $data = [
@@ -417,11 +427,10 @@ class User extends BaseController
 
     public function profileupdate()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
         $telp = $this->request->getVar('telp');
@@ -506,11 +515,10 @@ class User extends BaseController
 
     public function emailupdate()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
         $akun = $this->UserModel->cek_login($nama);
         if (!$this->validate([
             'email' => [
@@ -575,11 +583,11 @@ class User extends BaseController
 
     public function changepassword()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
+
         $akun = $this->UserModel->cek_login($nama);
 
         $data = [
@@ -593,11 +601,11 @@ class User extends BaseController
 
     public function passwordupdate()
     {
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $nama = session()->get('nama');
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $nama = $decoded->nama;
+
         $akun = $this->UserModel->cek_login($nama);
         $id = $akun['id'];
         $password_old = $this->request->getVar('password_lama');
