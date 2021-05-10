@@ -108,3 +108,9 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Warna teman no sesion time
+
+## [v1.2.0] 11-5-2021
+
+### Fixed Update
+
+- Improve template bg reaktif
