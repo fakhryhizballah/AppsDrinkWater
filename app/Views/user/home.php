@@ -11,7 +11,8 @@
                 </div>
                 <div class="col pl-0 align-self-center">
                     <h5 class="mb-1"><?= $akun['nama_depan']; ?>&nbsp;<?= $akun['nama_belakang']; ?></h5>
-                    <p class="text-mute small">Username : <?= $akun['nama']; ?> <br> ID : <?= $akun['id_user']; ?></p>
+                    <p class="text-mute small">Username : <?= $akun['nama']; ?>
+                        <!-- <br> ID : <?= $akun['id_user']; ?></p> -->
                 </div>
             </div>
         </div>
@@ -46,39 +47,45 @@
             </div>
         </div>
     </div>
-    <h6 class="subtitle">Take drink Water</h6>
-    <div class="card shadow border-0 mb-2">
-        <form class="user" method="POST" action="user/take">
-            <div class="card-body">
-                <div class="form-group user-form">
-                    <div class="row">
-                        <div class="col">
-                            <div class="slidecontainer">
-                                <input type="range" min="10" max="120" value="22" class="slider" id="myRange" name="take">
+
+    <div class="card bg-template shadow mt-4 h-190">
+        <div class="col">
+            <h6 class="subtitle">Take drink Water</h6>
+        </div>
+        <div class="card shadow border-0 mb-2">
+            <form class="user" method="POST" action="user/take">
+                <div class="card-body mb-2">
+                    <div class="form-group user-form">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slidecontainer">
+                                    <input type="range" min="10" max="120" value="22" class="slider" id="myRange" name="take">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-mute small text-secondary">Take a minimum of 100 mL</p>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-mute small text-secondary">Take a minimum of 100 mL</p>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-user btn-block btn-outline-primary btn-rounded bg-template">
+                        Take
+                    </button>
                 </div>
-                <button type=" submit" class="btn btn-user btn-block btn-outline-primary btn-rounded">
-                    Take
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+</div>
 
-    <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("take");
-        output.innerHTML = slider.value;
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("take");
+    output.innerHTML = slider.value;
 
-        slider.oninput = function() {
-            output.innerHTML = this.value;
-        }
-    </script>
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
 
-    <?= $this->endSection('content'); ?>
+<?= $this->endSection('content'); ?>
