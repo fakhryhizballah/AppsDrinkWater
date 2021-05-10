@@ -114,3 +114,4 @@ v1.0.2 (fix Bug user)
 ### Fixed Update
 
 - Improve template bg reaktif
+- Improve footer

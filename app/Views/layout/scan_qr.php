@@ -100,40 +100,38 @@
 
 
         <!-- footer-->
-        <div class="foother">
+        <div class="footer">
             <div class="no-gutters">
-                <nav class="nav nav-pills nav-fill fixed-bottom bg-light">
-                    <div class="col-12 mx-auto">
-                        <div class="row no-gutters justify-content-center">
-
-                            <li class="nav-item col-3">
-                                <a href="/user">
-                                    <img src="/img/ui.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="/user">Home</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="/stasiun">
-                                    <img src="/img/explore.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="/stasiun">Explore</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="#">
-                                    <img src="/img/wallet.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav" href="#">Top Up</a>
-                                </a>
-                            </li>
-                            <li class="nav-item col-3">
-                                <a href="/riwayat">
-                                    <img src="/img/history.svg" alt="" class="buttonNav">
-                                    <a class="nav-link fontNav">History</a>
-                                </a>
-                            </li>
+                <div class="col-auto mx-auto">
+                    <div class="row no-gutters justify-content-center">
+                        <div class=" col-3-auto mx-auto">
+                            <a href="/user" class="btn btn-link-default item">
+                                <i class="material-icons">home</i>
+                            </a>
+                        </div>
+                        <div class="col-3-auto mx-auto">
+                            <a href="/stasiun" class="btn btn-link-default item">
+                                <!-- <img src="/img/explore.svg" alt="" class=""> -->
+                                <i class="material-icons">near_me</i>
+                                <!-- <i class="fontNav">Explore</i> -->
+                            </a>
+                        </div>
+                        <div class="col-3-auto mx-auto">
+                            <a href="/topup" class="btn btn-link-default item">
+                                <!-- <img src="/img/wallet.svg" alt="" class=""> -->
+                                <i class="material-icons">account_balance_wallet</i>
+                                <!-- <i class="fontNav">Top Up</i> -->
+                            </a>
+                        </div>
+                        <div class="col-3-auto mx-auto">
+                            <a href="/riwayat" class="btn btn-link-default item">
+                                <!-- <img src="/img/history.svg" alt="" class=""> -->
+                                <i class="material-icons">history</i>
+                                <!-- <i class="material-icons fontNav">History</i> -->
+                            </a>
                         </div>
                     </div>
-                </nav>
-
+                </div>
             </div>
         </div>
         <!-- footer ends-->
