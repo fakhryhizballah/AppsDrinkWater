@@ -121,6 +121,7 @@ v1.0.2 (fix Bug user)
 ### added
 
 - New Vendor Mitrans
+- Insall midtrans
 
 ### Update
 
