@@ -126,3 +126,7 @@ v1.0.2 (fix Bug user)
 ### Update
 
 - Update Composer
+
+### Changed
+
+- Mitrans Sanbox Mode
