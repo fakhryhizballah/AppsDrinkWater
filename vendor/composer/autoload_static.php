@@ -31,6 +31,10 @@ class ComposerStaticInit9c4d6b6c9a851249a9c29b16a9a45fb9
             'Psr\\Log\\' => 8,
             'Prophecy\\' => 9,
         ),
+        'M' => 
+        array (
+            'Midtrans\\' => 9,
+        ),
         'L' => 
         array (
             'Laminas\\ZendFrameworkBridge\\' => 28,
@@ -77,6 +81,10 @@ class ComposerStaticInit9c4d6b6c9a851249a9c29b16a9a45fb9
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'Midtrans\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/midtrans/midtrans-php/Midtrans',
         ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (

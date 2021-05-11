@@ -115,3 +115,13 @@ v1.0.2 (fix Bug user)
 
 - Improve template bg reaktif
 - Improve footer
+
+## [v1.3.0] 11-5-2021
+
+### added
+
+- New Vendor Mitrans
+
+### Update
+
+- Update Composer
