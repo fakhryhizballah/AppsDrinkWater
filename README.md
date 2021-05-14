@@ -130,3 +130,10 @@ v1.0.2 (fix Bug user)
 ### Changed
 
 - Mitrans Sanbox Mode
+
+## [v1.3.1] 14-5-2021
+
+### added
+
+- biaya admin Mitrans
+- biaya pajak Mitrans

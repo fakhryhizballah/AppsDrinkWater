@@ -274,15 +274,37 @@ class User extends BaseController
         // dd($transaction_details);
 
         // Optional
-        $item1_details = array(
-            'id' => $this->request->getVar('id'),
-            'price' => $harga,
-            'quantity' => 1,
-            'name' => $paket,
+        // $item1_details = array(
+        //     'id' => $this->request->getVar('id'),
+        //     'price' => $harga,
+        //     'quantity' => 1,
+        //     'name' => $paket,
+        // );
+        // Populate items
+        $pajak = ($harga + 1000) * 0.1;
+        $items = array(
+            array(
+                'id'       => $this->request->getVar('id'),
+                'price'    => $harga,
+                'quantity' => 1,
+                'name'     => 'Adidas f50'
+            ),
+            array(
+                'id'       => 'Admin',
+                'price'    => 1000,
+                'quantity' => 1,
+                'name'     => 'biaya admin'
+            ),
+            array(
+                'id'       => 'pajak',
+                'price'    => "$pajak",
+                'quantity' => 1,
+                'name'     => 'PPN 10%'
+            )
         );
 
         // Optional
-        $item_details = array($item1_details);
+        // $item_details = array($item1_details);
 
         // Optional
         $billing_address = array(
@@ -332,7 +354,8 @@ class User extends BaseController
             'enabled_payments' => $enable_payments,
             'transaction_details' => $transaction_details,
             'customer_details' => $customer_details,
-            'item_details' => $item_details,
+            // 'item_details' => $item_details,
+            'item_details' => $items,
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($transaction);

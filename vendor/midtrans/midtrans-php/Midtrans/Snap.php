@@ -56,10 +56,10 @@ class Snap
     public static function createTransaction($params)
     {
         $payloads = array(
-        'credit_card' => array(
-            // 'enabled_payments' => array('credit_card'),
-            'secure' => Config::$is3ds
-        )
+            'credit_card' => array(
+                // 'enabled_payments' => array('credit_card'),
+                'secure' => Config::$is3ds
+            )
         );
 
         if (isset($params['item_details'])) {
@@ -89,5 +89,5 @@ class Snap
         );
 
         return $result;
-    }  
+    }
 }

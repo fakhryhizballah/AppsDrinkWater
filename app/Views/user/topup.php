@@ -35,8 +35,8 @@
                     <h3><span class="text-template">Rp 2.000</span> <small class="text-mute text-secondary">Paket Harian</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>1000mL</li>
-                        <li>Tidak tersedia untuk pembayaran bank</li>
-                        <li>Belum termasuk *PPN</li>
+                        <li>Pembayaran hanya dapat melalui Gopay / QRIS</li>
+                        <li>Belum termasuk pajak</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
                         <input type="hidden" class="form-control" id="id" name="id" value="1000mL">
@@ -61,7 +61,7 @@
                     <h3><span class="text-template">Rp 10.000</span><small class="text-mute text-secondary">Paket Hemat</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>5.000mL</li>
-                        <li>Belum termasuk *PPN</li>
+                        <li>Belum termasuk pajak</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
                         <input type="hidden" class="form-control" id="id" name="id" value="5.000mL">
@@ -86,7 +86,7 @@
                     <h3><span class="text-template">Rp 25.000</span><small class="text-mute text-secondary">Paket Besar</small></h3>
                     <ul class="list pl-4 my-3">
                         <li>12500mL</li>
-                        <li>Belum termasuk *PPN</li>
+                        <li>Belum termasuk pajak</li>
                     </ul>
                     <form class="vocer" method="POST" action="/snap">
                         <input type="hidden" class="form-control" id="id" name="id" value="12.500mL">
