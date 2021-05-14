@@ -137,3 +137,7 @@ v1.0.2 (fix Bug user)
 
 - biaya admin Mitrans
 - biaya pajak Mitrans
+
+### Fixed
+
+- Fix auth PayApi

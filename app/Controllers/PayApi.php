@@ -7,6 +7,7 @@ use CodeIgniter\RESTful\ResourceController;
 use App\Models\TransaksiModel;
 use App\Models\UserModel;
 use App\Models\HistoryModel;
+use \Firebase\JWT\JWT;
 
 use CodeIgniter\Controller;
 
@@ -28,7 +29,7 @@ class Payapi extends ResourceController
     public function index()
     {
         $id = $this->request->getVar('order_id');
-        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGH   p";
+        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
         // \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
@@ -43,13 +44,11 @@ class Payapi extends ResourceController
         $notif = \Midtrans\Transaction::status($id);
 
         // dd($id_order);
-        if (session()->get('id_user') == '') {
-            session()->setFlashdata('gagal', 'Login dulu');
-            return redirect()->to('/');
-        }
-        $keyword = session()->get('id_user');
-        $nama = session()->get('nama');
-
+        $jwt = $_COOKIE['X-Sparum-Token'];
+        $key = $this->TokenModel->Key()['token'];
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $keyword = $decoded->id_user;
+        $nama = $decoded->nama;
 
 
         $transaction = $notif->transaction_status;
@@ -188,7 +187,7 @@ class Payapi extends ResourceController
                 $response = [
                     'status' => 200,
                     'error' => false,
-                    'data' =>   'belum bayar'
+                    'data' => 'belum bayar'
                 ];
                 return $this->respond($response, 200);
             }
@@ -197,6 +196,48 @@ class Payapi extends ResourceController
                 'status' => 200,
                 'error' => false,
                 'data' =>   $type
+            ];
+            return $this->respond($response, 200);
+        }
+
+        if ($type == "qris") {
+            $bank = $type;
+            $this->TransaksiModel->save([
+                'id' => $edit['id'],
+                'status' => $status,
+                'updated_at' => $time,
+            ]);
+
+            if ($status == "settlement") {
+                $id_user = $edit['id_user'];
+                $user = $this->UserModel->updateSaldo($id_user);
+                $total = $user['debit'] + $debit;
+                $this->UserModel->save([
+                    'id' => $user['id'],
+                    'debit' => $total,
+                ]);
+
+                $this->HistoryModel->save([
+                    'id_master' => $user['id_user'],
+                    'Id_slave' => $order_id,
+                    'Lokasi' => $bank,
+                    'status' => 'Top Up',
+                    'isi' => $debit,
+                    'updated_at' => Time::now('Asia/Jakarta')
+                ]);
+            } else {
+                $response = [
+                    'status' => 200,
+                    'error' => false,
+                    'data' =>   'belum bayar'
+                ];
+                return $this->respond($response, 200);
+            }
+
+            $response = [
+                'status' => 200,
+                'error' => false,
+                'data' =>   "Salah"
             ];
             return $this->respond($response, 200);
         }
