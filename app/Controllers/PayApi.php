@@ -146,14 +146,14 @@ class Payapi extends ResourceController
         $status = $notif->transaction_status;
         $edit = $this->TransaksiModel->editpay($order_id);
         $time = $notif->transaction_time;
-        if ($harga == 2000) {
+        if ($harga == 3300) {
             $debit = 1000;
         }
-        if ($harga == 10000) {
-            $debit = 5200;
+        if ($harga == 12100) {
+            $debit = 5000;
         }
-        if ($harga == 25000) {
-            $debit = 15000;
+        if ($harga == 28600) {
+            $debit = 12500;
         }
 
 
