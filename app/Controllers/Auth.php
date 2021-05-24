@@ -106,7 +106,7 @@ class Auth extends BaseController
 			setCookie("X-Sparum-Token", $jwt, time() + (86400 * 30), "/", "", "true");
 
 			if (empty($_COOKIE['theme-color'])) {
-				setCookie("theme-color", "lightblue-theme", "", "/", "", "true");
+				setCookie("theme-color", "lightblue-theme",  time() + (86400 * 60), "/", "", "true");
 			}
 
 			return redirect()->to('/user');
