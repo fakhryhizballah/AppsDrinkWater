@@ -141,3 +141,4 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Fix auth PayApi
+- snap
