@@ -35,18 +35,19 @@
 <script type="text/javascript">
     document.getElementById('pay-button').onclick = function() {
         // SnapToken acquired from previous step
+        console.log("Beli");
         snap.pay('<?php echo $snapToken ?>', {
             // Optional
             // onSuccess: function(result) {
             //     /* You may add your own js here, this is just example */
             //     document.getElementById('result-json').innerHTML += JSON.stringify(result.order_id);
-
             // },
             // // Optional
-            // onPending: function(result) {
-            //     /* You may add your own js here, this is just example */
-            //     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-            // },
+            onPending: function(result) {
+                /* You may add your own js here, this is just example */
+                document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                console.log("Belum Bayar");
+            },
             // // Optional
             // onError: function(result) {
             //     /* You may add your own js here, this is just example */
