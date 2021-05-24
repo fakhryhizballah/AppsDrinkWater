@@ -142,3 +142,9 @@ v1.0.2 (fix Bug user)
 
 - Fix auth PayApi
 - snap
+
+## [v1.3.2] 24-5-2021
+
+### Fixed
+
+- Warna tema
