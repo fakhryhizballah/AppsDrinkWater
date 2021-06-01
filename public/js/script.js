@@ -60,15 +60,15 @@ if (flashSuccess) {
 // }
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
-    .then((reg)=> console.log('service worker registerd',reg))
-    .catch((err) => console.log('service worker not registered',err))
+        .then((reg) => console.log('service worker registerd', reg))
+        .catch((err) => console.log('service worker not registered', err))
 }
 
 const currentLocation = location.href;
 const menuItem = document.querySelectorAll('.item');
 const menuLength = menuItem.length
 for (let i = 0; i < menuLength; i++) {
-    if (menuItem [i].href === currentLocation) {
+    if (menuItem[i].href === currentLocation) {
         menuItem[i].className = "btn btn-link-default active"
     }
 }
