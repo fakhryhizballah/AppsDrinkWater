@@ -10,6 +10,7 @@
     <meta name="description" content="stasiun pengisian air minum untuk tumbler ,Ini merupakan aplikasi spairum untuk menghubungkan anda ke stasiun air minum,
     .silah kan masuk Masuk ke Aplikasi Spairum">
     <meta name="author" content="Spairum">
+    <link rel="apple-touch-icon" href="/img/logo.png">
     <link rel="icon" href="favicon.ico">
 
     <title><?= $title; ?></title>
