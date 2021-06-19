@@ -42,7 +42,7 @@
                     <p>2.24 L<i class="material-icons text-success vm small">arrow_upward</i><br><small class="text-mute">today</small></p>
                 </div> -->
                 <div class="col text-right">
-                    <p><span name="take" id="take"></span>0 mL<br><small class="text-mute">Take</small></p>
+                    <p><span name="take" id="take"></span>0 mL<br><small class="text-mute">Jumlah Yang akan di ambil</small></p>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
 
     <div class="card bg-template shadow mt-4 h-190">
         <div class="col">
-            <h6 class="subtitle">Take drink Water</h6>
+            <h6 class="subtitle">Sesuaikan kebutuhan untuk pengambilan air</h6>
         </div>
         <div class="card shadow border-0 mb-2">
             <form class="user" method="POST" action="user/take">
@@ -65,12 +65,12 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <p class="text-mute small text-secondary">Take a minimum of 100 mL</p>
+                                <p class="text-mute small text-secondary">Jumlah minimum yang dapat di ambil 100 mL</p>
                             </div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-user btn-block btn-outline-primary btn-rounded bg-template">
-                        Take
+                        SCAN QR CODE
                     </button>
                 </div>
             </form>

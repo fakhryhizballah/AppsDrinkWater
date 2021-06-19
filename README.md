@@ -148,3 +148,13 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Warna tema
+
+## [v1.3.3] 19-6-2021
+
+### Changed
+
+- improve GUID Home
+
+### Fixed
+
+- Fix UI auth
