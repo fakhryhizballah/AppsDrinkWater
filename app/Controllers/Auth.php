@@ -311,6 +311,7 @@ class Auth extends BaseController
 		];
 		//dd($this->request->getVar());
 		$id = $this->request->getVar('nama');
+		$gen = random_string('alnum', 3);
 		$id_usr = substr(sha1($id), 0, 8);
 		helper('text');
 		$token = random_string('alnum', 28);
@@ -319,7 +320,7 @@ class Auth extends BaseController
 		$nama_depan =  ucwords($this->request->getVar('nama_depan'));
 		$nama_belakang = ucwords($this->request->getVar('nama_belakang'));
 		$this->OtpModel->save([
-			'id_user' => strtoupper($id_usr),
+			'id_user' => "$id_usr$gen",
 			'nama' => $user,
 			'nama_depan' => $nama_depan,
 			'nama_belakang' => $nama_belakang,
