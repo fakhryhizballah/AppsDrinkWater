@@ -252,8 +252,8 @@ class User extends BaseController
         $nama = $decoded->nama;
 
         $akun = $this->UserModel->cek_login($nama);
-        \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
-        // \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
+        // \Midtrans\Config::$serverKey = "SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp";
+        \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
         \Midtrans\Config::$isProduction = false;
