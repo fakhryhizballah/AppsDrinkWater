@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <?= $this->extend('layout/user_template'); ?>
 <?= $this->section('content'); ?>
 <div class="container">
@@ -31,7 +32,7 @@
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
 
 <!-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script> -->
-<script src="https://app.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script>
 <!-- <script src="https://app.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script> -->
 <script type="text/javascript">
     document.getElementById('pay-button').onclick = function() {
