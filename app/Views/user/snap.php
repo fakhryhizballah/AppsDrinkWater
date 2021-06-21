@@ -30,8 +30,8 @@
 
 <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
 
-<!-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp"></script> -->
-<script src="https://app.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-server-OBUKKrJVEPM_WIpDt57XrGHp"></script>
+<!-- <script src="https://app.midtrans.com/snap/snap.js" data-client-key="Mid-client-OpIVj-JDdg9BEE2o"></script> -->
 <script type="text/javascript">
     document.getElementById('pay-button').onclick = function() {
         // SnapToken acquired from previous step
