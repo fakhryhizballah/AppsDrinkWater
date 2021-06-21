@@ -256,7 +256,7 @@ class User extends BaseController
         \Midtrans\Config::$serverKey = "Mid-server-4i1pIlyNH096QXt7HWHDBT8_";
 
         // Uncomment for production environment
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = true;
 
         // Enable sanitization
         \Midtrans\Config::$isSanitized = true;
