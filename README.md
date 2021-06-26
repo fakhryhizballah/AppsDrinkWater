@@ -158,3 +158,9 @@ v1.0.2 (fix Bug user)
 ### Fixed
 
 - Fix UI auth
+
+## [v2.0.0] 27-6-2021
+
+### New
+
+- versi Beta yang ke 2 simpel less
