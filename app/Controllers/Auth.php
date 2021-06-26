@@ -103,10 +103,10 @@ class Auth extends BaseController
 				'status' => 'Login'
 			]);
 			// setcookie("X-Sparum-Token", $jwt);
-			setCookie("X-Sparum-Token", $jwt, time() + (86400 * 30), "/", "", "true");
+			setCookie("X-Sparum-Token", $jwt, time() + (86400 * 30), "/");
 
 			if (empty($_COOKIE['theme-color'])) {
-				setCookie("theme-color", "lightblue-theme",  time() + (86400 * 60), "/", "", "true");
+				setCookie("theme-color", "lightblue-theme",  time() + (86400 * 60), "/");
 			}
 
 			return redirect()->to('/user');
@@ -130,7 +130,7 @@ class Auth extends BaseController
 			'status' => 'logout'
 		]);
 		session()->setFlashdata('flash', 'Berhasil Logout');
-		setCookie("X-Sparum-Token", "Logout", time() + (86400 * 30), "/", "", "true");
+		setCookie("X-Sparum-Token", "Logout", time() + (86400 * 30), "/");
 		return redirect()->to('/');
 	}
 

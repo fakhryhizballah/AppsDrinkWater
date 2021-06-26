@@ -164,3 +164,7 @@ v1.0.2 (fix Bug user)
 ### New
 
 - versi Beta yang ke 2 simpel less
+
+### Changed
+
+- Cookie set not secure
