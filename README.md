@@ -168,3 +168,7 @@ v1.0.2 (fix Bug user)
 ### Changed
 
 - Cookie set not secure
+
+### added
+
+- Hiden Password Login

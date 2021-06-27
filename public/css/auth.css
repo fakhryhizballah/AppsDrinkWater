@@ -53,3 +53,13 @@
 .from-auth {
     margin: 25px;
 }
+
+.field-icon {
+    float: right;
+    margin-left: 0px;
+    margin-top: -30px;
+    margin-right: 25px;
+    position: relative;
+    z-index: 2;
+    color: rgb(34, 135, 230);
+}

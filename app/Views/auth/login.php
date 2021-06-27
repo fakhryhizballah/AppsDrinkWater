@@ -1,4 +1,4 @@
-<?= $this->extend('layout/auth_template'); ?>
+ZZ<?= $this->extend('layout/auth_template'); ?>
 
 <?= $this->section('auth'); ?>
 
@@ -47,6 +47,7 @@
                             <div class="form-group user-form">
                                 <img class="icon" src="/img/Group 13.png" alt="">
                                 <input type="password" class="form-control form-control-user" style="padding-left: 50px;" id="password" name="password" placeholder="Password" required>
+                                <span toggle="#password" class="fa fa-fw fa-eye field-icon password"></span>
                             </div>
 
                             <!-- <div class="form-group user-form">
@@ -92,6 +93,7 @@
         </div>
 
     </div>
+
 
 
     <?= $this->endSection('auth'); ?>
